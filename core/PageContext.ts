@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { PageMetadata } from "./routes";
+import { PageMetadata } from "./getPages";
 
 export interface PageContextValue extends PageMetadata {
   content: string;

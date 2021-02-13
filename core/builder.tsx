@@ -5,9 +5,10 @@ import { addHook } from "pirates";
 import fsPromises from "fs/promises";
 import { sync as mdxTransform } from "@mdx-js/mdx";
 import { transform as babelTransform, loadOptions } from "babel-core";
-import { App } from "./App";
-import { getRotues, PageMetadata } from "./routes";
 import React from "react";
+import fetch from "./utils/fetch";
+import { App } from "./App";
+import getPages from "./getPages";
 import PageContext, { PageContextValue } from "./PageContext";
 
 const template = ({
@@ -51,7 +52,7 @@ async function runBuild() {
   });
   await bundler.bundle();
 
-  const rotues = getRotues();
+  const rotues = await getPages();
 
   for (const route of rotues) {
     const pageContext: PageContextValue = {
@@ -85,6 +86,10 @@ const transform = (code) => {
 
   return result.code;
 };
+
+if (!globalThis.fetch) {
+  globalThis.fetch = fetch;
+}
 
 addHook(transform, { exts: [".mdx"] });
 
