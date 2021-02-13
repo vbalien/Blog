@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "target": "es2017",
+    "module": "commonjs",
+    "baseUrl": "./",
+    "paths": {
+      "~*": ["./*"]
+    },
+    "esModuleInterop": true,
+    "jsx": "react",
+    "typeRoots": ["core/types"]
+  },
+  "include": ["**/*"]
+}
