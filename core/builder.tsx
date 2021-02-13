@@ -1,15 +1,15 @@
-import Bundler from "parcel-bundler";
 import ReactDOMServer from "react-dom/server";
-import Path from "path";
 import { addHook } from "pirates";
-import fsPromises from "fs/promises";
+import { promises as fsPromises } from "fs";
 import { sync as mdxTransform } from "@mdx-js/mdx";
 import { transform as babelTransform, loadOptions } from "babel-core";
 import React from "react";
+import { Stats, webpack } from "webpack";
 import fetch from "./utils/fetch";
 import { App } from "./App";
 import getPages from "./getPages";
 import PageContext, { PageContextValue } from "./PageContext";
+import webpackConfig from "./webpack.config";
 
 const template = ({
   title,
@@ -41,16 +41,28 @@ const template = ({
 </body>
 </html>`;
 
-async function runBuild() {
-  const file = Path.join(__dirname, "./client.tsx");
-  const bundler = new Bundler(file, {
-    outFile: "client.js",
-    outDir: "./dist/static",
-    sourceMaps: false,
-    watch: false,
-    minify: true,
+function webpackBuild(): Promise<Stats> {
+  const compiler = webpack(webpackConfig);
+  return new Promise((resolve, reject) => {
+    compiler.run((err, stats) => {
+      if (err) {
+        reject(err);
+        return;
+      }
+      resolve(stats);
+    });
   });
-  await bundler.bundle();
+}
+
+async function runBuild() {
+  const webpackStats = await webpackBuild();
+
+  console.log(
+    webpackStats.toString({
+      chunks: false, // Makes the build much quieter
+      colors: true, // Shows colors in the console
+    })
+  );
 
   const rotues = await getPages();
 
@@ -73,7 +85,7 @@ async function runBuild() {
   }
 }
 
-const transform = (code) => {
+const transform = code => {
   const jsxWithMDXTags = mdxTransform(code);
   const prefix = `import {mdx} from '@mdx-js/react'`;
 

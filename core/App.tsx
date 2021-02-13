@@ -1,8 +1,7 @@
 import React from "react";
 import { usePage } from "./PageContext";
 
-type AppProps = {};
-export const App: React.FC<AppProps> = (props) => {
+export const App: React.FC = () => {
   const page = usePage();
   return (
     <div>

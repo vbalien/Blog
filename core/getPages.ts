@@ -19,10 +19,10 @@ interface Page {
 const getPages = (): Promise<Page[]> => {
   const files: string[] = glob
     .sync("./pages/**/*.mdx")
-    .map((fn) => path.resolve(process.cwd(), fn));
+    .map(fn => path.resolve(process.cwd(), fn));
 
   return Promise.all(
-    files.map<Promise<Page>>(async (file) => {
+    files.map<Promise<Page>>(async file => {
       const page = await import(file);
       return {
         path: path.dirname(file),
