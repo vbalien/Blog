@@ -8,7 +8,7 @@ import writeApis from "./writeApis";
 import { writePages } from "./writePages";
 
 function webpackBuild() {
-  return new Promise((resolve, reject) => {
+  return new Promise<MultiStats>((resolve, reject) => {
     webpack(webpackConfig, (err, stats) => {
       if (err) {
         reject(err);
@@ -22,7 +22,12 @@ function webpackBuild() {
 async function runBuild() {
   const webpackStats = await webpackBuild();
 
-  console.log(webpackStats.toString());
+  console.log(
+    webpackStats.toString({
+      chunks: false,
+      colors: true,
+    })
+  );
 
   await writeApis();
   await writePages();
@@ -40,7 +45,7 @@ addHook(
     const result = babelTransform(jsx, loadOptions({ filename: ".babelrc" }));
     return result.code;
   },
-  { exts: [".mdx"] }
+  { exts: [".mdx", ".md"] }
 );
 
 runBuild();

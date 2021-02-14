@@ -32,7 +32,7 @@ async function writePageApi(pages: Page[], basePath: string) {
     if (!fs.existsSync(pagePath.dir)) fs.mkdirSync(pagePath.dir);
     const jsonPath = path.join(pagePath.dir, `${pagePath.name}.json`);
     const handle = await fsPromises.open(jsonPath, "w");
-    const pageApi = makePageApi(page);
+    const pageApi = await makePageApi(page);
     await handle.writeFile(JSON.stringify(pageApi), {});
     console.log(`Write ${jsonPath}`);
   }

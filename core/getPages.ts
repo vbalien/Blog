@@ -25,7 +25,7 @@ export interface Page {
 
 const getPages = (): Promise<Page[]> => {
   const files: string[] = glob
-    .sync("./pages/**/*.mdx")
+    .sync("./pages/**/*.{md,mdx}")
     .map(fn => path.join(process.cwd(), fn));
 
   return Promise.all(

@@ -3,12 +3,13 @@
     "target": "es2017",
     "module": "commonjs",
     "baseUrl": "./",
-    "lib": ["ESNext"],
+    "lib": ["ES2017"],
     "paths": {
       "~*": ["./*"]
     },
     "esModuleInterop": true,
-    "jsx": "react"
+    "jsx": "react",
+    "typeRoots": ["./core/types"]
   },
   "include": ["**/*"],
   "exclude": ["core/client/**/*"]
