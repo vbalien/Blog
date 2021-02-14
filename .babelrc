@@ -4,5 +4,5 @@
     "@babel/preset-react",
     "@babel/preset-typescript"
   ],
-  "plugins": ["react-require"]
+  "plugins": ["@loadable/babel-plugin", "react-require"]
 }

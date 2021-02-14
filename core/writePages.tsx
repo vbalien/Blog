@@ -1,10 +1,10 @@
-import PageContext, { PageContextValue } from "./PageContext";
 import ReactDOMServer from "react-dom/server";
 import React from "react";
 import fs, { promises as fsPromises } from "fs";
 import path from "path";
+import { ChunkExtractor, ChunkExtractorManager } from "@loadable/server";
+import { StaticRouter } from "react-router-dom";
 
-import { App } from "./App";
 import getPages, { Page } from "./getPages";
 
 const template = ({
@@ -12,44 +12,59 @@ const template = ({
   body,
   titlePostfix = "",
   titlePrefix = "",
-  pageContext,
+  scriptTags,
+  linkTags,
+  styleTags,
 }: {
   title: string;
   body: string;
   titlePrefix?: string;
   titlePostfix?: string;
-  pageContext?: PageContextValue;
+  scriptTags: string;
+  linkTags: string;
+  styleTags: string;
 }) => `<!DOCTYPE html>
 <html lang="en">
   <head>
   <meta charset="UTF-8">
-  <link rel="stylesheet" href="/static/style.css">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>${titlePrefix}${title}${titlePostfix}</title>
-  <script>window.__PAGE_CONTEXT__=${JSON.stringify(pageContext).replace(
-    /</g,
-    "\\u003c"
-  )}</script>
+  ${linkTags}
+  ${styleTags}
   </head>
 <body >
   <div id="root">${body}</div>
-  <script  src="./client.js" defer></script>
+  ${scriptTags}
 </body>
 </html>`;
 
 async function renderPage(page: Page) {
-  const pageContext: PageContextValue = {
-    ...page.metadata,
-    content: ReactDOMServer.renderToStaticMarkup(<page.component />),
-  };
+  const nodeStats = path.resolve("./dist/node/loadable-stats.json");
+  const webStats = path.resolve("./dist/web/loadable-stats.json");
+
+  const nodeExtractor = new ChunkExtractor({ statsFile: nodeStats });
+  const { default: App } = nodeExtractor.requireEntrypoint();
+
+  const webExtractor = new ChunkExtractor({ statsFile: webStats });
+
+  const body = ReactDOMServer.renderToString(
+    <ChunkExtractorManager extractor={webExtractor}>
+      <StaticRouter location={page.path}>
+        <App />
+      </StaticRouter>
+    </ChunkExtractorManager>
+  );
+
+  const scriptTags = webExtractor.getScriptTags();
+  const linkTags = webExtractor.getLinkTags();
+  const styleTags = webExtractor.getStyleTags();
+
   const html = template({
     title: page.metadata.title,
-    body: ReactDOMServer.renderToString(
-      <PageContext.Provider value={pageContext}>
-        <App />
-      </PageContext.Provider>
-    ),
-    pageContext,
+    body,
+    scriptTags,
+    linkTags,
+    styleTags,
   });
   return html;
 }
@@ -60,12 +75,12 @@ export async function writePages(): Promise<void> {
 
   const pages = await getPages();
   for (const page of pages) {
-    const pagePath = path.parse(path.join(basePath, page.path));
-    if (!fs.existsSync(pagePath.dir)) fs.mkdirSync(pagePath.dir);
-    const htmlPath = path.join(pagePath.dir, `${pagePath.name}.html`);
+    const pagePath = path.join(basePath, page.path);
+    const pageDir = path.parse(pagePath).dir;
+    if (!fs.existsSync(pageDir)) fs.mkdirSync(pageDir);
     const html = await renderPage(page);
-    const handle = await fsPromises.open(htmlPath, "w");
+    const handle = await fsPromises.open(pagePath, "w");
     await handle.writeFile(html, {});
-    console.log(`Write ${htmlPath}`);
+    console.log(`Write ${pagePath}`);
   }
 }

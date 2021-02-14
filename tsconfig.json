@@ -8,9 +8,8 @@
       "~*": ["./*"]
     },
     "esModuleInterop": true,
-    "jsx": "react",
-    "typeRoots": ["core/types"]
+    "jsx": "react"
   },
   "include": ["**/*"],
-  "exclude": ["core/client.tsx"]
+  "exclude": ["core/client/**/*"]
 }

@@ -1,17 +1,19 @@
-import * as path from "path";
+import path from "path";
+import nodeExternals from "webpack-node-externals";
 import ForkTsCheckerWebpackPlugin from "fork-ts-checker-webpack-plugin";
 import webpack from "webpack";
 import { CleanWebpackPlugin } from "clean-webpack-plugin";
+import LoadablePlugin from "@loadable/webpack-plugin";
 
-const isDevelopment = process.env.NODE_ENV !== "production";
+const DIST_PATH = path.resolve(process.cwd(), "dist");
+const production = process.env.NODE_ENV === "production";
+const development =
+  !process.env.NODE_ENV || process.env.NODE_ENV === "development";
 
-const config: webpack.Configuration = {
-  mode: isDevelopment ? "development" : "production",
-  entry: path.resolve(process.cwd(), "./core/client.tsx"),
-  output: {
-    filename: "client.js",
-    path: path.resolve(process.cwd(), "dist"),
-  },
+const getConfig = (target: string): webpack.Configuration => ({
+  mode: development ? "development" : "production",
+  target,
+  entry: `./core/client/${target}.tsx`,
   resolve: {
     extensions: [".tsx", ".ts", ".js", ".mjs"],
     modules: ["node_modules"],
@@ -28,8 +30,7 @@ const config: webpack.Configuration = {
         use: {
           loader: "babel-loader",
           options: {
-            cacheDirectory: true,
-            babelrc: true,
+            caller: { target },
           },
         },
       },
@@ -39,6 +40,19 @@ const config: webpack.Configuration = {
       },
     ],
   },
+  optimization: {
+    moduleIds: "named",
+    chunkIds: "named",
+  },
+  externals:
+    target === "node" ? ["@loadable/component", nodeExternals()] : undefined,
+  output: {
+    path: path.join(DIST_PATH, target),
+    // filename: production ? '[name]-bundle-[chunkhash:8].js' : '[name].js',
+    filename: production ? "[name].js" : "[name].js",
+    publicPath: `/${target}/`,
+    libraryTarget: target === "node" ? "commonjs2" : undefined,
+  },
   plugins: [
     new CleanWebpackPlugin(),
     new ForkTsCheckerWebpackPlugin({
@@ -47,8 +61,8 @@ const config: webpack.Configuration = {
         files: "core/**/*.{ts,tsx,js,jsx}",
       },
     }),
+    new LoadablePlugin(),
   ],
-  devtool: isDevelopment && "inline-source-map",
-};
+});
 
-export default config;
+export default [getConfig("node"), getConfig("web")];

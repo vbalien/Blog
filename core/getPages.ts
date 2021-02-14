@@ -13,6 +13,8 @@ export interface PageMetadata {
   category?: string;
   /** 태그 */
   tags?: string[];
+  /** 레이아웃 */
+  layout: string;
 }
 
 export interface Page {
@@ -29,8 +31,10 @@ const getPages = (): Promise<Page[]> => {
   return Promise.all(
     files.map<Promise<Page>>(async file => {
       const page = await import(file);
+      const filePath = path.parse(file);
+      const routePath = path.join(filePath.dir, `${filePath.name}.html`);
       return {
-        path: path.relative(path.join(process.cwd(), "pages"), file),
+        path: path.relative(path.join(process.cwd(), "pages"), routePath),
         metadata: page.metadata,
         component: page.default,
       };
