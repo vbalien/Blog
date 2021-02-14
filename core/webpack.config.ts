@@ -1,6 +1,7 @@
 import * as path from "path";
 import ForkTsCheckerWebpackPlugin from "fork-ts-checker-webpack-plugin";
 import webpack from "webpack";
+import { CleanWebpackPlugin } from "clean-webpack-plugin";
 
 const isDevelopment = process.env.NODE_ENV !== "production";
 
@@ -9,7 +10,7 @@ const config: webpack.Configuration = {
   entry: path.resolve(process.cwd(), "./core/client.tsx"),
   output: {
     filename: "client.js",
-    path: path.resolve(process.cwd(), "dist/static"),
+    path: path.resolve(process.cwd(), "dist"),
   },
   resolve: {
     extensions: [".tsx", ".ts", ".js", ".mjs"],
@@ -39,13 +40,14 @@ const config: webpack.Configuration = {
     ],
   },
   plugins: [
+    new CleanWebpackPlugin(),
     new ForkTsCheckerWebpackPlugin({
       async: false,
       eslint: {
         files: "core/**/*.{ts,tsx,js,jsx}",
       },
     }),
-  ].filter(Boolean),
+  ],
   devtool: isDevelopment && "inline-source-map",
 };
 

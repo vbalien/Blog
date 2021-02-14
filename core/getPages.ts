@@ -1,16 +1,21 @@
 import glob from "glob";
 import path from "path";
+import React from "react";
 
 export interface PageMetadata {
   /** 제목 */
-  title: string;
+  title?: string;
   /** 작성자 */
-  author: string;
+  author?: string;
   /** 시각 */
-  date: string;
+  date?: string;
+  /** 카테고리 */
+  category?: string;
+  /** 태그 */
+  tags?: string[];
 }
 
-interface Page {
+export interface Page {
   path: string;
   component: React.ElementType;
   metadata: PageMetadata;
@@ -19,13 +24,13 @@ interface Page {
 const getPages = (): Promise<Page[]> => {
   const files: string[] = glob
     .sync("./pages/**/*.mdx")
-    .map(fn => path.resolve(process.cwd(), fn));
+    .map(fn => path.join(process.cwd(), fn));
 
   return Promise.all(
     files.map<Promise<Page>>(async file => {
       const page = await import(file);
       return {
-        path: path.dirname(file),
+        path: path.relative(path.join(process.cwd(), "pages"), file),
         metadata: page.metadata,
         component: page.default,
       };
