@@ -70,14 +70,20 @@ async function renderPage(page: Page) {
   const webStats = path.resolve("./dist/web/loadable-stats.json");
 
   const nodeExtractor = new ChunkExtractor({ statsFile: nodeStats });
-  const { default: App } = nodeExtractor.requireEntrypoint();
+
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-ignore: Unreachable code error
+  const {
+    default: App,
+    getLayout,
+  }: {
+    default: React.ComponentType;
+    getLayout: (name: string) => Promise<Layout>;
+  } = nodeExtractor.requireEntrypoint();
 
   const webExtractor = new ChunkExtractor({ statsFile: webStats });
 
-  const layout: Layout = await import(
-    path.resolve(process.cwd(), "layouts", page.metadata.layout ?? "default")
-  );
-
+  const layout: Layout = await getLayout(page.metadata.layout ?? "default");
   renderApp(App, page, webExtractor);
 
   const preloadedState: PreloadedState = new Map();
