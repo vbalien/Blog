@@ -3,14 +3,11 @@
     "target": "es2017",
     "module": "commonjs",
     "baseUrl": "./",
-    "lib": ["ES2017"],
-    "paths": {
-      "~*": ["./*"]
-    },
+    "lib": ["ES2017", "DOM"],
     "esModuleInterop": true,
     "jsx": "react",
-    "typeRoots": ["./core/types"]
+    "typeRoots": ["./core/types"],
+    "resolveJsonModule": true
   },
-  "include": ["**/*"],
-  "exclude": ["core/client/**/*"]
+  "include": ["**/*"]
 }

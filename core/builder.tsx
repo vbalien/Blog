@@ -6,6 +6,8 @@ import { webpack } from "webpack";
 import webpackConfig from "./webpack.config";
 import writeApis from "./writeApis";
 import { writePages } from "./writePages";
+import collectPages from "./collectPages";
+import fetch from "./utils/fetch";
 
 function webpackBuild() {
   return new Promise<MultiStats>((resolve, reject) => {
@@ -22,15 +24,16 @@ function webpackBuild() {
 async function runBuild() {
   const webpackStats = await webpackBuild();
 
-  console.log(
+  console.info(
     webpackStats.toString({
       chunks: false,
       colors: true,
     })
   );
 
-  await writeApis();
-  await writePages();
+  const pages = await collectPages();
+  await writeApis(pages);
+  await writePages(pages);
 }
 
 addHook(
@@ -47,5 +50,9 @@ addHook(
   },
   { exts: [".mdx", ".md"] }
 );
+
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore: Unreachable code error
+globalThis.fetch ?? (globalThis.fetch = fetch);
 
 runBuild();

@@ -3,7 +3,7 @@ type AsyncLayoutProps = {
   layout: string;
 };
 const AsyncLayout = loadable<AsyncLayoutProps>(
-  props => import(`../../layout/${props.layout}`)
+  props => import(`layouts/${props.layout}`)
 );
 
 export default AsyncLayout;

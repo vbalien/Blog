@@ -1,13 +1,12 @@
 import fs, { promises as fsPromises } from "fs";
 import path from "path";
-import ReactDOMServer from "react-dom/server";
+import * as ReactDOMServer from "react-dom/server";
 import React from "react";
 
-import getPages, { Page, PageMetadata } from "./getPages";
+import { Page } from "./collectPages";
+import { PageState } from "./store/pageState";
 
-export interface PageApi extends PageMetadata {
-  content: string;
-}
+export type PageApi = PageState;
 export type CategoryApi = {
   name: string;
   total: number;
@@ -34,7 +33,8 @@ async function writePageApi(pages: Page[], basePath: string) {
     const handle = await fsPromises.open(jsonPath, "w");
     const pageApi = await makePageApi(page);
     await handle.writeFile(JSON.stringify(pageApi), {});
-    console.log(`Write ${jsonPath}`);
+    await handle.close();
+    console.info(`Write ${jsonPath}`);
   }
 }
 
@@ -58,22 +58,20 @@ async function renderCategoriesAndTagsApi(pages: Page[], basePath: string) {
   let jsonPath = path.join(basePath, "categories.json");
   let handle = await fsPromises.open(jsonPath, "w");
   await handle.writeFile(JSON.stringify(categoriesApi), {});
-  console.log(`Write ${jsonPath}`);
+  await handle.close();
+  console.info(`Write ${jsonPath}`);
 
   tagsApi.tags = [...new Set(tagsApi.tags)];
   jsonPath = path.join(basePath, "tags.json");
   handle = await fsPromises.open(jsonPath, "w");
   await handle.writeFile(JSON.stringify(tagsApi), {});
-  console.log(`Write ${jsonPath}`);
+  await handle.close();
+  console.info(`Write ${jsonPath}`);
 }
 
-export default async function writeApis(): Promise<void> {
+export default async function writeApis(pages: Page[]): Promise<void> {
   const basePath = "./dist/api/";
-  const pages = await getPages();
-
   if (!fs.existsSync(basePath)) fs.mkdirSync(basePath);
-
   await writePageApi(pages, basePath);
-
   await renderCategoriesAndTagsApi(pages, basePath);
 }

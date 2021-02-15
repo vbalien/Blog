@@ -1,4 +1,4 @@
-import glob from "glob";
+import * as glob from "glob";
 import path from "path";
 import React from "react";
 
@@ -14,7 +14,7 @@ export interface PageMetadata {
   /** 태그 */
   tags?: string[];
   /** 레이아웃 */
-  layout: string;
+  layout?: string;
 }
 
 export interface Page {
@@ -23,7 +23,7 @@ export interface Page {
   metadata: PageMetadata;
 }
 
-const getPages = (): Promise<Page[]> => {
+const collectPages = (): Promise<Page[]> => {
   const files: string[] = glob
     .sync("./pages/**/*.{md,mdx}")
     .map(fn => path.join(process.cwd(), fn));
@@ -41,4 +41,4 @@ const getPages = (): Promise<Page[]> => {
     })
   );
 };
-export default getPages;
+export default collectPages;

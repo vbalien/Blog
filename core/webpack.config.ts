@@ -1,7 +1,7 @@
 import path from "path";
 import nodeExternals from "webpack-node-externals";
 import ForkTsCheckerWebpackPlugin from "fork-ts-checker-webpack-plugin";
-import webpack from "webpack";
+import * as webpack from "webpack";
 import { CleanWebpackPlugin } from "clean-webpack-plugin";
 import LoadablePlugin from "@loadable/webpack-plugin";
 
@@ -16,7 +16,7 @@ const getConfig = (target: string): webpack.Configuration => ({
   entry: `./core/client/${target}.tsx`,
   resolve: {
     extensions: [".tsx", ".ts", ".js", ".mjs"],
-    modules: ["node_modules"],
+    modules: [process.cwd(), "node_modules"],
   },
   module: {
     rules: [
@@ -45,7 +45,9 @@ const getConfig = (target: string): webpack.Configuration => ({
     chunkIds: "named",
   },
   externals:
-    target === "node" ? ["@loadable/component", nodeExternals()] : undefined,
+    target === "node"
+      ? ["@loadable/component", nodeExternals(), /^core\/store/]
+      : undefined,
   output: {
     path: path.join(DIST_PATH, target),
     // filename: production ? '[name]-bundle-[chunkhash:8].js' : '[name].js',
@@ -63,6 +65,13 @@ const getConfig = (target: string): webpack.Configuration => ({
     }),
     new LoadablePlugin(),
   ],
+  performance: production
+    ? {
+        hints: false,
+        maxEntrypointSize: 512000,
+        maxAssetSize: 512000,
+      }
+    : undefined,
 });
 
 export default [getConfig("node"), getConfig("web")];
