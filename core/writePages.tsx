@@ -8,6 +8,7 @@ import { MutableSnapshot, RecoilRoot } from "recoil";
 
 import { Page } from "./collectPages";
 import { getRecoilState, RecoilStatePortal } from "./utils/RecoilStatePortal";
+import normalizePagename from "./utils/normalizePagename";
 
 const template = ({
   title,
@@ -18,6 +19,7 @@ const template = ({
   linkTags,
   styleTags,
   preloadedState = new Map(),
+  pagename,
 }: {
   title: string;
   body: string;
@@ -27,6 +29,7 @@ const template = ({
   linkTags: string;
   styleTags: string;
   preloadedState: PreloadedState;
+  pagename: string;
 }) => `<!DOCTYPE html>
 <html lang="ko">
   <head>
@@ -42,6 +45,7 @@ const template = ({
     window.__PRELOADED_STATE__ = ${JSON.stringify(
       Array.from(preloadedState.entries())
     ).replace(/</g, "\\u003c")}
+    window.__PAGENAME__ = ${JSON.stringify(pagename).replace(/</g, "\\u003c")}
   </script>
   ${scriptTags}
 </body>
@@ -55,7 +59,7 @@ function renderApp(
 ) {
   return ReactDOMServer.renderToString(
     <ChunkExtractorManager extractor={webExtractor}>
-      <StaticRouter location={page.path}>
+      <StaticRouter location={`/${page.path}`}>
         <RecoilRoot initializeState={initializeState}>
           <RecoilStatePortal />
           <App />
@@ -83,27 +87,28 @@ async function renderPage(page: Page) {
 
   const webExtractor = new ChunkExtractor({ statsFile: webStats });
 
-  const layout: Layout = await getLayout(page.metadata.layout ?? "default");
+  const layout: Layout = await getLayout(page.metadata?.layout ?? "default");
+  let states = layout.states;
+  if (typeof states === "function")
+    states = states(normalizePagename(page.path));
+
   renderApp(App, page, webExtractor);
 
   const preloadedState: PreloadedState = new Map();
 
-  for (const stateName of Object.keys(layout.states)) {
-    let content = await getRecoilState(layout.states[stateName]);
+  for (const stateName of Object.keys(states)) {
+    let content = await getRecoilState(states[stateName]);
 
-    if (
-      content["__value"] !== undefined &&
-      content["__key"] === layout.states[stateName].key
-    )
+    if (content["__value"] !== undefined && content["__key"] === states.key)
       content = content["__value"];
 
     preloadedState.set(stateName, content);
   }
 
   const body = renderApp(App, page, webExtractor, ({ set }) => {
-    for (const state of preloadedState) {
-      const layoutState = layout.states[state[0]];
-      layoutState && set(layoutState, state[1]);
+    for (const [key, value] of preloadedState) {
+      const layoutState = states[key];
+      layoutState && set(layoutState, value);
     }
   });
 
@@ -112,12 +117,13 @@ async function renderPage(page: Page) {
   const styleTags = webExtractor.getStyleTags();
 
   const html = template({
-    title: page.metadata.title,
+    title: page.metadata?.title,
     body,
     scriptTags,
     linkTags,
     styleTags,
     preloadedState,
+    pagename: normalizePagename(page.path),
   });
   return html;
 }

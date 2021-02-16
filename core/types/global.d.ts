@@ -15,12 +15,15 @@ declare global {
 
   interface Layout {
     default: React.ComponentType;
-    states: { [name: string]: RecoilState<unknown> };
+    states:
+      | { [name: string]: RecoilState<unknown> }
+      | ((pagename: string) => { [name: string]: RecoilState<unknown> });
   }
 
   type PreloadedState = Map<string, unknown>;
 
   interface Window {
     __PRELOADED_STATE__: [];
+    __PAGENAME__: string;
   }
 }

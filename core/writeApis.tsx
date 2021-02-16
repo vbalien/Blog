@@ -42,7 +42,7 @@ async function renderCategoriesAndTagsApi(pages: Page[], basePath: string) {
   const categoriesApi: CategoriesApi = { categories: [] };
   const tagsApi: TagsApi = { tags: [] };
   for (const page of pages) {
-    if (page.metadata.category) {
+    if (page.metadata?.category) {
       const curr = categoriesApi.categories.find(
         c => c.name === page.metadata.category
       );
@@ -53,7 +53,7 @@ async function renderCategoriesAndTagsApi(pages: Page[], basePath: string) {
           total: 1,
         });
     }
-    page.metadata.tags && tagsApi.tags.push(...page.metadata.tags);
+    page.metadata?.tags && tagsApi.tags.push(...page.metadata.tags);
   }
   let jsonPath = path.join(basePath, "categories.json");
   let handle = await fsPromises.open(jsonPath, "w");
