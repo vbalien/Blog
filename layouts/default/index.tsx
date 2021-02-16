@@ -1,5 +1,3 @@
-import AsyncPage from "core/client/AsyncPage";
-import usePagename from "core/utils/usePagename";
 import React, { FC } from "react";
 import { Link } from "react-router-dom";
 
@@ -10,7 +8,7 @@ const NavBar: FC = () => {
 
       <ul>
         <li>
-          <Link to="/a/">a</Link>
+          <Link to="/articles/page/">articles</Link>
         </li>
         <li>
           <Link to="/a/b.html">a/b</Link>
@@ -23,16 +21,11 @@ const NavBar: FC = () => {
   );
 };
 
-const Article: FC = () => {
-  const pagename = usePagename();
-  return <AsyncPage page={pagename} />;
-};
-
-const DefaultLayout: FC = () => {
+const DefaultLayout: FC = ({ children }) => {
   return (
     <>
       <NavBar />
-      <Article />
+      {children}
     </>
   );
 };

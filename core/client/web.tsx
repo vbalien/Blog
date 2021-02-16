@@ -5,6 +5,7 @@ import { BrowserRouter } from "react-router-dom";
 import { MutableSnapshot, RecoilRoot } from "recoil";
 
 import App from "./App";
+import paginationState from "core/store/paginationState";
 
 loadableReady(async () => {
   const preloadedState = new Map<string, unknown>(window.__PRELOADED_STATE__);
@@ -12,7 +13,11 @@ loadableReady(async () => {
   delete window.__PRELOADED_STATE__;
   delete window.__PAGENAME__;
 
-  const { metadata } = await import(`pages/${pagename}`);
+  const pagemodule = pagename.replace(
+    /(.*\/)page\/[^\\/]*(?:\d+|index)?$/,
+    "$1_paginator"
+  );
+  const { metadata } = await import(`pages/${pagemodule}`);
   const layoutname = metadata?.layout ?? "default";
   const layout =
     typeof layoutname === "string"
@@ -21,6 +26,8 @@ loadableReady(async () => {
 
   let states = layout.states;
   if (typeof states === "function") states = states(pagename);
+  if (/(.*\/)page\/(?:\d+|index)?$/.test(pagename))
+    states = { paginationState: paginationState(pagename), ...states };
 
   function initializeState({ set }: MutableSnapshot) {
     for (const [key, value] of preloadedState) {

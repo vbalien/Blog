@@ -1,5 +1,8 @@
 export default function normalizePagename(pagename: string): string {
-  if (pagename === "") pagename = "index.html";
-  pagename = pagename.replace(/\/$/, "/index.html").replace(/\.html/, "");
+  pagename = pagename
+    .replace(/^\//, "")
+    .replace(/\/$/, "/index.html")
+    .replace(/\.html$/, "");
+  if (pagename === "") pagename = "index";
   return pagename;
 }

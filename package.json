@@ -41,7 +41,6 @@
     "fork-ts-checker-webpack-plugin": "^6.1.0",
     "glob": "^7.1.6",
     "node-fetch": "^2.6.1",
-    "pirates": "^4.0.1",
     "prettier": "^2.2.1",
     "style-loader": "^2.0.0",
     "ts-node": "^9.1.1",

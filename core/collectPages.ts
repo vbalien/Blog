@@ -18,22 +18,31 @@ export interface PageMetadata {
 
 export interface Page {
   path: string;
-  metadata: PageMetadata;
+}
+type PostApi = Page;
+
+export interface PaginationApi {
+  currentPage: number;
+  perPage: number;
+  maxPage: number;
+  posts: PostApi[];
 }
 
 const collectPages = (): Promise<Page[]> => {
+  const publicPath = "/";
   const files: string[] = glob
     .sync("./pages/**/*.{md,mdx}")
     .map(fn => path.join(process.cwd(), fn));
 
   return Promise.all(
     files.map<Promise<Page>>(async file => {
-      const page = await import(file);
       const filePath = path.parse(file);
       const routePath = path.join(filePath.dir, `${filePath.name}.html`);
       return {
-        path: path.relative(path.join(process.cwd(), "pages"), routePath),
-        metadata: page.metadata,
+        path: path.join(
+          publicPath,
+          path.relative(path.join(process.cwd(), "pages"), routePath)
+        ),
       };
     })
   );

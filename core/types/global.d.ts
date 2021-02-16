@@ -17,7 +17,7 @@ declare global {
     default: React.ComponentType;
     states:
       | { [name: string]: RecoilState<unknown> }
-      | ((pagename: string) => { [name: string]: RecoilState<unknown> });
+      | ((pagename: string) => Record<string, RecoilState<unknown>>);
   }
 
   type PreloadedState = Map<string, unknown>;

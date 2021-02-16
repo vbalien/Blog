@@ -1,0 +1,32 @@
+import usePaginationLoadable from "core/utils/usePagination";
+import { Link } from "react-router-dom";
+
+export const metadata = {
+  title: "Paginator",
+};
+
+export const Page = () => {
+  const pageLoadable = usePaginationLoadable();
+  switch (pageLoadable.state) {
+    case "hasValue":
+      return (
+        <ul>
+          {pageLoadable.contents.posts.map(post => {
+            return (
+              <li key={post.path}>
+                <Link to={post.path}>{post.path}</Link>
+              </li>
+            );
+          })}
+        </ul>
+      );
+    case "loading":
+      return <div>Loading...</div>;
+    case "hasError":
+      throw pageLoadable.contents;
+  }
+};
+
+# A!!
+
+<Page />
