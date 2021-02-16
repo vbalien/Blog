@@ -13,12 +13,11 @@ declare global {
     }): string;
   }
 
-  interface Layout {
-    default: React.ComponentType;
+  type Layout<P = unknown> = React.FC<P> & {
     states:
       | { [name: string]: RecoilState<unknown> }
       | ((pagename: string) => Record<string, RecoilState<unknown>>);
-  }
+  };
 
   type PreloadedState = Map<string, unknown>;
 

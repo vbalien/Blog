@@ -1,5 +1,7 @@
+import paginationState from "core/store/paginationState";
 import React, { FC } from "react";
 import { Link } from "react-router-dom";
+import { useRecoilValueLoadable } from "recoil";
 
 const NavBar: FC = () => {
   return (
@@ -21,14 +23,32 @@ const NavBar: FC = () => {
   );
 };
 
-const DefaultLayout: FC = ({ children }) => {
+const TestStateShow = ({ loadable }) => {
+  switch (loadable.state) {
+    case "hasValue":
+      return <pre>{JSON.stringify(loadable.contents)}</pre>;
+    case "loading":
+      return <div>Loading...</div>;
+    case "hasError":
+      throw loadable.contents;
+  }
+};
+
+const DefaultLayout: Layout = ({ children }) => {
+  const testValueLoadable = useRecoilValueLoadable(
+    paginationState("articles/page/2")
+  );
   return (
     <>
       <NavBar />
       {children}
+
+      <TestStateShow loadable={testValueLoadable} />
     </>
   );
 };
-export default DefaultLayout;
+DefaultLayout.states = {
+  paginationStateTest: paginationState("articles/page/2"),
+};
 
-export const states = {};
+export default DefaultLayout;

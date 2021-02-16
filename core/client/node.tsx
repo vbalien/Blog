@@ -4,7 +4,7 @@ import { RecoilState } from "recoil";
 export { default } from "./App";
 
 export const getLayout = async (name: string): Promise<Layout> =>
-  await import(`layouts/${name ?? "default"}`);
+  (await import(`layouts/${name ?? "default"}`)).default;
 
 export const getPageMetadata = async (
   pagename: string

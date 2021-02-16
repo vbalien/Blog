@@ -21,7 +21,7 @@ loadableReady(async () => {
   const layoutname = metadata?.layout ?? "default";
   const layout =
     typeof layoutname === "string"
-      ? await import(`layouts/${layoutname}`)
+      ? (await import(`layouts/${layoutname}`)).default
       : layoutname;
 
   let states = layout.states;
