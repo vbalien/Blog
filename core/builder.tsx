@@ -4,7 +4,6 @@ import { transform as babelTransform, loadOptions } from "babel-core";
 import { webpack } from "webpack";
 
 import webpackConfig from "./webpack.config";
-import writeApis from "./writeApis";
 import { writePages } from "./writePages";
 import collectPages from "./collectPages";
 import fetch from "./utils/fetch";
@@ -32,7 +31,6 @@ async function runBuild() {
   );
 
   const pages = await collectPages();
-  await writeApis(pages);
   await writePages(pages);
 }
 

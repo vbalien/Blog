@@ -5,7 +5,6 @@ import { BrowserRouter } from "react-router-dom";
 import { MutableSnapshot, RecoilRoot } from "recoil";
 
 import App from "./App";
-import { PageState } from "core/store/pageState";
 
 loadableReady(async () => {
   const preloadedState = new Map<string, unknown>(window.__PRELOADED_STATE__);
@@ -13,10 +12,13 @@ loadableReady(async () => {
   delete window.__PRELOADED_STATE__;
   delete window.__PAGENAME__;
 
-  const pageState: Partial<PageState> = preloadedState.get("pageState");
-  const layout: Layout = await import(
-    `layouts/${pageState.layout ?? "default"}`
-  );
+  const { metadata } = await import(`pages/${pagename}`);
+  const layoutname = metadata?.layout ?? "default";
+  const layout =
+    typeof layoutname === "string"
+      ? await import(`layouts/${layoutname}`)
+      : layoutname;
+
   let states = layout.states;
   if (typeof states === "function") states = states(pagename);
 

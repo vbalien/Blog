@@ -80,17 +80,29 @@ async function renderPage(page: Page) {
   const {
     default: App,
     getLayout,
+    getPage,
   }: {
     default: React.ComponentType;
     getLayout: (name: string) => Promise<Layout>;
+    getPage: (
+      name: string
+    ) => Promise<{
+      metadata: { layout: string | Layout };
+      default: React.ComponentType;
+    }>;
   } = nodeExtractor.requireEntrypoint();
 
   const webExtractor = new ChunkExtractor({ statsFile: webStats });
 
-  const layout: Layout = await getLayout(page.metadata?.layout ?? "default");
-  let states = layout.states;
-  if (typeof states === "function")
-    states = states(normalizePagename(page.path));
+  const pagename = normalizePagename(page.path);
+  const { metadata } = await getPage(pagename);
+
+  const layoutname = metadata?.layout ?? "default";
+  const layout =
+    typeof layoutname === "string" ? await getLayout(layoutname) : layoutname;
+
+  let states = layout.states ?? {};
+  if (typeof states === "function") states = states(pagename);
 
   renderApp(App, page, webExtractor);
 

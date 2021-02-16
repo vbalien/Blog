@@ -15,7 +15,7 @@ const getConfig = (target: string): webpack.Configuration => ({
   target,
   entry: `./core/client/${target}.tsx`,
   resolve: {
-    extensions: [".tsx", ".ts", ".js", ".mjs"],
+    extensions: [".tsx", ".ts", ".js", ".mjs", ".md", ".mdx"],
     modules: [process.cwd(), "node_modules"],
   },
   module: {
@@ -37,6 +37,18 @@ const getConfig = (target: string): webpack.Configuration => ({
       {
         test: /\.(png|ico|ttf|woff2?|eot|otf|svg)$/,
         loader: "file-loader",
+      },
+      {
+        test: /\.mdx?$/,
+        use: [
+          {
+            loader: "babel-loader",
+            options: {
+              caller: { target },
+            },
+          },
+          "@mdx-js/loader",
+        ],
       },
     ],
   },

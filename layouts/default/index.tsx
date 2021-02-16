@@ -1,8 +1,7 @@
-import { pageState } from "core/store/pageState";
+import AsyncPage from "core/client/AsyncPage";
 import usePagename from "core/utils/usePagename";
 import React, { FC } from "react";
 import { Link } from "react-router-dom";
-import { useRecoilValueLoadable } from "recoil";
 
 const NavBar: FC = () => {
   return (
@@ -26,20 +25,7 @@ const NavBar: FC = () => {
 
 const Article: FC = () => {
   const pagename = usePagename();
-  const pageLoadable = useRecoilValueLoadable(pageState(pagename));
-
-  switch (pageLoadable.state) {
-    case "hasValue":
-      return (
-        <div
-          dangerouslySetInnerHTML={{ __html: pageLoadable.contents.content }}
-        />
-      );
-    case "loading":
-      return <div>Loading...</div>;
-    case "hasError":
-      throw pageLoadable.contents;
-  }
+  return <AsyncPage page={pagename} />;
 };
 
 const DefaultLayout: FC = () => {
@@ -52,8 +38,4 @@ const DefaultLayout: FC = () => {
 };
 export default DefaultLayout;
 
-export const states = (pagename: string) => {
-  return {
-    pageState: pageState(pagename),
-  };
-};
+export const states = {};

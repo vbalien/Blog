@@ -1,4 +1,5 @@
 import loadable from "@loadable/component";
+
 type AsyncLayoutProps = {
   layout: string;
 };
