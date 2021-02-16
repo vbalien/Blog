@@ -99,7 +99,10 @@ async function renderPage(page: Page) {
   for (const stateName of Object.keys(states)) {
     let content = await getRecoilState(states[stateName]);
 
-    if (content["__value"] !== undefined && content["__key"] === states.key)
+    if (
+      content["__value"] !== undefined &&
+      content["__key"] === states[stateName].key
+    )
       content = content["__value"];
 
     preloadedState.set(stateName, content);
