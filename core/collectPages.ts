@@ -1,6 +1,5 @@
 import * as glob from "glob";
 import path from "path";
-import React from "react";
 
 export interface PageMetadata {
   /** 제목 */
@@ -19,7 +18,6 @@ export interface PageMetadata {
 
 export interface Page {
   path: string;
-  component: React.ElementType;
   metadata: PageMetadata;
 }
 
@@ -36,7 +34,6 @@ const collectPages = (): Promise<Page[]> => {
       return {
         path: path.relative(path.join(process.cwd(), "pages"), routePath),
         metadata: page.metadata,
-        component: page.default,
       };
     })
   );
