@@ -1,11 +1,12 @@
 import usePaginationLoadable from "core/utils/usePagination";
+import React from "react";
 import { Link } from "react-router-dom";
 
 export const metadata = {
   title: "Paginator",
 };
 
-export const Page = () => {
+export const Page = (): JSX.Element => {
   const pageLoadable = usePaginationLoadable();
   switch (pageLoadable.state) {
     case "hasValue":
@@ -27,6 +28,11 @@ export const Page = () => {
   }
 };
 
-# A!!
-
-<Page />
+export default function Paginator(): JSX.Element {
+  return (
+    <>
+      <h1>Paginator</h1>
+      <Page />
+    </>
+  );
+}

@@ -31,7 +31,7 @@ export interface PaginationApi {
 const collectPages = (): Promise<Page[]> => {
   const publicPath = "/";
   const files: string[] = glob
-    .sync("./pages/**/*.{md,mdx}")
+    .sync("./pages/**/*.{md,mdx,tsx}")
     .map(fn => path.join(process.cwd(), fn));
 
   return Promise.all(
