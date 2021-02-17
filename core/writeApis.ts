@@ -98,11 +98,7 @@ async function writeTagsApi(pages: Page[], basePath: string) {
     const childPages = pagesWithMetadata.filter(p =>
       p.metadata?.tags?.includes(tag)
     );
-    await writePaginatorApi(
-      basePath,
-      childPages,
-      `tags/${path.normalize(tag)}`
-    );
+    await writePaginatorApi(basePath, childPages, `tags/${tag}`);
   }
 }
 
@@ -119,10 +115,10 @@ export async function writeApis(pages: Page[]): Promise<void> {
     const apiDir = path.parse(apiPath).dir;
     if (!fs.existsSync(apiDir)) fs.mkdirSync(apiDir);
     if (/\/_paginator\.html$/.test(page.path)) {
-      const childPages = pages.filter(
-        p => p !== page && RegExp(`^${page}\\/[^\\/]*$`).test(p.path)
-      );
       const paginatorDir = path.parse(page.path).dir;
+      const childPages = pages.filter(
+        p => p !== page && RegExp(`^${paginatorDir}\\/[^\\/]*$`).test(p.path)
+      );
       await writePaginatorApi(basePath, childPages, paginatorDir);
     }
   }
