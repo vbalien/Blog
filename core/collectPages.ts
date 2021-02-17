@@ -19,14 +19,6 @@ export interface PageMetadata {
 export interface Page {
   path: string;
 }
-type PostApi = Page;
-
-export interface PaginationApi {
-  currentPage: number;
-  perPage: number;
-  maxPage: number;
-  posts: PostApi[];
-}
 
 const collectPages = (): Promise<Page[]> => {
   const publicPath = "/";

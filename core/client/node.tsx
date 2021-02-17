@@ -1,4 +1,5 @@
-import { PageMetadata, PaginationApi } from "core/collectPages";
+import { PageMetadata } from "core/collectPages";
+import { PaginationApi } from "core/writeApis";
 import { RecoilState } from "recoil";
 
 export { default } from "./App";

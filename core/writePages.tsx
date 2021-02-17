@@ -6,7 +6,7 @@ import { ChunkExtractor, ChunkExtractorManager } from "@loadable/server";
 import { StaticRouter } from "react-router-dom";
 import { MutableSnapshot, RecoilRoot, RecoilState } from "recoil";
 
-import { Page, PageMetadata, PaginationApi } from "./collectPages";
+import { Page, PageMetadata } from "./collectPages";
 import { getRecoilState, RecoilStatePortal } from "./utils/RecoilStatePortal";
 import normalizePagename from "./utils/normalizePagename";
 import makeInitializeState from "./utils/makeInitializeState";
@@ -127,41 +127,23 @@ async function writePaginator(
     p => p !== paginator && RegExp(`^${paginatorDir}\\/[^\\/]*$`).test(p.path)
   );
   const paginationDir = path.join(basePath, paginatorDir, "page");
-  const paginationApiDir = path.join(basePath, "api", paginatorDir, "page");
   if (!fs.existsSync(paginationDir)) fs.mkdirSync(paginationDir);
-  if (!fs.existsSync(paginationApiDir)) fs.mkdirSync(paginationApiDir);
 
   let pageNum = 0;
 
   do {
     pageNum++;
     const pagePath = path.join(paginationDir, `${pageNum}.html`);
-    const apiPath = path.join(paginationApiDir, `${pageNum}.json`);
-    const posts = childPages.slice(
-      (pageNum - 1) * limit,
-      (pageNum - 1) * limit + limit
-    );
-    const api: PaginationApi = {
-      currentPage: pageNum,
-      perPage: limit,
-      maxPage: Math.floor(childPages.length / limit + 1),
-      posts,
-    };
 
     paginator.path = path.join(
       publicPath,
       path.relative(path.join(process.cwd(), "dist"), pagePath)
     );
     const html = await renderPage(paginator);
-    let handle = await fsPromises.open(pagePath, "w");
+    const handle = await fsPromises.open(pagePath, "w");
     await handle.writeFile(html, {});
     await handle.close();
     console.info(`Write ${pagePath}`);
-
-    handle = await fsPromises.open(apiPath, "w");
-    await handle.writeFile(JSON.stringify(api), {});
-    await handle.close();
-    console.info(`Write ${apiPath}`);
   } while (childPages.length >= pageNum * limit);
 
   fs.copyFileSync(
@@ -210,16 +192,11 @@ async function renderPage(page: Page) {
 export async function writePages(pages: Page[]): Promise<void> {
   const basePath = "./dist/";
   if (!fs.existsSync(basePath)) fs.mkdirSync(basePath);
-  if (!fs.existsSync(path.join(basePath, "api")))
-    fs.mkdirSync(path.join(basePath, "api"));
 
   for (const page of pages) {
     const pagePath = path.join(basePath, page.path);
-    const apiPath = path.join(basePath, "api", page.path);
     const pageDir = path.parse(pagePath).dir;
-    const apiDir = path.parse(apiPath).dir;
     if (!fs.existsSync(pageDir)) fs.mkdirSync(pageDir);
-    if (!fs.existsSync(apiDir)) fs.mkdirSync(apiDir);
     if (/\/_paginator\.html$/.test(page.path)) {
       await writePaginator(basePath, pages, page);
     } else {

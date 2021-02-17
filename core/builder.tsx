@@ -4,6 +4,7 @@ import webpackConfig from "./webpack.config";
 import { writePages } from "./writePages";
 import collectPages from "./collectPages";
 import fetch from "./utils/fetch";
+import { writeApis } from "./writeApis";
 
 function webpackBuild() {
   return new Promise<MultiStats>((resolve, reject) => {
@@ -36,6 +37,7 @@ async function runBuild() {
   );
 
   const pages = await collectPages();
+  await writeApis(pages);
   await writePages(pages);
 }
 

@@ -1,5 +1,5 @@
-import { PaginationApi } from "core/collectPages";
 import paginationState from "core/store/paginationState";
+import { PaginationApi } from "core/writeApis";
 import { useParams } from "react-router-dom";
 import { Loadable, useRecoilValueLoadable } from "recoil";
 import normalizePagename from "./normalizePagename";

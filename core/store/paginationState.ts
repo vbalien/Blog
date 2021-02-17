@@ -1,4 +1,4 @@
-import { PaginationApi } from "core/collectPages";
+import { PaginationApi } from "core/writeApis";
 import { atomFamily } from "recoil";
 
 export default atomFamily<PaginationApi, string>({
