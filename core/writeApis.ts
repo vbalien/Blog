@@ -4,7 +4,10 @@ import { Page, PageWithMetadata } from "./collectPages";
 import { getExtractor } from "./writePages";
 import normalizePagename from "./utils/normalizePagename";
 
-type PostApi = PageWithMetadata;
+type PostApi = PageWithMetadata & {
+  content: string;
+  image?: string;
+};
 
 export interface PaginationApi {
   currentPage: number;
@@ -30,7 +33,8 @@ async function writePaginatorApi(
     p => p !== paginator && RegExp(`^${paginatorDir}\\/[^\\/]*$`).test(p.path)
   );
   const paginationApiDir = path.join(basePath, "api", paginatorDir, "page");
-  const getPageMetadata = await getExtractor().entryPoint.getPageMetadata;
+  const { getPageMetadata, getStaticPageTextAndImage } = await getExtractor()
+    .entryPoint;
   if (!fs.existsSync(paginationApiDir)) fs.mkdirSync(paginationApiDir);
 
   let pageNum = 0;
@@ -47,10 +51,19 @@ async function writePaginatorApi(
       perPage: limit,
       maxPage: Math.floor(childPages.length / limit + 1),
       posts: await Promise.all(
-        posts.map(async p => ({
-          metadata: await getPageMetadata(normalizePagename(p.path)),
-          ...p,
-        }))
+        posts.map(async p => {
+          const pagename = normalizePagename(p.path);
+          const { text: content, image } = await getStaticPageTextAndImage(
+            pagename
+          );
+          const metadata = await getPageMetadata(pagename);
+          return {
+            ...p,
+            metadata,
+            content,
+            image,
+          };
+        })
       ),
     };
 
@@ -64,21 +77,29 @@ async function writePaginatorApi(
 async function writeTagsApi(pages: Page[], basePath: string) {
   const tagsApi: TagsApi = { tags: [] };
   for (const page of pages) {
-    const metadata = await getExtractor().entryPoint.getPageMetadata(
-      normalizePagename(page.path)
-    );
+    const { getPageMetadata, getStaticPageTextAndImage } = await getExtractor()
+      .entryPoint;
+    const pagename = normalizePagename(page.path);
+    const metadata = await getPageMetadata(pagename);
     if (metadata?.tags) {
+      const { text: content, image } = await getStaticPageTextAndImage(
+        pagename
+      );
       for (const tag of metadata.tags) {
         const found = tagsApi.tags.find(t => t.name === tag);
         if (!found)
-          tagsApi.tags.push({ name: tag, posts: [{ metadata, ...page }] });
-        else found.posts.push({ metadata, ...page });
+          tagsApi.tags.push({
+            name: tag,
+            posts: [{ metadata, content, image, ...page }],
+          });
+        else found.posts.push({ metadata, content, image, ...page });
       }
     }
   }
   const jsonPath = path.join(basePath, "tags.json");
   const handle = await fsPromises.open(jsonPath, "w");
   await handle.writeFile(JSON.stringify(tagsApi), {});
+  await handle.close();
   console.info(`Write ${jsonPath}`);
 }
 

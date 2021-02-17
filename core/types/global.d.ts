@@ -19,6 +19,9 @@ declare global {
     getLayout: (layoutname: string) => Promise<Layout>;
     getPageMetadata: (pagename: string) => Promise<PageMetadata>;
     getPaginationState: (pagename: string) => Promise<PageMetadata>;
+    getStaticPageTextAndImage: (
+      pagename: string
+    ) => Promise<{ text: string; image: string }>;
   };
 
   type Layout<P = unknown> = React.FC<P> & {
