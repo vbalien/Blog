@@ -6,7 +6,7 @@ import { ChunkExtractor, ChunkExtractorManager } from "@loadable/server";
 import { StaticRouter } from "react-router-dom";
 import { MutableSnapshot, RecoilRoot, RecoilState } from "recoil";
 
-import { Page, PageMetadata } from "./collectPages";
+import { Page } from "./collectPages";
 import { getRecoilState, RecoilStatePortal } from "./utils/RecoilStatePortal";
 import normalizePagename from "./utils/normalizePagename";
 import makeInitializeState from "./utils/makeInitializeState";
@@ -71,7 +71,11 @@ async function getState<T = unknown>(state): Promise<T> {
   return content;
 }
 
-function getExtractor() {
+export function getExtractor(): {
+  entryPoint: EntryPoint;
+  nodeExtractor: ChunkExtractor;
+  webExtractor: ChunkExtractor;
+} {
   const nodeStats = path.resolve("./dist/node/loadable-stats.json");
   const webStats = path.resolve("./dist/web/loadable-stats.json");
 
@@ -79,12 +83,7 @@ function getExtractor() {
 
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-ignore: Unreachable code error
-  const entryPoint: {
-    default: React.ComponentType;
-    getLayout: (layoutname: string) => Promise<Layout>;
-    getPageMetadata: (pagename: string) => Promise<PageMetadata>;
-    getPaginationState: (pagename: string) => Promise<PageMetadata>;
-  } = nodeExtractor.requireEntrypoint();
+  const entryPoint: EntryPoint = nodeExtractor.requireEntrypoint();
 
   const webExtractor = new ChunkExtractor({ statsFile: webStats });
 

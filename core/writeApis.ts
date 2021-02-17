@@ -1,8 +1,10 @@
 import path from "path";
 import fs, { promises as fsPromises } from "fs";
-import { Page } from "./collectPages";
+import { Page, PageWithMetadata } from "./collectPages";
+import { getExtractor } from "./writePages";
+import normalizePagename from "./utils/normalizePagename";
 
-type PostApi = Page;
+type PostApi = PageWithMetadata;
 
 export interface PaginationApi {
   currentPage: number;
@@ -10,6 +12,12 @@ export interface PaginationApi {
   maxPage: number;
   posts: PostApi[];
 }
+export type TagsApi = {
+  tags: {
+    name: string;
+    posts: PostApi[];
+  }[];
+};
 
 async function writePaginatorApi(
   basePath: string,
@@ -22,6 +30,7 @@ async function writePaginatorApi(
     p => p !== paginator && RegExp(`^${paginatorDir}\\/[^\\/]*$`).test(p.path)
   );
   const paginationApiDir = path.join(basePath, "api", paginatorDir, "page");
+  const getPageMetadata = await getExtractor().entryPoint.getPageMetadata;
   if (!fs.existsSync(paginationApiDir)) fs.mkdirSync(paginationApiDir);
 
   let pageNum = 0;
@@ -37,7 +46,12 @@ async function writePaginatorApi(
       currentPage: pageNum,
       perPage: limit,
       maxPage: Math.floor(childPages.length / limit + 1),
-      posts,
+      posts: await Promise.all(
+        posts.map(async p => ({
+          metadata: await getPageMetadata(normalizePagename(p.path)),
+          ...p,
+        }))
+      ),
     };
 
     const handle = await fsPromises.open(apiPath, "w");
@@ -47,11 +61,34 @@ async function writePaginatorApi(
   } while (childPages.length >= pageNum * limit);
 }
 
+async function writeTagsApi(pages: Page[], basePath: string) {
+  const tagsApi: TagsApi = { tags: [] };
+  for (const page of pages) {
+    const metadata = await getExtractor().entryPoint.getPageMetadata(
+      normalizePagename(page.path)
+    );
+    if (metadata?.tags) {
+      for (const tag of metadata.tags) {
+        const found = tagsApi.tags.find(t => t.name === tag);
+        if (!found)
+          tagsApi.tags.push({ name: tag, posts: [{ metadata, ...page }] });
+        else found.posts.push({ metadata, ...page });
+      }
+    }
+  }
+  const jsonPath = path.join(basePath, "tags.json");
+  const handle = await fsPromises.open(jsonPath, "w");
+  await handle.writeFile(JSON.stringify(tagsApi), {});
+  console.info(`Write ${jsonPath}`);
+}
+
 export async function writeApis(pages: Page[]): Promise<void> {
   const basePath = "./dist/";
   if (!fs.existsSync(basePath)) fs.mkdirSync(basePath);
   if (!fs.existsSync(path.join(basePath, "api")))
     fs.mkdirSync(path.join(basePath, "api"));
+
+  await writeTagsApi(pages, basePath);
 
   for (const page of pages) {
     const apiPath = path.join(basePath, "api", page.path);

@@ -20,6 +20,10 @@ export interface Page {
   path: string;
 }
 
+export interface PageWithMetadata extends Page {
+  metadata: PageMetadata;
+}
+
 const collectPages = (): Promise<Page[]> => {
   const publicPath = "/";
   const files: string[] = glob

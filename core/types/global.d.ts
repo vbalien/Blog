@@ -1,3 +1,4 @@
+import { PageMetadata } from "core/collectPages";
 import { RequestInfo, RequestInit, Response } from "node-fetch";
 import { RecoilState } from "recoil";
 
@@ -12,6 +13,13 @@ declare global {
       colors: boolean;
     }): string;
   }
+
+  type EntryPoint = {
+    default: React.ComponentType;
+    getLayout: (layoutname: string) => Promise<Layout>;
+    getPageMetadata: (pagename: string) => Promise<PageMetadata>;
+    getPaginationState: (pagename: string) => Promise<PageMetadata>;
+  };
 
   type Layout<P = unknown> = React.FC<P> & {
     PreloadStates:
