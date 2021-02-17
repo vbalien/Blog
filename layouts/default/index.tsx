@@ -47,8 +47,6 @@ const DefaultLayout: Layout = ({ children }) => {
     </>
   );
 };
-DefaultLayout.states = {
-  paginationStateTest: paginationState("articles/page/2"),
-};
+DefaultLayout.PreloadStates = [paginationState("articles/page/2")];
 
 export default DefaultLayout;

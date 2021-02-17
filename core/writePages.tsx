@@ -9,6 +9,7 @@ import { MutableSnapshot, RecoilRoot, RecoilState } from "recoil";
 import { Page, PageMetadata, PaginationApi } from "./collectPages";
 import { getRecoilState, RecoilStatePortal } from "./utils/RecoilStatePortal";
 import normalizePagename from "./utils/normalizePagename";
+import makeInitializeState from "./utils/makeInitializeState";
 
 const template = ({
   body,
@@ -70,25 +71,6 @@ async function getState<T = unknown>(state): Promise<T> {
   return content;
 }
 
-async function makeInitializeState(
-  states
-): Promise<[(snapshot: MutableSnapshot) => void, PreloadedState]> {
-  const preloadedState: PreloadedState = new Map();
-  for (const stateName of Object.keys(states)) {
-    const state = await getState(states[stateName]);
-    preloadedState.set(stateName, state);
-  }
-  return [
-    ({ set }) => {
-      for (const [key, value] of preloadedState) {
-        const layoutState = states[key];
-        layoutState && set(layoutState, value);
-      }
-    },
-    preloadedState,
-  ];
-}
-
 function getExtractor() {
   const nodeStats = path.resolve("./dist/node/loadable-stats.json");
   const webStats = path.resolve("./dist/web/loadable-stats.json");
@@ -116,20 +98,21 @@ function getExtractor() {
 async function getPageStates(
   pagename: string,
   entryPoint
-): Promise<Record<string, RecoilState<unknown>>> {
+): Promise<RecoilState<unknown>[]> {
   const metadata = await entryPoint.getPageMetadata(pagename);
   const layoutname = metadata?.layout ?? "default";
-  const layout =
+  const layout: Layout =
     typeof layoutname === "string"
       ? await entryPoint.getLayout(layoutname)
       : layoutname;
-  let states = layout.states ?? {};
-  if (typeof states === "function") states = states(pagename);
+  let preloadStates = layout.PreloadStates ?? [];
+  if (typeof preloadStates === "function")
+    preloadStates = preloadStates(pagename);
 
   const paginationState = await entryPoint.getPaginationState();
   if (/(.*\/)page\/(?:\d+|index)?$/.test(pagename))
-    states = { paginationState: paginationState(pagename), ...states };
-  return states;
+    preloadStates = [paginationState(pagename), ...preloadStates];
+  return preloadStates;
 }
 
 async function writePaginator(
@@ -191,11 +174,17 @@ async function writePaginator(
 async function renderPage(page: Page) {
   const { webExtractor, entryPoint } = getExtractor();
   const pagename = normalizePagename(page.path);
-  const states = await getPageStates(pagename, entryPoint);
+  const preloadStates = await getPageStates(pagename, entryPoint);
 
   renderApp(entryPoint.default, page, webExtractor);
 
-  const [initializeState, preloadedState] = await makeInitializeState(states);
+  const preloadedState: PreloadedState = new Map();
+  for (const state of preloadStates) {
+    const stateContent = await getState(state);
+    preloadedState.set(state.key, stateContent);
+  }
+
+  const initializeState = makeInitializeState(preloadStates, preloadedState);
   const body = renderApp(
     entryPoint.default,
     page,
