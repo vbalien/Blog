@@ -37,7 +37,7 @@ loadableReady(async () => {
   ReactDOM.hydrate(
     <BrowserRouter>
       <RecoilRoot initializeState={initializeState}>
-        <App />
+        <App layout={layoutname} />
       </RecoilRoot>
     </BrowserRouter>,
     root

@@ -15,7 +15,7 @@ declare global {
   }
 
   type EntryPoint = {
-    default: React.ComponentType;
+    default: React.ComponentType<{ layout: string }>;
     getLayout: (layoutname: string) => Promise<Layout>;
     getPageMetadata: (pagename: string) => Promise<PageMetadata>;
     getPaginationState: (pagename: string) => Promise<PageMetadata>;

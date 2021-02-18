@@ -12,20 +12,12 @@ export const getLayout = async (name: string): Promise<Layout> =>
 export const getPageMetadata = async (
   pagename: string
 ): Promise<PageMetadata> => {
-  pagename = pagename.replace(
-    /(.*\/)page\/[^\\/]*(?:\d+|index)?$/,
-    "$1_paginator"
-  );
   return (await import(`pages/${pagename}`)).metadata;
 };
 
 export const getStaticPageTextAndImage = async (
   pagename: string
 ): Promise<{ text: string; image: string }> => {
-  pagename = pagename.replace(
-    /(.*\/)page\/[^\\/]*(?:\d+|index)?$/,
-    "$1_paginator"
-  );
   const Page = (await import(`pages/${pagename}`)).default;
   const html = renderToStaticMarkup(<Page />);
   const text = html.replace(/<[^<]*?>/g, "").slice(0, 150);

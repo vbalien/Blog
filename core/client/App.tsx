@@ -3,11 +3,12 @@ import { Route, Switch } from "react-router-dom";
 import AsyncLayout from "./AsyncLayout";
 import PageComponent from "./PageComponent";
 
-const App: React.FC = () => {
+export type AppProps = { layout: string };
+const App: React.FC<AppProps> = ({ layout }) => {
   return (
     <Switch>
       <Route exact path={[":page(^)", "/:page(.*)"]}>
-        <AsyncLayout layout={"default"}>
+        <AsyncLayout layout={layout}>
           <PageComponent />
         </AsyncLayout>
       </Route>

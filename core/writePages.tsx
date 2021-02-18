@@ -6,10 +6,12 @@ import { ChunkExtractor, ChunkExtractorManager } from "@loadable/server";
 import { StaticRouter } from "react-router-dom";
 import { MutableSnapshot, RecoilRoot, RecoilState } from "recoil";
 
-import { Page } from "./collectPages";
+import { Page, PageWithMetadata } from "./collectPages";
 import { getRecoilState, RecoilStatePortal } from "./utils/RecoilStatePortal";
 import normalizePagename from "./utils/normalizePagename";
 import makeInitializeState from "./utils/makeInitializeState";
+import fetch from "./utils/fetch";
+import { TagsApi } from "./writeApis";
 
 const template = ({
   body,
@@ -47,8 +49,8 @@ const template = ({
 </html>`;
 
 function renderApp(
-  App: React.ComponentType,
-  page: Page,
+  App: React.ComponentType<{ layout: string }>,
+  page: PageWithMetadata,
   webExtractor: ChunkExtractor,
   initializeState?: (snapshot: MutableSnapshot) => void
 ) {
@@ -57,7 +59,7 @@ function renderApp(
       <StaticRouter location={page.path}>
         <RecoilRoot initializeState={initializeState}>
           <RecoilStatePortal />
-          <App />
+          <App layout={page.metadata?.layout ?? "default"} />
         </RecoilRoot>
       </StaticRouter>
     </ChunkExtractorManager>
@@ -114,19 +116,50 @@ async function getPageStates(
   return preloadStates;
 }
 
-async function writePaginator(
+async function writeTagsPaginator(
   basePath: string,
   pages: Page[],
+  paginator: Page
+) {
+  const paginatorPath = paginator.path;
+  const { getPageMetadata } = await getExtractor().entryPoint;
+  const pagesWithMetadata: PageWithMetadata[] = await Promise.all(
+    pages.map(async p => {
+      const pagename = normalizePagename(p.path);
+      const metadata = await getPageMetadata(pagename);
+      return {
+        ...p,
+        metadata,
+      };
+    })
+  );
+  const tagsApi: TagsApi = await (await fetch("/api/tags.json")).json();
+
+  for (const tag of tagsApi.tags) {
+    const paginatorDir = path.parse(paginatorPath).dir;
+    paginator.path = path.join(
+      paginatorDir,
+      encodeURIComponent(tag),
+      "_paginator.html"
+    );
+    const childPages = pagesWithMetadata.filter(p =>
+      p.metadata?.tags?.includes(tag)
+    );
+    await writePaginator(basePath, childPages, paginator);
+  }
+}
+
+async function writePaginator(
+  basePath: string,
+  childPages: Page[],
   paginator: Page
 ) {
   const publicPath = "/";
   const limit = 5;
   const paginatorDir = path.parse(paginator.path).dir;
-  const childPages = pages.filter(
-    p => p !== paginator && RegExp(`^${paginatorDir}\\/[^\\/]*$`).test(p.path)
-  );
   const paginationDir = path.join(basePath, paginatorDir, "page");
-  if (!fs.existsSync(paginationDir)) fs.mkdirSync(paginationDir);
+  if (!fs.existsSync(paginationDir))
+    fs.mkdirSync(paginationDir, { recursive: true });
 
   let pageNum = 0;
 
@@ -157,7 +190,11 @@ async function renderPage(page: Page) {
   const pagename = normalizePagename(page.path);
   const preloadStates = await getPageStates(pagename, entryPoint);
 
-  renderApp(entryPoint.default, page, webExtractor);
+  const pageWithMetadata: PageWithMetadata = {
+    ...page,
+    metadata: await entryPoint.getPageMetadata(pagename),
+  };
+  renderApp(entryPoint.default, pageWithMetadata, webExtractor);
 
   const preloadedState: PreloadedState = new Map();
   for (const state of preloadStates) {
@@ -168,7 +205,7 @@ async function renderPage(page: Page) {
   const initializeState = makeInitializeState(preloadStates, preloadedState);
   const body = renderApp(
     entryPoint.default,
-    page,
+    pageWithMetadata,
     webExtractor,
     initializeState
   );
@@ -190,14 +227,21 @@ async function renderPage(page: Page) {
 
 export async function writePages(pages: Page[]): Promise<void> {
   const basePath = "./dist/";
-  if (!fs.existsSync(basePath)) fs.mkdirSync(basePath);
 
   for (const page of pages) {
     const pagePath = path.join(basePath, page.path);
     const pageDir = path.parse(pagePath).dir;
-    if (!fs.existsSync(pageDir)) fs.mkdirSync(pageDir);
+    if (!fs.existsSync(pageDir)) fs.mkdirSync(pageDir, { recursive: true });
     if (/\/_paginator\.html$/.test(page.path)) {
-      await writePaginator(basePath, pages, page);
+      if (page.path === "/tags/_paginator.html")
+        await writeTagsPaginator(basePath, pages, page);
+      else {
+        const paginatorDir = path.parse(page.path).dir;
+        const childPages = pages.filter(
+          p => p !== page && RegExp(`^${paginatorDir}\\/[^\\/]*$`).test(p.path)
+        );
+        await writePaginator(basePath, childPages, page);
+      }
     } else {
       const html = await renderPage(page);
       const handle = await fsPromises.open(pagePath, "w");

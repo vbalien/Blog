@@ -104,7 +104,6 @@ async function writeTagsApi(pages: Page[], basePath: string) {
 
 export async function writeApis(pages: Page[]): Promise<void> {
   const basePath = "./dist/";
-  if (!fs.existsSync(basePath)) fs.mkdirSync(basePath);
   if (!fs.existsSync(path.join(basePath, "api")))
     fs.mkdirSync(path.join(basePath, "api"), { recursive: true });
 
