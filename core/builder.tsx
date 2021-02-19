@@ -5,6 +5,9 @@ import { writePages } from "./writePages";
 import collectPages from "./collectPages";
 import fetch from "./utils/fetch";
 import { writeApis } from "./writeApis";
+import { glob } from "glob";
+import path from "path";
+import { copyFileSync, existsSync, lstatSync, mkdirSync } from "fs";
 
 function webpackBuild() {
   return new Promise<MultiStats>((resolve, reject) => {
@@ -26,6 +29,22 @@ function webpackBuild() {
   });
 }
 
+function assetsCopy() {
+  const basePath = "./dist/";
+  const assets = glob
+    .sync("pages/**/*[!{.tsx|.md|.mdx}]")
+    .filter(f => !lstatSync(f).isDirectory())
+    .map(f => path.relative(path.join(process.cwd(), "pages"), f));
+  for (const assetPath of assets) {
+    const srcPath = path.join("pages", assetPath);
+    const distPath = path.join(basePath, assetPath);
+    if (!existsSync(path.parse(distPath).dir))
+      mkdirSync(path.parse(distPath).dir, { recursive: true });
+    copyFileSync(srcPath, distPath);
+    console.info(`Copy ${distPath}`);
+  }
+}
+
 async function runBuild() {
   const webpackStats = await webpackBuild();
 
@@ -35,6 +54,8 @@ async function runBuild() {
       colors: true,
     })
   );
+
+  assetsCopy();
 
   const pages = await collectPages();
   await writeApis(pages);

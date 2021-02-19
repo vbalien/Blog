@@ -2,7 +2,7 @@ import paginationState from "core/store/paginationState";
 import { PaginationApi } from "core/writeApis";
 import { useParams } from "react-router-dom";
 import { Loadable, useRecoilValueLoadable } from "recoil";
-import normalizePagename from "../../utils/normalizePagename";
+import normalizePagename from "core/utils/normalizePagename";
 
 export default function usePaginationLoadable(): Loadable<PaginationApi> {
   let { page: apiPath } = useParams<{ page: string }>();
