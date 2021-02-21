@@ -1,52 +1,58 @@
-import paginationState from "core/store/paginationState";
-import React, { FC } from "react";
-import { Link } from "react-router-dom";
-import { useRecoilValueLoadable } from "recoil";
+import React from "react";
+import { Sidebar } from "./Sidebar";
+import { Box } from "@chakra-ui/react";
+import { MDXProvider } from "@mdx-js/react";
+import CodeBlock from "./CodeBlock";
+import "./markdown.css";
 
-const NavBar: FC = () => {
-  return (
-    <>
-      <h2>Nav</h2>
-
-      <ul>
-        <li>
-          <Link to="/articles/page/">articles</Link>
-        </li>
-        <li>
-          <Link to="/a/b.html">a/b</Link>
-        </li>
-        <li>
-          <Link to="/">/</Link>
-        </li>
-      </ul>
-    </>
-  );
-};
-
-const TestStateShow = ({ loadable }) => {
-  switch (loadable.state) {
-    case "hasValue":
-      return <pre>{JSON.stringify(loadable.contents)}</pre>;
-    case "loading":
-      return <div>Loading...</div>;
-    case "hasError":
-      throw loadable.contents;
-  }
+const components = {
+  pre(props) {
+    return <div {...props} />;
+  },
+  code(props) {
+    return <CodeBlock {...props} />;
+  },
+  blockquote(props) {
+    return (
+      <Box
+        width="full"
+        alignItems="center"
+        position="relative"
+        overflow="hidden"
+        paddingLeft="0.75rem"
+        paddingRight="1rem"
+        paddingTop="0.75rem"
+        paddingBottom="0.75rem"
+        borderLeft="4px solid"
+        borderColor="#DD6B20"
+        background="#FEEBC8"
+        marginTop="1.5rem"
+        borderRadius="4px"
+        marginBottom="1.5rem"
+        {...props}
+      />
+    );
+  },
 };
 
 const DefaultLayout: Layout = ({ children }) => {
-  const testValueLoadable = useRecoilValueLoadable(
-    paginationState("articles/page/2")
-  );
   return (
-    <>
-      <NavBar />
-      {children}
-
-      <TestStateShow loadable={testValueLoadable} />
-    </>
+    <MDXProvider components={components}>
+      <Box display="flex" height="100vh">
+        <Sidebar name="Jisu Kim" />
+        <Box
+          className="markdown-body"
+          width="calc(50% + 350px)"
+          p="30px"
+          overflowY="scroll"
+        >
+          <Box maxW="1024px">{children}</Box>
+        </Box>
+      </Box>
+    </MDXProvider>
   );
 };
-DefaultLayout.PreloadStates = [paginationState("articles/page/2")];
+
+DefaultLayout.PreloadStates = [];
 
 export default DefaultLayout;

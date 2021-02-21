@@ -29,7 +29,7 @@ function webpackBuild() {
   });
 }
 
-function assetsCopy() {
+function copyAssets() {
   const basePath = "./dist/";
   const assets = glob
     .sync("pages/**/*[!{.tsx|.md|.mdx}]")
@@ -55,7 +55,7 @@ async function runBuild() {
     })
   );
 
-  assetsCopy();
+  copyAssets();
 
   const pages = await collectPages();
   await writeApis(pages);

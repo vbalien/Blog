@@ -4,6 +4,7 @@ import ForkTsCheckerWebpackPlugin from "fork-ts-checker-webpack-plugin";
 import * as webpack from "webpack";
 import { CleanWebpackPlugin } from "clean-webpack-plugin";
 import LoadablePlugin from "@loadable/webpack-plugin";
+import MiniCssExtractPlugin from "mini-css-extract-plugin";
 
 const DIST_PATH = path.resolve(process.cwd(), "dist");
 const production = process.env.NODE_ENV === "production";
@@ -11,6 +12,7 @@ const development =
   !process.env.NODE_ENV || process.env.NODE_ENV === "development";
 
 const getConfig = (target: string): webpack.Configuration => ({
+  name: target,
   mode: development ? "development" : "production",
   target,
   entry: `./core/client/${target}.tsx`,
@@ -21,8 +23,13 @@ const getConfig = (target: string): webpack.Configuration => ({
   module: {
     rules: [
       {
-        test: /\.css$/i,
-        use: ["style-loader", "css-loader"],
+        test: /\.css$/,
+        use: [
+          target === "web" && {
+            loader: MiniCssExtractPlugin.loader,
+          },
+          "css-loader",
+        ].filter(Boolean),
       },
       {
         test: /\.(mjs|js|jsx|ts|tsx)$/,
@@ -73,6 +80,7 @@ const getConfig = (target: string): webpack.Configuration => ({
       },
     }),
     new LoadablePlugin(),
+    new MiniCssExtractPlugin(),
   ],
   performance: production
     ? {
