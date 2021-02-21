@@ -8,6 +8,11 @@ module.exports = {
   addons: ["@storybook/addon-links", "@storybook/addon-essentials"],
   webpackFinal: async config => {
     config.resolve.modules = [path.join(__dirname, "../"), "node_modules"];
+    config.resolve.alias = {
+      ...config.resolve.alias,
+      "@emotion/core": "@emotion/react",
+      "emotion-theming": "@emotion/react",
+    };
     return config;
   },
 };

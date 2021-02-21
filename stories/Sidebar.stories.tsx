@@ -13,5 +13,6 @@ const Template: Story<SidebarProps> = args => <Sidebar {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {
-  name: {},
+  name: "Jisu Kim",
+  description: "Front-End Developer",
 };

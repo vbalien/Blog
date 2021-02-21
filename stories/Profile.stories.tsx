@@ -13,5 +13,6 @@ const Template: Story<ProfileProps> = args => <Profile {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {
-  name: {},
+  name: "Jisu Kim",
+  description: "Front-End Developer",
 };

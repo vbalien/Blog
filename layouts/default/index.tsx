@@ -39,7 +39,7 @@ const DefaultLayout: Layout = ({ children }) => {
   return (
     <MDXProvider components={components}>
       <Box display="flex" height="100vh">
-        <Sidebar name="Jisu Kim" />
+        <Sidebar name="金持寿" description="フロントエンドディベロッパー" />
         <Box
           className="markdown-body"
           width="calc(50% + 350px)"
