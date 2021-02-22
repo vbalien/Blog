@@ -1,13 +1,13 @@
 import { webpack } from "webpack";
+import { glob } from "glob";
+import path from "path";
+import { copyFileSync, existsSync, lstatSync, mkdirSync } from "fs";
 
 import webpackConfig from "./webpack.config";
 import { writePages } from "./writePages";
 import collectPages from "./collectPages";
 import fetch from "./utils/fetch";
 import { writeApis } from "./writeApis";
-import { glob } from "glob";
-import path from "path";
-import { copyFileSync, existsSync, lstatSync, mkdirSync } from "fs";
 
 function webpackBuild() {
   return new Promise<MultiStats>((resolve, reject) => {
@@ -45,7 +45,11 @@ function copyAssets() {
   }
 }
 
-async function runBuild() {
+export async function runBuild(): Promise<void> {
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-ignore: Unreachable code error
+  globalThis.fetch ?? (globalThis.fetch = fetch);
+
   const webpackStats = await webpackBuild();
 
   console.info(
@@ -61,9 +65,3 @@ async function runBuild() {
   await writeApis(pages);
   await writePages(pages);
 }
-
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore: Unreachable code error
-globalThis.fetch ?? (globalThis.fetch = fetch);
-
-runBuild();

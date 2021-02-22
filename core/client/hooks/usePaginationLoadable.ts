@@ -1,4 +1,4 @@
-import paginationState from "core/store/paginationState";
+import paginationState from "core/client/store/paginationState";
 import { PaginationApi } from "core/writeApis";
 import { useParams } from "react-router-dom";
 import { Loadable, useRecoilValueLoadable } from "recoil";

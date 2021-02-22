@@ -41,4 +41,12 @@ declare global {
     __PAGENAME__: string;
     __API_PAGENAME__: string;
   }
+
+  type TemplateResult = { path: string; filename: string; content: string };
+  type Template = (props: {
+    title: string;
+    slug: string;
+    date: Date;
+    tags: string[];
+  }) => TemplateResult;
 }

@@ -5,7 +5,11 @@ import fs from "fs";
 export default new Proxy(nodeFetch, {
   apply: (target, _that, args) => {
     const [url, init] = args;
-    const filePath = path.join(process.cwd(), "./dist", url.toString());
+    const filePath = path.join(
+      process.cwd(),
+      "./dist",
+      decodeURIComponent(url.toString())
+    );
     if (/^https?:\/\//i.test(url.toString()) || !fs.existsSync(filePath))
       return target(url, init);
 

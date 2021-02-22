@@ -5,7 +5,7 @@ import { BrowserRouter } from "react-router-dom";
 import { RecoilRoot } from "recoil";
 
 import App from "./App";
-import paginationState from "core/store/paginationState";
+import paginationState from "core/client/store/paginationState";
 import makeInitializeState from "core/utils/makeInitializeState";
 
 loadableReady(async () => {

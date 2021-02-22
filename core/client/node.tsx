@@ -35,7 +35,7 @@ export const getStaticPageTextAndImage = async (
 
 export const getPaginationState = async (): Promise<
   (apiPath: string) => RecoilState<PaginationApi>
-> => (await import("core/store/paginationState")).default;
+> => (await import("core/client/store/paginationState")).default;
 
 export const getPagePreloadStates = async (
   pagename: string
