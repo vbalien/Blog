@@ -1,4 +1,6 @@
+import AsyncPage from "core/client/AsyncPage";
 import usePaginationLoadable from "core/client/hooks/usePaginationLoadable";
+import normalizePagename from "core/utils/normalizePagename";
 import React from "react";
 import { Link } from "react-router-dom";
 
@@ -15,7 +17,16 @@ export const Page = (): JSX.Element => {
           {pageLoadable.contents.posts.map(post => {
             return (
               <li key={post.path}>
-                <Link to={post.path}>{post.path}</Link>
+                <Link
+                  to={post.path}
+                  onMouseOver={() =>
+                    AsyncPage.preload({
+                      page: normalizePagename(post.path),
+                    })
+                  }
+                >
+                  {post.path}
+                </Link>
               </li>
             );
           })}
