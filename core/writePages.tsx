@@ -19,14 +19,14 @@ const template = ({
   linkTags,
   styleTags,
   preloadedState = new Map(),
-  pagename,
+  pagePath,
 }: {
   body: string;
   scriptTags: string;
   linkTags: string;
   styleTags: string;
   preloadedState: PreloadedState;
-  pagename: string;
+  pagePath: string;
 }) => `<!DOCTYPE html>
 <html lang="ko">
   <head>
@@ -42,7 +42,13 @@ const template = ({
     window.__PRELOADED_STATE__ = ${JSON.stringify(
       Array.from(preloadedState.entries())
     ).replace(/</g, "\\u003c")};
-    window.__PAGENAME__ = ${JSON.stringify(pagename).replace(/</g, "\\u003c")};
+    window.__PAGENAME__ = ${JSON.stringify(normalizePagename(pagePath)).replace(
+      /</g,
+      "\\u003c"
+    )};
+    window.__API_PAGENAME__ = ${JSON.stringify(
+      normalizePagename(pagePath, { ignorePaginator: true })
+    ).replace(/</g, "\\u003c")};
   </script>
   ${scriptTags}
 </body>
@@ -97,9 +103,13 @@ export function getExtractor(): {
 }
 
 async function getPageStates(
-  pagename: string,
-  entryPoint
+  pagePath: string,
+  entryPoint: EntryPoint
 ): Promise<RecoilState<unknown>[]> {
+  const pagename = normalizePagename(pagePath);
+  const apiPagename = normalizePagename(pagePath, {
+    ignorePaginator: true,
+  });
   const metadata = await entryPoint.getPageMetadata(pagename);
   const layoutname = metadata?.layout ?? "default";
   const layout: Layout =
@@ -110,9 +120,19 @@ async function getPageStates(
   if (typeof preloadStates === "function")
     preloadStates = preloadStates(pagename);
 
+  const pagePreloadStates =
+    (await entryPoint.getPagePreloadStates(pagename)) ?? [];
+
+  preloadStates = [...preloadStates, ...pagePreloadStates];
+
   const paginationState = await entryPoint.getPaginationState();
-  if (/(.*\/)page\/(?:\d+|index)?$/.test(pagename))
-    preloadStates = [paginationState(pagename), ...preloadStates];
+
+  if (/(.*\/)page\/(?:\d+|index)?$/.test(apiPagename)) {
+    const apiPath = normalizePagename(apiPagename, {
+      ignorePaginator: true,
+    }).replace(/index$/i, "1");
+    preloadStates = [paginationState(apiPath), ...preloadStates];
+  }
   return preloadStates;
 }
 
@@ -188,7 +208,7 @@ async function writePaginator(
 async function renderPage(page: Page) {
   const { webExtractor, entryPoint } = getExtractor();
   const pagename = normalizePagename(page.path);
-  const preloadStates = await getPageStates(pagename, entryPoint);
+  const preloadStates = await getPageStates(page.path, entryPoint);
 
   const pageWithMetadata: PageWithMetadata = {
     ...page,
@@ -220,7 +240,7 @@ async function renderPage(page: Page) {
     linkTags,
     styleTags,
     preloadedState,
-    pagename,
+    pagePath: page.path,
   });
   return html;
 }

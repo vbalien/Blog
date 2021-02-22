@@ -1,1 +1,26 @@
+import tagState from "core/store/tagState";
+import { useRecoilValueLoadable } from "recoil";
+
+export const preloadStates = [tagState];
+
+export const Tags = () => {
+  const tags = useRecoilValueLoadable(tagState);
+  switch (tags.state) {
+    case "hasValue":
+      return (
+        <ul>
+          {tags.contents.tags.map(tag => {
+            return <li key={tag}>{tag}</li>;
+          })}
+        </ul>
+      );
+    case "loading":
+      return <div>Loading...</div>;
+    case "hasError":
+      throw tags.contents;
+  }
+};
+
 # Tags
+
+<Tags />

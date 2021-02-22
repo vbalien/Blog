@@ -2,7 +2,7 @@ import { PageMetadata } from "core/collectPages";
 import { PaginationApi } from "core/writeApis";
 import React from "react";
 import { renderToStaticMarkup } from "react-dom/server";
-import { RecoilState } from "recoil";
+import { RecoilRoot, RecoilState } from "recoil";
 
 export { default } from "./App";
 
@@ -19,7 +19,11 @@ export const getStaticPageTextAndImage = async (
   pagename: string
 ): Promise<{ text: string; image: string }> => {
   const Page = (await import(`pages/${pagename}`)).default;
-  const html = renderToStaticMarkup(<Page />);
+  const html = renderToStaticMarkup(
+    <RecoilRoot>
+      <Page />
+    </RecoilRoot>
+  );
   const text = html.replace(/<[^<]*?>/g, "").slice(0, 150);
   const imageMatch = html.match(/<img[\s]+src=((?:".*?")|(?:'.*?')).*?>/i);
   const image = imageMatch && imageMatch[1].slice(1, -1);
@@ -32,3 +36,8 @@ export const getStaticPageTextAndImage = async (
 export const getPaginationState = async (): Promise<
   (apiPath: string) => RecoilState<PaginationApi>
 > => (await import("core/store/paginationState")).default;
+
+export const getPagePreloadStates = async (
+  pagename: string
+): Promise<RecoilState<unknown>[]> =>
+  (await import(`pages/${pagename}`)).preloadStates;

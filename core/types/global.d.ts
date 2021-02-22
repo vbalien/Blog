@@ -1,4 +1,5 @@
 import { PageMetadata } from "core/collectPages";
+import { PaginationApi } from "core/writeApis";
 import { RequestInfo, RequestInit, Response } from "node-fetch";
 import { RecoilState } from "recoil";
 
@@ -18,10 +19,13 @@ declare global {
     default: React.ComponentType<{ layout: string }>;
     getLayout: (layoutname: string) => Promise<Layout>;
     getPageMetadata: (pagename: string) => Promise<PageMetadata>;
-    getPaginationState: (pagename: string) => Promise<PageMetadata>;
+    getPaginationState: () => Promise<
+      (apiPath: string) => RecoilState<PaginationApi>
+    >;
     getStaticPageTextAndImage: (
       pagename: string
     ) => Promise<{ text: string; image: string }>;
+    getPagePreloadStates: (pagename: string) => Promise<RecoilState<unknown>[]>;
   };
 
   type Layout<P = unknown> = React.FC<P> & {
@@ -35,5 +39,6 @@ declare global {
   interface Window {
     __PRELOADED_STATE__: [];
     __PAGENAME__: string;
+    __API_PAGENAME__: string;
   }
 }

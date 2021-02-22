@@ -1,5 +1,6 @@
 export const metadata = {
-title: "hello world!"
+title: "hello world!",
+tags: ["blog", "helloworld"]
 }
 
 # Hello World

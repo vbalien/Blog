@@ -11,14 +11,18 @@ import makeInitializeState from "core/utils/makeInitializeState";
 loadableReady(async () => {
   const preloadedState = new Map<string, unknown>(window.__PRELOADED_STATE__);
   const pagename = window.__PAGENAME__;
+  const apiPagename = window.__API_PAGENAME__;
   delete window.__PRELOADED_STATE__;
   delete window.__PAGENAME__;
+  delete window.__API_PAGENAME__;
 
   const pagemodule = pagename.replace(
     /(.*\/)page\/(?:\d+|index)?$/,
     "$1_paginator"
   );
-  const { metadata } = await import(`pages/${pagemodule}`);
+  const { metadata, preloadStates: pagePreloadStates } = await import(
+    `pages/${pagemodule}`
+  );
   const layoutname = metadata?.layout ?? "default";
   const layout: Layout =
     typeof layoutname === "string"
@@ -28,8 +32,12 @@ loadableReady(async () => {
   let preloadStates = layout.PreloadStates;
   if (typeof preloadStates === "function")
     preloadStates = preloadStates(pagename);
-  if (/(.*\/)page\/(?:\d+|index)?$/.test(pagename))
-    preloadStates = [paginationState(pagename), ...preloadStates];
+
+  if (pagePreloadStates)
+    preloadStates = [...pagePreloadStates, ...preloadStates];
+
+  if (/(.*\/)page\/(?:\d+|index)?$/.test(apiPagename))
+    preloadStates = [paginationState(apiPagename), ...preloadStates];
 
   const initializeState = makeInitializeState(preloadStates, preloadedState);
 
