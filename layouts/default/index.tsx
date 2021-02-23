@@ -46,7 +46,9 @@ const DefaultLayout: Layout = ({ children }) => {
           p="30px"
           overflowY="scroll"
         >
-          <Box maxW="1024px">{children}</Box>
+          <Box as="article" maxW="1024px">
+            {children}
+          </Box>
         </Box>
       </Box>
     </MDXProvider>

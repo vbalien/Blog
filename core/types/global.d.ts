@@ -23,9 +23,11 @@ declare global {
       (apiPath: string) => RecoilState<PaginationApi>
     >;
     getStaticPageTextAndImage: (
-      pagename: string
+      pagename: string,
+      path: string
     ) => Promise<{ text: string; image: string }>;
     getPagePreloadStates: (pagename: string) => Promise<RecoilState<unknown>[]>;
+    getPageState: () => Promise<RecoilState<PageMetadata>>;
   };
 
   type Layout<P = unknown> = React.FC<P> & {
@@ -40,6 +42,7 @@ declare global {
     __PRELOADED_STATE__: [];
     __PAGENAME__: string;
     __API_PAGENAME__: string;
+    __PAGE_METADATA__: PageMetadata;
   }
 
   type TemplateResult = { path: string; filename: string; content: string };

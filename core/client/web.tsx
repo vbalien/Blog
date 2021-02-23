@@ -7,14 +7,17 @@ import { RecoilRoot } from "recoil";
 import App from "./App";
 import paginationState from "core/client/store/paginationState";
 import makeInitializeState from "core/utils/makeInitializeState";
+import pageState from "./store/pageState";
 
 loadableReady(async () => {
   const preloadedState = new Map<string, unknown>(window.__PRELOADED_STATE__);
   const pagename = window.__PAGENAME__;
   const apiPagename = window.__API_PAGENAME__;
+  const pageMetadata = window.__PAGE_METADATA__;
   delete window.__PRELOADED_STATE__;
   delete window.__PAGENAME__;
   delete window.__API_PAGENAME__;
+  delete window.__PAGE_METADATA__;
 
   const pagemodule = pagename.replace(
     /(.*\/)page\/(?:\d+|index)?$/,
@@ -39,7 +42,10 @@ loadableReady(async () => {
   if (/(.*\/)page\/(?:\d+|index)?$/.test(apiPagename))
     preloadStates = [paginationState(apiPagename), ...preloadStates];
 
-  const initializeState = makeInitializeState(preloadStates, preloadedState);
+  const initializeState = makeInitializeState(preloadStates, preloadedState, {
+    pageMetadata,
+    pageState,
+  });
 
   const root = document.getElementById("root");
   ReactDOM.hydrate(

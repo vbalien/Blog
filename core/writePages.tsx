@@ -5,8 +5,9 @@ import path from "path";
 import { ChunkExtractor, ChunkExtractorManager } from "@loadable/server";
 import { StaticRouter } from "react-router-dom";
 import { MutableSnapshot, RecoilRoot, RecoilState } from "recoil";
+import { Helmet, HelmetData } from "react-helmet";
 
-import { Page, PageWithMetadata } from "./collectPages";
+import { Page, PageMetadata, PageWithMetadata } from "./collectPages";
 import { getRecoilState, RecoilStatePortal } from "./utils/RecoilStatePortal";
 import normalizePagename from "./utils/normalizePagename";
 import makeInitializeState from "./utils/makeInitializeState";
@@ -14,29 +15,35 @@ import fetch from "./utils/fetch";
 import { TagsApi } from "./writeApis";
 
 const template = ({
+  helmet,
   body,
   scriptTags,
   linkTags,
   styleTags,
   preloadedState = new Map(),
   pagePath,
+  pageMetadata,
 }: {
+  helmet: HelmetData;
   body: string;
   scriptTags: string;
   linkTags: string;
   styleTags: string;
   preloadedState: PreloadedState;
   pagePath: string;
+  pageMetadata: PageMetadata;
 }) => `<!DOCTYPE html>
-<html lang="ko">
+<html ${helmet.htmlAttributes.toString()}>
   <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title></title>
+  ${helmet.title.toString()}
+  ${helmet.meta.toString()}
+  ${helmet.link.toString()}
   ${linkTags}
   ${styleTags}
   </head>
-<body >
+<body ${helmet.bodyAttributes.toString()}>
   <div id="root">${body}</div>
   <script>
     window.__PRELOADED_STATE__ = ${JSON.stringify(
@@ -49,6 +56,10 @@ const template = ({
     window.__API_PAGENAME__ = ${JSON.stringify(
       normalizePagename(pagePath, { ignorePaginator: true })
     ).replace(/</g, "\\u003c")};
+    window.__PAGE_METADATA__ = ${JSON.stringify(pageMetadata).replace(
+      /</g,
+      "\\u003c"
+    )};
   </script>
   ${scriptTags}
 </body>
@@ -139,7 +150,7 @@ async function getPageStates(
 async function writeTagsPaginator(
   basePath: string,
   pages: Page[],
-  paginator: Page
+  paginator: PageWithMetadata
 ) {
   const paginatorPath = paginator.path;
   const { getPageMetadata } = await getExtractor().entryPoint;
@@ -172,7 +183,7 @@ async function writeTagsPaginator(
 async function writePaginator(
   basePath: string,
   childPages: Page[],
-  paginator: Page
+  paginator: PageWithMetadata
 ) {
   const publicPath = "/";
   const limit = 5;
@@ -205,16 +216,10 @@ async function writePaginator(
   console.info(`Write ${path.join(paginationDir, `index.html`)}`);
 }
 
-async function renderPage(page: Page) {
+async function renderPage(page: PageWithMetadata) {
   const { webExtractor, entryPoint } = getExtractor();
-  const pagename = normalizePagename(page.path);
   const preloadStates = await getPageStates(page.path, entryPoint);
-
-  const pageWithMetadata: PageWithMetadata = {
-    ...page,
-    metadata: await entryPoint.getPageMetadata(pagename),
-  };
-  renderApp(entryPoint.default, pageWithMetadata, webExtractor);
+  renderApp(entryPoint.default, page, webExtractor);
 
   const preloadedState: PreloadedState = new Map();
   for (const state of preloadStates) {
@@ -222,30 +227,36 @@ async function renderPage(page: Page) {
     preloadedState.set(state.key, stateContent);
   }
 
-  const initializeState = makeInitializeState(preloadStates, preloadedState);
+  const initializeState = makeInitializeState(preloadStates, preloadedState, {
+    pageMetadata: page.metadata,
+    pageState: await entryPoint.getPageState(),
+  });
   const body = renderApp(
     entryPoint.default,
-    pageWithMetadata,
+    page,
     webExtractor,
     initializeState
   );
 
+  const helmet = Helmet.renderStatic();
   const scriptTags = webExtractor.getScriptTags();
   const linkTags = webExtractor.getLinkTags();
   const styleTags = webExtractor.getStyleTags();
 
   const html = template({
+    helmet,
     body,
     scriptTags,
     linkTags,
     styleTags,
     preloadedState,
     pagePath: page.path,
+    pageMetadata: page.metadata,
   });
   return html;
 }
 
-export async function writePages(pages: Page[]): Promise<void> {
+export async function writePages(pages: PageWithMetadata[]): Promise<void> {
   const basePath = "./dist/";
 
   for (const page of pages) {

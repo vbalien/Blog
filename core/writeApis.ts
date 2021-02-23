@@ -1,13 +1,8 @@
 import path from "path";
 import fs, { promises as fsPromises } from "fs";
-import { Page, PageWithMetadata } from "./collectPages";
-import { getExtractor } from "./writePages";
-import normalizePagename from "./utils/normalizePagename";
+import { PageWithMetadata } from "./collectPages";
 
-type PostApi = PageWithMetadata & {
-  content: string;
-  image?: string;
-};
+type PostApi = PageWithMetadata;
 
 export interface PaginationApi {
   currentPage: number;
@@ -21,13 +16,11 @@ export type TagsApi = {
 
 async function writePaginatorApi(
   basePath: string,
-  childPages: Page[],
+  childPages: PageWithMetadata[],
   paginatorDir: string
 ): Promise<void> {
   const limit = 5;
   const paginationApiDir = path.join(basePath, "api", paginatorDir, "page");
-  const { getPageMetadata, getStaticPageTextAndImage } = await getExtractor()
-    .entryPoint;
   if (!fs.existsSync(paginationApiDir))
     fs.mkdirSync(paginationApiDir, { recursive: true });
 
@@ -44,21 +37,7 @@ async function writePaginatorApi(
       currentPage: pageNum,
       perPage: limit,
       maxPage: Math.floor(childPages.length / limit + 1),
-      posts: await Promise.all(
-        posts.map(async p => {
-          const pagename = normalizePagename(p.path);
-          const { text: content, image } = await getStaticPageTextAndImage(
-            pagename
-          );
-          const metadata = await getPageMetadata(pagename);
-          return {
-            ...p,
-            metadata,
-            content,
-            image,
-          };
-        })
-      ),
+      posts,
     };
 
     const handle = await fsPromises.open(apiPath, "w");
@@ -68,21 +47,10 @@ async function writePaginatorApi(
   } while (childPages.length >= pageNum * limit);
 }
 
-async function writeTagsApi(pages: Page[], basePath: string) {
-  const { getPageMetadata } = await getExtractor().entryPoint;
+async function writeTagsApi(pages: PageWithMetadata[], basePath: string) {
   const tagsApi: TagsApi = { tags: [] };
   const apiPath = path.join(basePath, "api");
-  const pagesWithMetadata: PageWithMetadata[] = await Promise.all(
-    pages.map(async p => {
-      const pagename = normalizePagename(p.path);
-      const metadata = await getPageMetadata(pagename);
-      return {
-        ...p,
-        metadata,
-      };
-    })
-  );
-  for (const page of pagesWithMetadata)
+  for (const page of pages)
     page.metadata?.tags && tagsApi.tags.push(...page.metadata?.tags);
   tagsApi.tags = [...new Set(tagsApi.tags)];
   const jsonPath = path.join(apiPath, "tags.json");
@@ -95,14 +63,12 @@ async function writeTagsApi(pages: Page[], basePath: string) {
   if (!fs.existsSync(tagPath)) fs.mkdirSync(tagPath);
 
   for (const tag of tagsApi.tags) {
-    const childPages = pagesWithMetadata.filter(p =>
-      p.metadata?.tags?.includes(tag)
-    );
+    const childPages = pages.filter(p => p.metadata?.tags?.includes(tag));
     await writePaginatorApi(basePath, childPages, `tags/${tag}`);
   }
 }
 
-export async function writeApis(pages: Page[]): Promise<void> {
+export async function writeApis(pages: PageWithMetadata[]): Promise<void> {
   const basePath = "./dist/";
   if (!fs.existsSync(path.join(basePath, "api")))
     fs.mkdirSync(path.join(basePath, "api"), { recursive: true });

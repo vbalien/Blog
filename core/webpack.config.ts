@@ -1,7 +1,7 @@
 import path from "path";
 import nodeExternals from "webpack-node-externals";
 import ForkTsCheckerWebpackPlugin from "fork-ts-checker-webpack-plugin";
-import * as webpack from "webpack";
+import { DefinePlugin, Configuration } from "webpack";
 import { CleanWebpackPlugin } from "clean-webpack-plugin";
 import LoadablePlugin from "@loadable/webpack-plugin";
 import MiniCssExtractPlugin from "mini-css-extract-plugin";
@@ -11,7 +11,7 @@ const production = process.env.NODE_ENV === "production";
 const development =
   !process.env.NODE_ENV || process.env.NODE_ENV === "development";
 
-const getConfig = (target: string): webpack.Configuration => ({
+const getConfig = (target: string): Configuration => ({
   name: target,
   mode: development ? "development" : "production",
   target,
@@ -64,7 +64,9 @@ const getConfig = (target: string): webpack.Configuration => ({
     chunkIds: "named",
   },
   externals:
-    target === "node" ? ["@loadable/component", nodeExternals()] : undefined,
+    target === "node"
+      ? ["@loadable/component", nodeExternals(), "react-helmet"]
+      : undefined,
   output: {
     path: path.join(DIST_PATH, target),
     filename: production ? "[name]-bundle-[chunkhash:8].js" : "[name].js",
@@ -72,6 +74,9 @@ const getConfig = (target: string): webpack.Configuration => ({
     libraryTarget: target === "node" ? "commonjs2" : undefined,
   },
   plugins: [
+    new DefinePlugin({
+      "process.env": { BASE_URL: JSON.stringify("https://alien.moe") },
+    }),
     new CleanWebpackPlugin(),
     new ForkTsCheckerWebpackPlugin({
       async: false,

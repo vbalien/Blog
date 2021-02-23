@@ -14,8 +14,6 @@ const template: Template = ({ date, slug, tags, title }) => ({
   tags: ${JSON.stringify(tags)}
 }
 
-# ${title}
-
 `,
 });
 export default template;
