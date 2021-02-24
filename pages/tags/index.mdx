@@ -1,10 +1,10 @@
 import tagState from "core/client/store/tagState";
 import { useRecoilValueLoadable } from "recoil";
 
-export const preloadStates = [tagState];
+export const preloadStates = [tagState()];
 
 export const Tags = () => {
-  const tags = useRecoilValueLoadable(tagState);
+  const tags = useRecoilValueLoadable(tagState());
   switch (tags.state) {
     case "hasValue":
       return (

@@ -1,13 +1,7 @@
 import { TagsApi } from "core/writeApis";
-import { atom } from "recoil";
+import { atomFamily } from "recoil";
 
-export default atom<TagsApi>({
+export default atomFamily<TagsApi, null>({
   key: "tagState",
-  default: (async () => {
-    try {
-      return await (await fetch(`/api/tags.json`)).json();
-    } catch (err) {
-      return { tags: [] };
-    }
-  })(),
+  default: () => (async () => await (await fetch(`/api/tags.json`)).json())(),
 });
