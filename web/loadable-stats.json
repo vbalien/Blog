@@ -1,12 +1,12 @@
 {
   "name": "web",
-  "hash": "034f19f209b60a17934a",
+  "hash": "405c595dc721b465ec8a",
   "version": "5.21.2",
   "publicPath": "/web/",
   "outputPath": "/home/runner/work/blog/blog/dist/web",
   "assetsByChunkName": {
     "main": [
-      "main-bundle-667de8e5.js"
+      "main-bundle-135b711f.js"
     ],
     "layouts-default": [
       "layouts-default.css",
@@ -41,7 +41,7 @@
       "pages-products-bundle-86f54af0.js"
     ],
     "pages-tags": [
-      "pages-tags-bundle-e7c636e1.js"
+      "pages-tags-bundle-f824fd4f.js"
     ],
     "pages-tags-_paginator": [
       "pages-tags-_paginator-bundle-9ec5b0a3.js"
@@ -50,18 +50,18 @@
   "assets": [
     {
       "type": "asset",
-      "name": "main-bundle-667de8e5.js",
+      "name": "main-bundle-135b711f.js",
       "size": 458940,
       "emitted": false,
       "comparedForEmit": false,
       "cached": true,
       "info": {
         "immutable": true,
-        "chunkhash": "667de8e5",
+        "chunkhash": "135b711f",
         "javascriptModule": false,
         "minimized": true,
         "related": {
-          "license": "main-bundle-667de8e5.js.LICENSE.txt"
+          "license": "main-bundle-135b711f.js.LICENSE.txt"
         }
       },
       "chunkNames": [
@@ -74,7 +74,7 @@
       "related": [
         {
           "type": "license",
-          "name": "main-bundle-667de8e5.js.LICENSE.txt",
+          "name": "main-bundle-135b711f.js.LICENSE.txt",
           "size": 1035,
           "emitted": false,
           "comparedForEmit": false,
@@ -226,14 +226,14 @@
     },
     {
       "type": "asset",
-      "name": "pages-tags-bundle-e7c636e1.js",
-      "size": 6311,
+      "name": "pages-tags-bundle-f824fd4f.js",
+      "size": 6242,
       "emitted": false,
       "comparedForEmit": false,
       "cached": true,
       "info": {
         "immutable": true,
-        "chunkhash": "e7c636e1",
+        "chunkhash": "f824fd4f",
         "javascriptModule": false,
         "minimized": true
       },
@@ -699,10 +699,10 @@
         "main"
       ],
       "files": [
-        "main-bundle-667de8e5.js"
+        "main-bundle-135b711f.js"
       ],
       "auxiliaryFiles": [],
-      "hash": "667de8e5060984180dc4",
+      "hash": "135b711fc54de4bfb6b3",
       "childrenByOrder": {},
       "id": "main",
       "siblings": [],
@@ -886,9 +886,9 @@
       "initial": false,
       "entry": false,
       "recorded": false,
-      "size": 12231,
+      "size": 12089,
       "sizes": {
-        "javascript": 12231
+        "javascript": 12089
       },
       "names": [
         "pages-tags"
@@ -898,10 +898,10 @@
         "main"
       ],
       "files": [
-        "pages-tags-bundle-e7c636e1.js"
+        "pages-tags-bundle-f824fd4f.js"
       ],
       "auxiliaryFiles": [],
-      "hash": "e7c636e15f13de7da98e",
+      "hash": "f824fd4f8bf869f394e7",
       "childrenByOrder": {},
       "id": "pages-tags",
       "siblings": [],
@@ -1025,7 +1025,7 @@
       ],
       "assets": [
         {
-          "name": "main-bundle-667de8e5.js"
+          "name": "main-bundle-135b711f.js"
         }
       ],
       "filteredAssets": 0,
@@ -1046,7 +1046,7 @@
       ],
       "assets": [
         {
-          "name": "main-bundle-667de8e5.js"
+          "name": "main-bundle-135b711f.js"
         }
       ],
       "filteredAssets": 0,
@@ -1524,7 +1524,7 @@
       ],
       "assets": [
         {
-          "name": "pages-tags-bundle-e7c636e1.js"
+          "name": "pages-tags-bundle-f824fd4f.js"
         }
       ],
       "filteredAssets": 0,
@@ -1581,7 +1581,7 @@
       ],
       "assets": [
         {
-          "name": "pages-tags-bundle-e7c636e1.js"
+          "name": "pages-tags-bundle-f824fd4f.js"
         }
       ],
       "filteredAssets": 0,
@@ -1600,7 +1600,7 @@
       ],
       "assets": [
         {
-          "name": "pages-tags-bundle-e7c636e1.js"
+          "name": "pages-tags-bundle-f824fd4f.js"
         }
       ],
       "filteredAssets": 0,
@@ -1622,7 +1622,7 @@
       "name": "mini-css-extract-plugin /home/runner/work/blog/blog/node_modules/css-loader/dist/cjs.js!/home/runner/work/blog/blog/layouts/default/markdown.css",
       "hash": "e86de0ed2a6d79755aa9",
       "version": "5.21.2",
-      "builtAt": 1614184387812,
+      "builtAt": 1614190008937,
       "publicPath": "/web/",
       "outputPath": "/home/runner/work/blog/blog/dist/web",
       "assetsByChunkName": {},

@@ -1,12 +1,12 @@
 {
   "name": "node",
-  "hash": "e1a51bb78e5394502a6e",
+  "hash": "35cc0f51215cc1cea4c1",
   "version": "5.21.2",
   "publicPath": "/node/",
   "outputPath": "/home/runner/work/blog/blog/dist/node",
   "assetsByChunkName": {
     "main": [
-      "main-bundle-3a178ac1.js"
+      "main-bundle-655ccacf.js"
     ],
     "layouts-default": [
       "layouts-default-bundle-b609dafc.js"
@@ -39,7 +39,7 @@
       "pages-products-bundle-e7064b8a.js"
     ],
     "pages-tags": [
-      "pages-tags-bundle-16c61c91.js"
+      "pages-tags-bundle-090acb3b.js"
     ],
     "pages-tags-_paginator": [
       "pages-tags-_paginator-bundle-0449e2f3.js"
@@ -78,14 +78,14 @@
     },
     {
       "type": "asset",
-      "name": "main-bundle-3a178ac1.js",
+      "name": "main-bundle-655ccacf.js",
       "size": 21759,
       "emitted": false,
       "comparedForEmit": false,
       "cached": true,
       "info": {
         "immutable": true,
-        "chunkhash": "3a178ac1",
+        "chunkhash": "655ccacf",
         "javascriptModule": false,
         "minimized": true
       },
@@ -211,14 +211,14 @@
     },
     {
       "type": "asset",
-      "name": "pages-tags-bundle-16c61c91.js",
-      "size": 2268,
+      "name": "pages-tags-bundle-090acb3b.js",
+      "size": 2205,
       "emitted": false,
       "comparedForEmit": false,
       "cached": true,
       "info": {
         "immutable": true,
-        "chunkhash": "16c61c91",
+        "chunkhash": "090acb3b",
         "javascriptModule": false,
         "minimized": true
       },
@@ -619,10 +619,10 @@
         "main"
       ],
       "files": [
-        "main-bundle-3a178ac1.js"
+        "main-bundle-655ccacf.js"
       ],
       "auxiliaryFiles": [],
-      "hash": "3a178ac129f776700bcf",
+      "hash": "655ccacf1e9b6ca806ba",
       "childrenByOrder": {},
       "id": "main",
       "siblings": [],
@@ -805,9 +805,9 @@
       "initial": false,
       "entry": false,
       "recorded": false,
-      "size": 4052,
+      "size": 3910,
       "sizes": {
-        "javascript": 4052
+        "javascript": 3910
       },
       "names": [
         "pages-tags"
@@ -817,10 +817,10 @@
         "main"
       ],
       "files": [
-        "pages-tags-bundle-16c61c91.js"
+        "pages-tags-bundle-090acb3b.js"
       ],
       "auxiliaryFiles": [],
-      "hash": "16c61c914455bfa47e06",
+      "hash": "090acb3ba4fc51d90a76",
       "childrenByOrder": {},
       "id": "pages-tags",
       "siblings": [],
@@ -871,7 +871,7 @@
       ],
       "assets": [
         {
-          "name": "main-bundle-3a178ac1.js"
+          "name": "main-bundle-655ccacf.js"
         }
       ],
       "filteredAssets": 0,
@@ -892,7 +892,7 @@
       ],
       "assets": [
         {
-          "name": "main-bundle-3a178ac1.js"
+          "name": "main-bundle-655ccacf.js"
         }
       ],
       "filteredAssets": 0,
@@ -1310,7 +1310,7 @@
       ],
       "assets": [
         {
-          "name": "pages-tags-bundle-16c61c91.js"
+          "name": "pages-tags-bundle-090acb3b.js"
         }
       ],
       "filteredAssets": 0,
@@ -1367,7 +1367,7 @@
       ],
       "assets": [
         {
-          "name": "pages-tags-bundle-16c61c91.js"
+          "name": "pages-tags-bundle-090acb3b.js"
         }
       ],
       "filteredAssets": 0,
@@ -1386,7 +1386,7 @@
       ],
       "assets": [
         {
-          "name": "pages-tags-bundle-16c61c91.js"
+          "name": "pages-tags-bundle-090acb3b.js"
         }
       ],
       "filteredAssets": 0,
