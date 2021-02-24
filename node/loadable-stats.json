@@ -1,0 +1,1408 @@
+{
+  "name": "node",
+  "hash": "e1a51bb78e5394502a6e",
+  "version": "5.21.2",
+  "publicPath": "/node/",
+  "outputPath": "/home/runner/work/blog/blog/dist/node",
+  "assetsByChunkName": {
+    "main": [
+      "main-bundle-3a178ac1.js"
+    ],
+    "layouts-default": [
+      "layouts-default-bundle-b609dafc.js"
+    ],
+    "layouts-default-CodeBlock": [
+      "layouts-default-CodeBlock-bundle-480f7b67.js"
+    ],
+    "layouts-default-Profile": [
+      "layouts-default-Profile-bundle-f1271c82.js"
+    ],
+    "layouts-default-Sidebar": [
+      "layouts-default-Sidebar-bundle-8997fa66.js"
+    ],
+    "layouts-default-markdown-css": [
+      "layouts-default-markdown-css-bundle-0409fdef.js"
+    ],
+    "pages-": [
+      "pages--bundle-e706ea18.js"
+    ],
+    "pages-archives-2021-02-23-hello-world": [
+      "pages-archives-2021-02-23-hello-world-bundle-b41bd929.js"
+    ],
+    "pages-archives-_paginator": [
+      "pages-archives-_paginator-bundle-b4f94e1c.js"
+    ],
+    "pages-archives-hellowrold": [
+      "pages-archives-hellowrold-bundle-95cc02c8.js"
+    ],
+    "pages-products": [
+      "pages-products-bundle-e7064b8a.js"
+    ],
+    "pages-tags": [
+      "pages-tags-bundle-16c61c91.js"
+    ],
+    "pages-tags-_paginator": [
+      "pages-tags-_paginator-bundle-0449e2f3.js"
+    ]
+  },
+  "assets": [
+    {
+      "type": "asset",
+      "name": "layouts-default-bundle-b609dafc.js",
+      "size": 24822,
+      "emitted": false,
+      "comparedForEmit": false,
+      "cached": true,
+      "info": {
+        "immutable": true,
+        "chunkhash": "b609dafc",
+        "javascriptModule": false,
+        "minimized": true
+      },
+      "chunkNames": [
+        "layouts-default"
+      ],
+      "chunkIdHints": [],
+      "auxiliaryChunkNames": [],
+      "auxiliaryChunkIdHints": [],
+      "related": {},
+      "chunks": [
+        "layouts-default",
+        "layouts-default-CodeBlock",
+        "layouts-default-Profile",
+        "layouts-default-Sidebar",
+        "layouts-default-markdown-css"
+      ],
+      "auxiliaryChunks": [],
+      "isOverSizeLimit": false
+    },
+    {
+      "type": "asset",
+      "name": "main-bundle-3a178ac1.js",
+      "size": 21759,
+      "emitted": false,
+      "comparedForEmit": false,
+      "cached": true,
+      "info": {
+        "immutable": true,
+        "chunkhash": "3a178ac1",
+        "javascriptModule": false,
+        "minimized": true
+      },
+      "chunkNames": [
+        "main"
+      ],
+      "chunkIdHints": [],
+      "auxiliaryChunkNames": [],
+      "auxiliaryChunkIdHints": [],
+      "related": {},
+      "chunks": [
+        "main"
+      ],
+      "auxiliaryChunks": [],
+      "isOverSizeLimit": false
+    },
+    {
+      "type": "asset",
+      "name": "layouts-default-markdown-css-bundle-0409fdef.js",
+      "size": 18570,
+      "emitted": false,
+      "comparedForEmit": false,
+      "cached": true,
+      "info": {
+        "immutable": true,
+        "chunkhash": "0409fdef",
+        "javascriptModule": false,
+        "minimized": true
+      },
+      "chunkNames": [
+        "layouts-default-markdown-css"
+      ],
+      "chunkIdHints": [],
+      "auxiliaryChunkNames": [],
+      "auxiliaryChunkIdHints": [],
+      "related": {},
+      "chunks": [
+        "layouts-default-markdown-css"
+      ],
+      "auxiliaryChunks": [],
+      "isOverSizeLimit": false
+    },
+    {
+      "type": "asset",
+      "name": "layouts-default-Sidebar-bundle-8997fa66.js",
+      "size": 3133,
+      "emitted": false,
+      "comparedForEmit": false,
+      "cached": true,
+      "info": {
+        "immutable": true,
+        "chunkhash": "8997fa66",
+        "javascriptModule": false,
+        "minimized": true
+      },
+      "chunkNames": [
+        "layouts-default-Sidebar"
+      ],
+      "chunkIdHints": [],
+      "auxiliaryChunkNames": [],
+      "auxiliaryChunkIdHints": [],
+      "related": {},
+      "chunks": [
+        "layouts-default-Profile",
+        "layouts-default-Sidebar"
+      ],
+      "auxiliaryChunks": [],
+      "isOverSizeLimit": false
+    },
+    {
+      "type": "asset",
+      "name": "pages-archives-_paginator-bundle-b4f94e1c.js",
+      "size": 2397,
+      "emitted": false,
+      "comparedForEmit": false,
+      "cached": true,
+      "info": {
+        "immutable": true,
+        "chunkhash": "b4f94e1c",
+        "javascriptModule": false,
+        "minimized": true
+      },
+      "chunkNames": [
+        "pages-archives-_paginator"
+      ],
+      "chunkIdHints": [],
+      "auxiliaryChunkNames": [],
+      "auxiliaryChunkIdHints": [],
+      "related": {},
+      "chunks": [
+        "core_client_store_paginationState_ts",
+        "pages-archives-_paginator"
+      ],
+      "auxiliaryChunks": [],
+      "isOverSizeLimit": false
+    },
+    {
+      "type": "asset",
+      "name": "pages-tags-_paginator-bundle-0449e2f3.js",
+      "size": 2385,
+      "emitted": false,
+      "comparedForEmit": false,
+      "cached": true,
+      "info": {
+        "immutable": true,
+        "chunkhash": "0449e2f3",
+        "javascriptModule": false,
+        "minimized": true
+      },
+      "chunkNames": [
+        "pages-tags-_paginator"
+      ],
+      "chunkIdHints": [],
+      "auxiliaryChunkNames": [],
+      "auxiliaryChunkIdHints": [],
+      "related": {},
+      "chunks": [
+        "core_client_store_paginationState_ts",
+        "pages-tags-_paginator"
+      ],
+      "auxiliaryChunks": [],
+      "isOverSizeLimit": false
+    },
+    {
+      "type": "asset",
+      "name": "pages-tags-bundle-16c61c91.js",
+      "size": 2268,
+      "emitted": false,
+      "comparedForEmit": false,
+      "cached": true,
+      "info": {
+        "immutable": true,
+        "chunkhash": "16c61c91",
+        "javascriptModule": false,
+        "minimized": true
+      },
+      "chunkNames": [
+        "pages-tags"
+      ],
+      "chunkIdHints": [],
+      "auxiliaryChunkNames": [],
+      "auxiliaryChunkIdHints": [],
+      "related": {},
+      "chunks": [
+        "pages-tags"
+      ],
+      "auxiliaryChunks": [],
+      "isOverSizeLimit": false
+    },
+    {
+      "type": "asset",
+      "name": "layouts-default-CodeBlock-bundle-480f7b67.js",
+      "size": 1836,
+      "emitted": false,
+      "comparedForEmit": false,
+      "cached": true,
+      "info": {
+        "immutable": true,
+        "chunkhash": "480f7b67",
+        "javascriptModule": false,
+        "minimized": true
+      },
+      "chunkNames": [
+        "layouts-default-CodeBlock"
+      ],
+      "chunkIdHints": [],
+      "auxiliaryChunkNames": [],
+      "auxiliaryChunkIdHints": [],
+      "related": {},
+      "chunks": [
+        "layouts-default-CodeBlock"
+      ],
+      "auxiliaryChunks": [],
+      "isOverSizeLimit": false
+    },
+    {
+      "type": "asset",
+      "name": "layouts-default-Profile-bundle-f1271c82.js",
+      "size": 1286,
+      "emitted": false,
+      "comparedForEmit": false,
+      "cached": true,
+      "info": {
+        "immutable": true,
+        "chunkhash": "f1271c82",
+        "javascriptModule": false,
+        "minimized": true
+      },
+      "chunkNames": [
+        "layouts-default-Profile"
+      ],
+      "chunkIdHints": [],
+      "auxiliaryChunkNames": [],
+      "auxiliaryChunkIdHints": [],
+      "related": {},
+      "chunks": [
+        "layouts-default-Profile"
+      ],
+      "auxiliaryChunks": [],
+      "isOverSizeLimit": false
+    },
+    {
+      "type": "asset",
+      "name": "pages--bundle-e706ea18.js",
+      "size": 1274,
+      "emitted": false,
+      "comparedForEmit": false,
+      "cached": true,
+      "info": {
+        "immutable": true,
+        "chunkhash": "e706ea18",
+        "javascriptModule": false,
+        "minimized": true
+      },
+      "chunkNames": [
+        "pages-"
+      ],
+      "chunkIdHints": [],
+      "auxiliaryChunkNames": [],
+      "auxiliaryChunkIdHints": [],
+      "related": {},
+      "chunks": [
+        "pages-"
+      ],
+      "auxiliaryChunks": [],
+      "isOverSizeLimit": false
+    },
+    {
+      "type": "asset",
+      "name": "pages-archives-2021-02-23-hello-world-bundle-b41bd929.js",
+      "size": 1206,
+      "emitted": false,
+      "comparedForEmit": false,
+      "cached": true,
+      "info": {
+        "immutable": true,
+        "chunkhash": "b41bd929",
+        "javascriptModule": false,
+        "minimized": true
+      },
+      "chunkNames": [
+        "pages-archives-2021-02-23-hello-world"
+      ],
+      "chunkIdHints": [],
+      "auxiliaryChunkNames": [],
+      "auxiliaryChunkIdHints": [],
+      "related": {},
+      "chunks": [
+        "pages-archives-2021-02-23-hello-world"
+      ],
+      "auxiliaryChunks": [],
+      "isOverSizeLimit": false
+    },
+    {
+      "type": "asset",
+      "name": "pages-archives-hellowrold-bundle-95cc02c8.js",
+      "size": 1147,
+      "emitted": false,
+      "comparedForEmit": false,
+      "cached": true,
+      "info": {
+        "immutable": true,
+        "chunkhash": "95cc02c8",
+        "javascriptModule": false,
+        "minimized": true
+      },
+      "chunkNames": [
+        "pages-archives-hellowrold"
+      ],
+      "chunkIdHints": [],
+      "auxiliaryChunkNames": [],
+      "auxiliaryChunkIdHints": [],
+      "related": {},
+      "chunks": [
+        "pages-archives-hellowrold"
+      ],
+      "auxiliaryChunks": [],
+      "isOverSizeLimit": false
+    },
+    {
+      "type": "asset",
+      "name": "core_client_store_paginationState_ts-bundle-51b5e4e1.js",
+      "size": 1061,
+      "emitted": false,
+      "comparedForEmit": false,
+      "cached": true,
+      "info": {
+        "immutable": true,
+        "chunkhash": "51b5e4e1",
+        "javascriptModule": false,
+        "minimized": true
+      },
+      "chunkNames": [],
+      "chunkIdHints": [],
+      "auxiliaryChunkNames": [],
+      "auxiliaryChunkIdHints": [],
+      "related": {},
+      "chunks": [
+        "core_client_store_paginationState_ts"
+      ],
+      "auxiliaryChunks": [],
+      "isOverSizeLimit": false
+    },
+    {
+      "type": "asset",
+      "name": "pages-products-bundle-e7064b8a.js",
+      "size": 1035,
+      "emitted": false,
+      "comparedForEmit": false,
+      "cached": true,
+      "info": {
+        "immutable": true,
+        "chunkhash": "e7064b8a",
+        "javascriptModule": false,
+        "minimized": true
+      },
+      "chunkNames": [
+        "pages-products"
+      ],
+      "chunkIdHints": [],
+      "auxiliaryChunkNames": [],
+      "auxiliaryChunkIdHints": [],
+      "related": {},
+      "chunks": [
+        "pages-products"
+      ],
+      "auxiliaryChunks": [],
+      "isOverSizeLimit": false
+    }
+  ],
+  "chunks": [
+    {
+      "rendered": true,
+      "initial": false,
+      "entry": false,
+      "recorded": false,
+      "size": 1757,
+      "sizes": {
+        "javascript": 1757
+      },
+      "names": [],
+      "idHints": [],
+      "runtime": [
+        "main"
+      ],
+      "files": [
+        "core_client_store_paginationState_ts-bundle-51b5e4e1.js"
+      ],
+      "auxiliaryFiles": [],
+      "hash": "51b5e4e12423d8f19de9",
+      "childrenByOrder": {},
+      "id": "core_client_store_paginationState_ts",
+      "siblings": [],
+      "parents": [
+        "main"
+      ],
+      "children": [],
+      "modules": [],
+      "origins": []
+    },
+    {
+      "rendered": true,
+      "initial": false,
+      "entry": false,
+      "recorded": false,
+      "size": 29137,
+      "sizes": {
+        "javascript": 29137
+      },
+      "names": [
+        "layouts-default"
+      ],
+      "idHints": [],
+      "runtime": [
+        "main"
+      ],
+      "files": [
+        "layouts-default-bundle-b609dafc.js"
+      ],
+      "auxiliaryFiles": [],
+      "hash": "b609dafc8e4abe5438d6",
+      "childrenByOrder": {},
+      "id": "layouts-default",
+      "siblings": [],
+      "parents": [
+        "main"
+      ],
+      "children": [],
+      "modules": [],
+      "origins": []
+    },
+    {
+      "rendered": true,
+      "initial": false,
+      "entry": false,
+      "recorded": false,
+      "size": 2963,
+      "sizes": {
+        "javascript": 2963
+      },
+      "names": [
+        "layouts-default-CodeBlock"
+      ],
+      "idHints": [],
+      "runtime": [
+        "main"
+      ],
+      "files": [
+        "layouts-default-CodeBlock-bundle-480f7b67.js"
+      ],
+      "auxiliaryFiles": [],
+      "hash": "480f7b6715f114d7ecd0",
+      "childrenByOrder": {},
+      "id": "layouts-default-CodeBlock",
+      "siblings": [],
+      "parents": [
+        "main"
+      ],
+      "children": [],
+      "modules": [],
+      "origins": []
+    },
+    {
+      "rendered": true,
+      "initial": false,
+      "entry": false,
+      "recorded": false,
+      "size": 1692,
+      "sizes": {
+        "javascript": 1692
+      },
+      "names": [
+        "layouts-default-Profile"
+      ],
+      "idHints": [],
+      "runtime": [
+        "main"
+      ],
+      "files": [
+        "layouts-default-Profile-bundle-f1271c82.js"
+      ],
+      "auxiliaryFiles": [],
+      "hash": "f1271c82441e0c52f8de",
+      "childrenByOrder": {},
+      "id": "layouts-default-Profile",
+      "siblings": [],
+      "parents": [
+        "main"
+      ],
+      "children": [],
+      "modules": [],
+      "origins": []
+    },
+    {
+      "rendered": true,
+      "initial": false,
+      "entry": false,
+      "recorded": false,
+      "size": 4436,
+      "sizes": {
+        "javascript": 4436
+      },
+      "names": [
+        "layouts-default-Sidebar"
+      ],
+      "idHints": [],
+      "runtime": [
+        "main"
+      ],
+      "files": [
+        "layouts-default-Sidebar-bundle-8997fa66.js"
+      ],
+      "auxiliaryFiles": [],
+      "hash": "8997fa66f7edb3ab834c",
+      "childrenByOrder": {},
+      "id": "layouts-default-Sidebar",
+      "siblings": [],
+      "parents": [
+        "main"
+      ],
+      "children": [],
+      "modules": [],
+      "origins": []
+    },
+    {
+      "rendered": true,
+      "initial": false,
+      "entry": false,
+      "recorded": false,
+      "size": 19672,
+      "sizes": {
+        "javascript": 19672
+      },
+      "names": [
+        "layouts-default-markdown-css"
+      ],
+      "idHints": [],
+      "runtime": [
+        "main"
+      ],
+      "files": [
+        "layouts-default-markdown-css-bundle-0409fdef.js"
+      ],
+      "auxiliaryFiles": [],
+      "hash": "0409fdef94538b7bc85a",
+      "childrenByOrder": {},
+      "id": "layouts-default-markdown-css",
+      "siblings": [],
+      "parents": [
+        "main"
+      ],
+      "children": [],
+      "modules": [],
+      "origins": []
+    },
+    {
+      "rendered": true,
+      "initial": true,
+      "entry": true,
+      "recorded": false,
+      "size": 24052,
+      "sizes": {
+        "javascript": 21017,
+        "runtime": 3035
+      },
+      "names": [
+        "main"
+      ],
+      "idHints": [],
+      "runtime": [
+        "main"
+      ],
+      "files": [
+        "main-bundle-3a178ac1.js"
+      ],
+      "auxiliaryFiles": [],
+      "hash": "3a178ac129f776700bcf",
+      "childrenByOrder": {},
+      "id": "main",
+      "siblings": [],
+      "parents": [],
+      "children": [
+        "core_client_store_paginationState_ts",
+        "layouts-default",
+        "layouts-default-CodeBlock",
+        "layouts-default-Profile",
+        "layouts-default-Sidebar",
+        "layouts-default-markdown-css",
+        "pages-",
+        "pages-archives-2021-02-23-hello-world",
+        "pages-archives-_paginator",
+        "pages-archives-hellowrold",
+        "pages-products",
+        "pages-tags",
+        "pages-tags-_paginator"
+      ],
+      "modules": [],
+      "origins": []
+    },
+    {
+      "rendered": true,
+      "initial": false,
+      "entry": false,
+      "recorded": false,
+      "size": 1996,
+      "sizes": {
+        "javascript": 1996
+      },
+      "names": [
+        "pages-"
+      ],
+      "idHints": [],
+      "runtime": [
+        "main"
+      ],
+      "files": [
+        "pages--bundle-e706ea18.js"
+      ],
+      "auxiliaryFiles": [],
+      "hash": "e706ea180e7e0dc524c0",
+      "childrenByOrder": {},
+      "id": "pages-",
+      "siblings": [],
+      "parents": [
+        "main"
+      ],
+      "children": [],
+      "modules": [],
+      "origins": []
+    },
+    {
+      "rendered": true,
+      "initial": false,
+      "entry": false,
+      "recorded": false,
+      "size": 1832,
+      "sizes": {
+        "javascript": 1832
+      },
+      "names": [
+        "pages-archives-2021-02-23-hello-world"
+      ],
+      "idHints": [],
+      "runtime": [
+        "main"
+      ],
+      "files": [
+        "pages-archives-2021-02-23-hello-world-bundle-b41bd929.js"
+      ],
+      "auxiliaryFiles": [],
+      "hash": "b41bd929a2fcf302f85d",
+      "childrenByOrder": {},
+      "id": "pages-archives-2021-02-23-hello-world",
+      "siblings": [],
+      "parents": [
+        "main"
+      ],
+      "children": [],
+      "modules": [],
+      "origins": []
+    },
+    {
+      "rendered": true,
+      "initial": false,
+      "entry": false,
+      "recorded": false,
+      "size": 3691,
+      "sizes": {
+        "javascript": 3691
+      },
+      "names": [
+        "pages-archives-_paginator"
+      ],
+      "idHints": [],
+      "runtime": [
+        "main"
+      ],
+      "files": [
+        "pages-archives-_paginator-bundle-b4f94e1c.js"
+      ],
+      "auxiliaryFiles": [],
+      "hash": "b4f94e1c9edaf4878c2e",
+      "childrenByOrder": {},
+      "id": "pages-archives-_paginator",
+      "siblings": [],
+      "parents": [
+        "main"
+      ],
+      "children": [],
+      "modules": [],
+      "origins": []
+    },
+    {
+      "rendered": true,
+      "initial": false,
+      "entry": false,
+      "recorded": false,
+      "size": 1805,
+      "sizes": {
+        "javascript": 1805
+      },
+      "names": [
+        "pages-archives-hellowrold"
+      ],
+      "idHints": [],
+      "runtime": [
+        "main"
+      ],
+      "files": [
+        "pages-archives-hellowrold-bundle-95cc02c8.js"
+      ],
+      "auxiliaryFiles": [],
+      "hash": "95cc02c8c9f48c007a5b",
+      "childrenByOrder": {},
+      "id": "pages-archives-hellowrold",
+      "siblings": [],
+      "parents": [
+        "main"
+      ],
+      "children": [],
+      "modules": [],
+      "origins": []
+    },
+    {
+      "rendered": true,
+      "initial": false,
+      "entry": false,
+      "recorded": false,
+      "size": 1697,
+      "sizes": {
+        "javascript": 1697
+      },
+      "names": [
+        "pages-products"
+      ],
+      "idHints": [],
+      "runtime": [
+        "main"
+      ],
+      "files": [
+        "pages-products-bundle-e7064b8a.js"
+      ],
+      "auxiliaryFiles": [],
+      "hash": "e7064b8a25f6078b1374",
+      "childrenByOrder": {},
+      "id": "pages-products",
+      "siblings": [],
+      "parents": [
+        "main"
+      ],
+      "children": [],
+      "modules": [],
+      "origins": []
+    },
+    {
+      "rendered": true,
+      "initial": false,
+      "entry": false,
+      "recorded": false,
+      "size": 4052,
+      "sizes": {
+        "javascript": 4052
+      },
+      "names": [
+        "pages-tags"
+      ],
+      "idHints": [],
+      "runtime": [
+        "main"
+      ],
+      "files": [
+        "pages-tags-bundle-16c61c91.js"
+      ],
+      "auxiliaryFiles": [],
+      "hash": "16c61c914455bfa47e06",
+      "childrenByOrder": {},
+      "id": "pages-tags",
+      "siblings": [],
+      "parents": [
+        "main"
+      ],
+      "children": [],
+      "modules": [],
+      "origins": []
+    },
+    {
+      "rendered": true,
+      "initial": false,
+      "entry": false,
+      "recorded": false,
+      "size": 3691,
+      "sizes": {
+        "javascript": 3691
+      },
+      "names": [
+        "pages-tags-_paginator"
+      ],
+      "idHints": [],
+      "runtime": [
+        "main"
+      ],
+      "files": [
+        "pages-tags-_paginator-bundle-0449e2f3.js"
+      ],
+      "auxiliaryFiles": [],
+      "hash": "0449e2f332d41b047503",
+      "childrenByOrder": {},
+      "id": "pages-tags-_paginator",
+      "siblings": [],
+      "parents": [
+        "main"
+      ],
+      "children": [],
+      "modules": [],
+      "origins": []
+    }
+  ],
+  "entrypoints": {
+    "main": {
+      "name": "main",
+      "chunks": [
+        "main"
+      ],
+      "assets": [
+        {
+          "name": "main-bundle-3a178ac1.js"
+        }
+      ],
+      "filteredAssets": 0,
+      "assetsSize": null,
+      "auxiliaryAssets": [],
+      "filteredAuxiliaryAssets": 0,
+      "auxiliaryAssetsSize": 0,
+      "children": {},
+      "childAssets": {},
+      "isOverSizeLimit": false
+    }
+  },
+  "namedChunkGroups": {
+    "main": {
+      "name": "main",
+      "chunks": [
+        "main"
+      ],
+      "assets": [
+        {
+          "name": "main-bundle-3a178ac1.js"
+        }
+      ],
+      "filteredAssets": 0,
+      "assetsSize": null,
+      "auxiliaryAssets": [],
+      "filteredAuxiliaryAssets": 0,
+      "auxiliaryAssetsSize": 0,
+      "children": {},
+      "childAssets": {},
+      "isOverSizeLimit": false
+    },
+    "layouts-default": {
+      "name": "layouts-default",
+      "chunks": [
+        "layouts-default"
+      ],
+      "assets": [
+        {
+          "name": "layouts-default-bundle-b609dafc.js"
+        }
+      ],
+      "filteredAssets": 0,
+      "assetsSize": null,
+      "auxiliaryAssets": [],
+      "filteredAuxiliaryAssets": 0,
+      "auxiliaryAssetsSize": 0,
+      "children": {},
+      "childAssets": {},
+      "isOverSizeLimit": false
+    },
+    "layouts-default-CodeBlock": {
+      "name": "layouts-default-CodeBlock",
+      "chunks": [
+        "layouts-default-CodeBlock"
+      ],
+      "assets": [
+        {
+          "name": "layouts-default-CodeBlock-bundle-480f7b67.js"
+        }
+      ],
+      "filteredAssets": 0,
+      "assetsSize": null,
+      "auxiliaryAssets": [],
+      "filteredAuxiliaryAssets": 0,
+      "auxiliaryAssetsSize": 0,
+      "children": {},
+      "childAssets": {},
+      "isOverSizeLimit": false
+    },
+    "layouts-default-CodeBlock-tsx": {
+      "name": "layouts-default-CodeBlock-tsx",
+      "chunks": [
+        "layouts-default-CodeBlock"
+      ],
+      "assets": [
+        {
+          "name": "layouts-default-CodeBlock-bundle-480f7b67.js"
+        }
+      ],
+      "filteredAssets": 0,
+      "assetsSize": null,
+      "auxiliaryAssets": [],
+      "filteredAuxiliaryAssets": 0,
+      "auxiliaryAssetsSize": 0,
+      "children": {},
+      "childAssets": {},
+      "isOverSizeLimit": false
+    },
+    "layouts-default-Profile": {
+      "name": "layouts-default-Profile",
+      "chunks": [
+        "layouts-default-Profile"
+      ],
+      "assets": [
+        {
+          "name": "layouts-default-Profile-bundle-f1271c82.js"
+        }
+      ],
+      "filteredAssets": 0,
+      "assetsSize": null,
+      "auxiliaryAssets": [],
+      "filteredAuxiliaryAssets": 0,
+      "auxiliaryAssetsSize": 0,
+      "children": {},
+      "childAssets": {},
+      "isOverSizeLimit": false
+    },
+    "layouts-default-Profile-tsx": {
+      "name": "layouts-default-Profile-tsx",
+      "chunks": [
+        "layouts-default-Profile"
+      ],
+      "assets": [
+        {
+          "name": "layouts-default-Profile-bundle-f1271c82.js"
+        }
+      ],
+      "filteredAssets": 0,
+      "assetsSize": null,
+      "auxiliaryAssets": [],
+      "filteredAuxiliaryAssets": 0,
+      "auxiliaryAssetsSize": 0,
+      "children": {},
+      "childAssets": {},
+      "isOverSizeLimit": false
+    },
+    "layouts-default-Sidebar": {
+      "name": "layouts-default-Sidebar",
+      "chunks": [
+        "layouts-default-Sidebar"
+      ],
+      "assets": [
+        {
+          "name": "layouts-default-Sidebar-bundle-8997fa66.js"
+        }
+      ],
+      "filteredAssets": 0,
+      "assetsSize": null,
+      "auxiliaryAssets": [],
+      "filteredAuxiliaryAssets": 0,
+      "auxiliaryAssetsSize": 0,
+      "children": {},
+      "childAssets": {},
+      "isOverSizeLimit": false
+    },
+    "layouts-default-Sidebar-tsx": {
+      "name": "layouts-default-Sidebar-tsx",
+      "chunks": [
+        "layouts-default-Sidebar"
+      ],
+      "assets": [
+        {
+          "name": "layouts-default-Sidebar-bundle-8997fa66.js"
+        }
+      ],
+      "filteredAssets": 0,
+      "assetsSize": null,
+      "auxiliaryAssets": [],
+      "filteredAuxiliaryAssets": 0,
+      "auxiliaryAssetsSize": 0,
+      "children": {},
+      "childAssets": {},
+      "isOverSizeLimit": false
+    },
+    "layouts-default-index": {
+      "name": "layouts-default-index",
+      "chunks": [
+        "layouts-default"
+      ],
+      "assets": [
+        {
+          "name": "layouts-default-bundle-b609dafc.js"
+        }
+      ],
+      "filteredAssets": 0,
+      "assetsSize": null,
+      "auxiliaryAssets": [],
+      "filteredAuxiliaryAssets": 0,
+      "auxiliaryAssetsSize": 0,
+      "children": {},
+      "childAssets": {},
+      "isOverSizeLimit": false
+    },
+    "layouts-default-index-tsx": {
+      "name": "layouts-default-index-tsx",
+      "chunks": [
+        "layouts-default"
+      ],
+      "assets": [
+        {
+          "name": "layouts-default-bundle-b609dafc.js"
+        }
+      ],
+      "filteredAssets": 0,
+      "assetsSize": null,
+      "auxiliaryAssets": [],
+      "filteredAuxiliaryAssets": 0,
+      "auxiliaryAssetsSize": 0,
+      "children": {},
+      "childAssets": {},
+      "isOverSizeLimit": false
+    },
+    "layouts-default-markdown-css": {
+      "name": "layouts-default-markdown-css",
+      "chunks": [
+        "layouts-default-markdown-css"
+      ],
+      "assets": [
+        {
+          "name": "layouts-default-markdown-css-bundle-0409fdef.js"
+        }
+      ],
+      "filteredAssets": 0,
+      "assetsSize": null,
+      "auxiliaryAssets": [],
+      "filteredAuxiliaryAssets": 0,
+      "auxiliaryAssetsSize": 0,
+      "children": {},
+      "childAssets": {},
+      "isOverSizeLimit": false
+    },
+    "pages-": {
+      "name": "pages-",
+      "chunks": [
+        "pages-"
+      ],
+      "assets": [
+        {
+          "name": "pages--bundle-e706ea18.js"
+        }
+      ],
+      "filteredAssets": 0,
+      "assetsSize": null,
+      "auxiliaryAssets": [],
+      "filteredAuxiliaryAssets": 0,
+      "auxiliaryAssetsSize": 0,
+      "children": {},
+      "childAssets": {},
+      "isOverSizeLimit": false
+    },
+    "pages-archives-2021-02-23-hello-world": {
+      "name": "pages-archives-2021-02-23-hello-world",
+      "chunks": [
+        "pages-archives-2021-02-23-hello-world"
+      ],
+      "assets": [
+        {
+          "name": "pages-archives-2021-02-23-hello-world-bundle-b41bd929.js"
+        }
+      ],
+      "filteredAssets": 0,
+      "assetsSize": null,
+      "auxiliaryAssets": [],
+      "filteredAuxiliaryAssets": 0,
+      "auxiliaryAssetsSize": 0,
+      "children": {},
+      "childAssets": {},
+      "isOverSizeLimit": false
+    },
+    "pages-archives-2021-02-23-hello-world-mdx": {
+      "name": "pages-archives-2021-02-23-hello-world-mdx",
+      "chunks": [
+        "pages-archives-2021-02-23-hello-world"
+      ],
+      "assets": [
+        {
+          "name": "pages-archives-2021-02-23-hello-world-bundle-b41bd929.js"
+        }
+      ],
+      "filteredAssets": 0,
+      "assetsSize": null,
+      "auxiliaryAssets": [],
+      "filteredAuxiliaryAssets": 0,
+      "auxiliaryAssetsSize": 0,
+      "children": {},
+      "childAssets": {},
+      "isOverSizeLimit": false
+    },
+    "pages-archives-_paginator": {
+      "name": "pages-archives-_paginator",
+      "chunks": [
+        "pages-archives-_paginator"
+      ],
+      "assets": [
+        {
+          "name": "pages-archives-_paginator-bundle-b4f94e1c.js"
+        }
+      ],
+      "filteredAssets": 0,
+      "assetsSize": null,
+      "auxiliaryAssets": [],
+      "filteredAuxiliaryAssets": 0,
+      "auxiliaryAssetsSize": 0,
+      "children": {},
+      "childAssets": {},
+      "isOverSizeLimit": false
+    },
+    "pages-archives-_paginator-tsx": {
+      "name": "pages-archives-_paginator-tsx",
+      "chunks": [
+        "pages-archives-_paginator"
+      ],
+      "assets": [
+        {
+          "name": "pages-archives-_paginator-bundle-b4f94e1c.js"
+        }
+      ],
+      "filteredAssets": 0,
+      "assetsSize": null,
+      "auxiliaryAssets": [],
+      "filteredAuxiliaryAssets": 0,
+      "auxiliaryAssetsSize": 0,
+      "children": {},
+      "childAssets": {},
+      "isOverSizeLimit": false
+    },
+    "pages-archives-hellowrold": {
+      "name": "pages-archives-hellowrold",
+      "chunks": [
+        "pages-archives-hellowrold"
+      ],
+      "assets": [
+        {
+          "name": "pages-archives-hellowrold-bundle-95cc02c8.js"
+        }
+      ],
+      "filteredAssets": 0,
+      "assetsSize": null,
+      "auxiliaryAssets": [],
+      "filteredAuxiliaryAssets": 0,
+      "auxiliaryAssetsSize": 0,
+      "children": {},
+      "childAssets": {},
+      "isOverSizeLimit": false
+    },
+    "pages-archives-hellowrold-md": {
+      "name": "pages-archives-hellowrold-md",
+      "chunks": [
+        "pages-archives-hellowrold"
+      ],
+      "assets": [
+        {
+          "name": "pages-archives-hellowrold-bundle-95cc02c8.js"
+        }
+      ],
+      "filteredAssets": 0,
+      "assetsSize": null,
+      "auxiliaryAssets": [],
+      "filteredAuxiliaryAssets": 0,
+      "auxiliaryAssetsSize": 0,
+      "children": {},
+      "childAssets": {},
+      "isOverSizeLimit": false
+    },
+    "pages-index": {
+      "name": "pages-index",
+      "chunks": [
+        "pages-"
+      ],
+      "assets": [
+        {
+          "name": "pages--bundle-e706ea18.js"
+        }
+      ],
+      "filteredAssets": 0,
+      "assetsSize": null,
+      "auxiliaryAssets": [],
+      "filteredAuxiliaryAssets": 0,
+      "auxiliaryAssetsSize": 0,
+      "children": {},
+      "childAssets": {},
+      "isOverSizeLimit": false
+    },
+    "pages-index-mdx": {
+      "name": "pages-index-mdx",
+      "chunks": [
+        "pages-"
+      ],
+      "assets": [
+        {
+          "name": "pages--bundle-e706ea18.js"
+        }
+      ],
+      "filteredAssets": 0,
+      "assetsSize": null,
+      "auxiliaryAssets": [],
+      "filteredAuxiliaryAssets": 0,
+      "auxiliaryAssetsSize": 0,
+      "children": {},
+      "childAssets": {},
+      "isOverSizeLimit": false
+    },
+    "pages-products": {
+      "name": "pages-products",
+      "chunks": [
+        "pages-products"
+      ],
+      "assets": [
+        {
+          "name": "pages-products-bundle-e7064b8a.js"
+        }
+      ],
+      "filteredAssets": 0,
+      "assetsSize": null,
+      "auxiliaryAssets": [],
+      "filteredAuxiliaryAssets": 0,
+      "auxiliaryAssetsSize": 0,
+      "children": {},
+      "childAssets": {},
+      "isOverSizeLimit": false
+    },
+    "pages-products-mdx": {
+      "name": "pages-products-mdx",
+      "chunks": [
+        "pages-products"
+      ],
+      "assets": [
+        {
+          "name": "pages-products-bundle-e7064b8a.js"
+        }
+      ],
+      "filteredAssets": 0,
+      "assetsSize": null,
+      "auxiliaryAssets": [],
+      "filteredAuxiliaryAssets": 0,
+      "auxiliaryAssetsSize": 0,
+      "children": {},
+      "childAssets": {},
+      "isOverSizeLimit": false
+    },
+    "pages-tags": {
+      "name": "pages-tags",
+      "chunks": [
+        "pages-tags"
+      ],
+      "assets": [
+        {
+          "name": "pages-tags-bundle-16c61c91.js"
+        }
+      ],
+      "filteredAssets": 0,
+      "assetsSize": null,
+      "auxiliaryAssets": [],
+      "filteredAuxiliaryAssets": 0,
+      "auxiliaryAssetsSize": 0,
+      "children": {},
+      "childAssets": {},
+      "isOverSizeLimit": false
+    },
+    "pages-tags-_paginator": {
+      "name": "pages-tags-_paginator",
+      "chunks": [
+        "pages-tags-_paginator"
+      ],
+      "assets": [
+        {
+          "name": "pages-tags-_paginator-bundle-0449e2f3.js"
+        }
+      ],
+      "filteredAssets": 0,
+      "assetsSize": null,
+      "auxiliaryAssets": [],
+      "filteredAuxiliaryAssets": 0,
+      "auxiliaryAssetsSize": 0,
+      "children": {},
+      "childAssets": {},
+      "isOverSizeLimit": false
+    },
+    "pages-tags-_paginator-tsx": {
+      "name": "pages-tags-_paginator-tsx",
+      "chunks": [
+        "pages-tags-_paginator"
+      ],
+      "assets": [
+        {
+          "name": "pages-tags-_paginator-bundle-0449e2f3.js"
+        }
+      ],
+      "filteredAssets": 0,
+      "assetsSize": null,
+      "auxiliaryAssets": [],
+      "filteredAuxiliaryAssets": 0,
+      "auxiliaryAssetsSize": 0,
+      "children": {},
+      "childAssets": {},
+      "isOverSizeLimit": false
+    },
+    "pages-tags-index": {
+      "name": "pages-tags-index",
+      "chunks": [
+        "pages-tags"
+      ],
+      "assets": [
+        {
+          "name": "pages-tags-bundle-16c61c91.js"
+        }
+      ],
+      "filteredAssets": 0,
+      "assetsSize": null,
+      "auxiliaryAssets": [],
+      "filteredAuxiliaryAssets": 0,
+      "auxiliaryAssetsSize": 0,
+      "children": {},
+      "childAssets": {},
+      "isOverSizeLimit": false
+    },
+    "pages-tags-index-mdx": {
+      "name": "pages-tags-index-mdx",
+      "chunks": [
+        "pages-tags"
+      ],
+      "assets": [
+        {
+          "name": "pages-tags-bundle-16c61c91.js"
+        }
+      ],
+      "filteredAssets": 0,
+      "assetsSize": null,
+      "auxiliaryAssets": [],
+      "filteredAuxiliaryAssets": 0,
+      "auxiliaryAssetsSize": 0,
+      "children": {},
+      "childAssets": {},
+      "isOverSizeLimit": false
+    }
+  },
+  "errors": [],
+  "errorsCount": 0,
+  "warnings": [],
+  "warningsCount": 0,
+  "children": [],
+  "generator": "loadable-components"
+}

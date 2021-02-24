@@ -1,0 +1,2017 @@
+{
+  "name": "web",
+  "hash": "034f19f209b60a17934a",
+  "version": "5.21.2",
+  "publicPath": "/web/",
+  "outputPath": "/home/runner/work/blog/blog/dist/web",
+  "assetsByChunkName": {
+    "main": [
+      "main-bundle-667de8e5.js"
+    ],
+    "layouts-default": [
+      "layouts-default.css",
+      "layouts-default-bundle-efa0ecc7.js"
+    ],
+    "layouts-default-CodeBlock": [
+      "layouts-default-CodeBlock-bundle-6837347d.js"
+    ],
+    "layouts-default-Profile": [
+      "layouts-default-Profile-bundle-23e51e09.js"
+    ],
+    "layouts-default-Sidebar": [
+      "layouts-default-Sidebar-bundle-f99c5d25.js"
+    ],
+    "layouts-default-markdown-css": [
+      "layouts-default-markdown-css.css",
+      "layouts-default-markdown-css-bundle-29b71f2c.js"
+    ],
+    "pages-": [
+      "pages--bundle-58bc6631.js"
+    ],
+    "pages-archives-2021-02-23-hello-world": [
+      "pages-archives-2021-02-23-hello-world-bundle-fe69bde1.js"
+    ],
+    "pages-archives-_paginator": [
+      "pages-archives-_paginator-bundle-54a8fdb3.js"
+    ],
+    "pages-archives-hellowrold": [
+      "pages-archives-hellowrold-bundle-19a93148.js"
+    ],
+    "pages-products": [
+      "pages-products-bundle-86f54af0.js"
+    ],
+    "pages-tags": [
+      "pages-tags-bundle-e7c636e1.js"
+    ],
+    "pages-tags-_paginator": [
+      "pages-tags-_paginator-bundle-9ec5b0a3.js"
+    ]
+  },
+  "assets": [
+    {
+      "type": "asset",
+      "name": "main-bundle-667de8e5.js",
+      "size": 458940,
+      "emitted": false,
+      "comparedForEmit": false,
+      "cached": true,
+      "info": {
+        "immutable": true,
+        "chunkhash": "667de8e5",
+        "javascriptModule": false,
+        "minimized": true,
+        "related": {
+          "license": "main-bundle-667de8e5.js.LICENSE.txt"
+        }
+      },
+      "chunkNames": [
+        "main"
+      ],
+      "chunkIdHints": [],
+      "auxiliaryChunkNames": [],
+      "auxiliaryChunkIdHints": [],
+      "filteredRelated": 0,
+      "related": [
+        {
+          "type": "license",
+          "name": "main-bundle-667de8e5.js.LICENSE.txt",
+          "size": 1035,
+          "emitted": false,
+          "comparedForEmit": false,
+          "cached": true,
+          "info": {
+            "extractedComments": true
+          },
+          "chunkNames": [],
+          "chunkIdHints": [],
+          "auxiliaryChunkNames": [],
+          "auxiliaryChunkIdHints": [],
+          "related": {},
+          "chunks": [],
+          "auxiliaryChunks": [],
+          "isOverSizeLimit": false
+        }
+      ],
+      "chunks": [
+        "main"
+      ],
+      "auxiliaryChunks": [],
+      "isOverSizeLimit": false
+    },
+    {
+      "type": "asset",
+      "name": "vendors-node_modules_core-js_modules_es_array_map_js-node_modules_prism-react-renderer_dist_i-fb1e11-bundle-d75044d3.js",
+      "size": 65542,
+      "emitted": false,
+      "comparedForEmit": false,
+      "cached": true,
+      "info": {
+        "immutable": true,
+        "chunkhash": "d75044d3",
+        "javascriptModule": false,
+        "minimized": true
+      },
+      "chunkNames": [],
+      "chunkIdHints": [
+        "vendors"
+      ],
+      "auxiliaryChunkNames": [],
+      "auxiliaryChunkIdHints": [],
+      "related": {},
+      "chunks": [
+        "vendors-node_modules_core-js_modules_es_array_map_js-node_modules_prism-react-renderer_dist_i-fb1e11"
+      ],
+      "auxiliaryChunks": [],
+      "isOverSizeLimit": false
+    },
+    {
+      "type": "asset",
+      "name": "layouts-default-markdown-css.css",
+      "size": 16740,
+      "emitted": false,
+      "comparedForEmit": false,
+      "cached": true,
+      "info": {},
+      "chunkNames": [
+        "layouts-default-markdown-css"
+      ],
+      "chunkIdHints": [],
+      "auxiliaryChunkNames": [],
+      "auxiliaryChunkIdHints": [],
+      "related": {},
+      "chunks": [
+        "layouts-default-markdown-css"
+      ],
+      "auxiliaryChunks": [],
+      "isOverSizeLimit": false
+    },
+    {
+      "type": "asset",
+      "name": "layouts-default.css",
+      "size": 16740,
+      "emitted": false,
+      "comparedForEmit": false,
+      "cached": true,
+      "info": {},
+      "chunkNames": [
+        "layouts-default"
+      ],
+      "chunkIdHints": [],
+      "auxiliaryChunkNames": [],
+      "auxiliaryChunkIdHints": [],
+      "related": {},
+      "chunks": [
+        "layouts-default",
+        "layouts-default-CodeBlock",
+        "layouts-default-Profile",
+        "layouts-default-Sidebar"
+      ],
+      "auxiliaryChunks": [],
+      "isOverSizeLimit": false
+    },
+    {
+      "type": "asset",
+      "name": "vendors-node_modules_chakra-ui_icon_dist_esm_icon_js-node_modules_chakra-ui_image_dist_esm_im-83d2c1-bundle-fd1f9ac2.js",
+      "size": 16688,
+      "emitted": false,
+      "comparedForEmit": false,
+      "cached": true,
+      "info": {
+        "immutable": true,
+        "chunkhash": "fd1f9ac2",
+        "javascriptModule": false,
+        "minimized": true
+      },
+      "chunkNames": [],
+      "chunkIdHints": [
+        "vendors"
+      ],
+      "auxiliaryChunkNames": [],
+      "auxiliaryChunkIdHints": [],
+      "related": {},
+      "chunks": [
+        "vendors-node_modules_chakra-ui_icon_dist_esm_icon_js-node_modules_chakra-ui_image_dist_esm_im-83d2c1"
+      ],
+      "auxiliaryChunks": [],
+      "isOverSizeLimit": false
+    },
+    {
+      "type": "asset",
+      "name": "layouts-default-bundle-efa0ecc7.js",
+      "size": 12199,
+      "emitted": false,
+      "comparedForEmit": false,
+      "cached": true,
+      "info": {
+        "immutable": true,
+        "chunkhash": "efa0ecc7",
+        "javascriptModule": false,
+        "minimized": true
+      },
+      "chunkNames": [
+        "layouts-default"
+      ],
+      "chunkIdHints": [],
+      "auxiliaryChunkNames": [],
+      "auxiliaryChunkIdHints": [],
+      "related": {},
+      "chunks": [
+        "layouts-default",
+        "layouts-default-CodeBlock",
+        "layouts-default-Profile",
+        "layouts-default-Sidebar"
+      ],
+      "auxiliaryChunks": [],
+      "isOverSizeLimit": false
+    },
+    {
+      "type": "asset",
+      "name": "pages-tags-bundle-e7c636e1.js",
+      "size": 6311,
+      "emitted": false,
+      "comparedForEmit": false,
+      "cached": true,
+      "info": {
+        "immutable": true,
+        "chunkhash": "e7c636e1",
+        "javascriptModule": false,
+        "minimized": true
+      },
+      "chunkNames": [
+        "pages-tags"
+      ],
+      "chunkIdHints": [],
+      "auxiliaryChunkNames": [],
+      "auxiliaryChunkIdHints": [],
+      "related": {},
+      "chunks": [
+        "pages-tags"
+      ],
+      "auxiliaryChunks": [],
+      "isOverSizeLimit": false
+    },
+    {
+      "type": "asset",
+      "name": "layouts-default-Sidebar-bundle-f99c5d25.js",
+      "size": 5413,
+      "emitted": false,
+      "comparedForEmit": false,
+      "cached": true,
+      "info": {
+        "immutable": true,
+        "chunkhash": "f99c5d25",
+        "javascriptModule": false,
+        "minimized": true
+      },
+      "chunkNames": [
+        "layouts-default-Sidebar"
+      ],
+      "chunkIdHints": [],
+      "auxiliaryChunkNames": [],
+      "auxiliaryChunkIdHints": [],
+      "related": {},
+      "chunks": [
+        "layouts-default-Profile",
+        "layouts-default-Sidebar"
+      ],
+      "auxiliaryChunks": [],
+      "isOverSizeLimit": false
+    },
+    {
+      "type": "asset",
+      "name": "pages--bundle-58bc6631.js",
+      "size": 4778,
+      "emitted": false,
+      "comparedForEmit": false,
+      "cached": true,
+      "info": {
+        "immutable": true,
+        "chunkhash": "58bc6631",
+        "javascriptModule": false,
+        "minimized": true
+      },
+      "chunkNames": [
+        "pages-"
+      ],
+      "chunkIdHints": [],
+      "auxiliaryChunkNames": [],
+      "auxiliaryChunkIdHints": [],
+      "related": {},
+      "chunks": [
+        "pages-"
+      ],
+      "auxiliaryChunks": [],
+      "isOverSizeLimit": false
+    },
+    {
+      "type": "asset",
+      "name": "pages-archives-2021-02-23-hello-world-bundle-fe69bde1.js",
+      "size": 4683,
+      "emitted": false,
+      "comparedForEmit": false,
+      "cached": true,
+      "info": {
+        "immutable": true,
+        "chunkhash": "fe69bde1",
+        "javascriptModule": false,
+        "minimized": true
+      },
+      "chunkNames": [
+        "pages-archives-2021-02-23-hello-world"
+      ],
+      "chunkIdHints": [],
+      "auxiliaryChunkNames": [],
+      "auxiliaryChunkIdHints": [],
+      "related": {},
+      "chunks": [
+        "pages-archives-2021-02-23-hello-world"
+      ],
+      "auxiliaryChunks": [],
+      "isOverSizeLimit": false
+    },
+    {
+      "type": "asset",
+      "name": "pages-archives-hellowrold-bundle-19a93148.js",
+      "size": 4636,
+      "emitted": false,
+      "comparedForEmit": false,
+      "cached": true,
+      "info": {
+        "immutable": true,
+        "chunkhash": "19a93148",
+        "javascriptModule": false,
+        "minimized": true
+      },
+      "chunkNames": [
+        "pages-archives-hellowrold"
+      ],
+      "chunkIdHints": [],
+      "auxiliaryChunkNames": [],
+      "auxiliaryChunkIdHints": [],
+      "related": {},
+      "chunks": [
+        "pages-archives-hellowrold"
+      ],
+      "auxiliaryChunks": [],
+      "isOverSizeLimit": false
+    },
+    {
+      "type": "asset",
+      "name": "pages-products-bundle-86f54af0.js",
+      "size": 4535,
+      "emitted": false,
+      "comparedForEmit": false,
+      "cached": true,
+      "info": {
+        "immutable": true,
+        "chunkhash": "86f54af0",
+        "javascriptModule": false,
+        "minimized": true
+      },
+      "chunkNames": [
+        "pages-products"
+      ],
+      "chunkIdHints": [],
+      "auxiliaryChunkNames": [],
+      "auxiliaryChunkIdHints": [],
+      "related": {},
+      "chunks": [
+        "pages-products"
+      ],
+      "auxiliaryChunks": [],
+      "isOverSizeLimit": false
+    },
+    {
+      "type": "asset",
+      "name": "pages-archives-_paginator-bundle-54a8fdb3.js",
+      "size": 2013,
+      "emitted": false,
+      "comparedForEmit": false,
+      "cached": true,
+      "info": {
+        "immutable": true,
+        "chunkhash": "54a8fdb3",
+        "javascriptModule": false,
+        "minimized": true
+      },
+      "chunkNames": [
+        "pages-archives-_paginator"
+      ],
+      "chunkIdHints": [],
+      "auxiliaryChunkNames": [],
+      "auxiliaryChunkIdHints": [],
+      "related": {},
+      "chunks": [
+        "pages-archives-_paginator"
+      ],
+      "auxiliaryChunks": [],
+      "isOverSizeLimit": false
+    },
+    {
+      "type": "asset",
+      "name": "pages-tags-_paginator-bundle-9ec5b0a3.js",
+      "size": 2005,
+      "emitted": false,
+      "comparedForEmit": false,
+      "cached": true,
+      "info": {
+        "immutable": true,
+        "chunkhash": "9ec5b0a3",
+        "javascriptModule": false,
+        "minimized": true
+      },
+      "chunkNames": [
+        "pages-tags-_paginator"
+      ],
+      "chunkIdHints": [],
+      "auxiliaryChunkNames": [],
+      "auxiliaryChunkIdHints": [],
+      "related": {},
+      "chunks": [
+        "pages-tags-_paginator"
+      ],
+      "auxiliaryChunks": [],
+      "isOverSizeLimit": false
+    },
+    {
+      "type": "asset",
+      "name": "layouts-default-CodeBlock-bundle-6837347d.js",
+      "size": 1925,
+      "emitted": false,
+      "comparedForEmit": false,
+      "cached": true,
+      "info": {
+        "immutable": true,
+        "chunkhash": "6837347d",
+        "javascriptModule": false,
+        "minimized": true
+      },
+      "chunkNames": [
+        "layouts-default-CodeBlock"
+      ],
+      "chunkIdHints": [],
+      "auxiliaryChunkNames": [],
+      "auxiliaryChunkIdHints": [],
+      "related": {},
+      "chunks": [
+        "layouts-default-CodeBlock"
+      ],
+      "auxiliaryChunks": [],
+      "isOverSizeLimit": false
+    },
+    {
+      "type": "asset",
+      "name": "layouts-default-Profile-bundle-23e51e09.js",
+      "size": 1688,
+      "emitted": false,
+      "comparedForEmit": false,
+      "cached": true,
+      "info": {
+        "immutable": true,
+        "chunkhash": "23e51e09",
+        "javascriptModule": false,
+        "minimized": true
+      },
+      "chunkNames": [
+        "layouts-default-Profile"
+      ],
+      "chunkIdHints": [],
+      "auxiliaryChunkNames": [],
+      "auxiliaryChunkIdHints": [],
+      "related": {},
+      "chunks": [
+        "layouts-default-Profile"
+      ],
+      "auxiliaryChunks": [],
+      "isOverSizeLimit": false
+    },
+    {
+      "type": "asset",
+      "name": "layouts-default-markdown-css-bundle-29b71f2c.js",
+      "size": 177,
+      "emitted": false,
+      "comparedForEmit": false,
+      "cached": true,
+      "info": {
+        "immutable": true,
+        "chunkhash": "29b71f2c",
+        "javascriptModule": false,
+        "minimized": true
+      },
+      "chunkNames": [
+        "layouts-default-markdown-css"
+      ],
+      "chunkIdHints": [],
+      "auxiliaryChunkNames": [],
+      "auxiliaryChunkIdHints": [],
+      "related": {},
+      "chunks": [
+        "layouts-default-markdown-css"
+      ],
+      "auxiliaryChunks": [],
+      "isOverSizeLimit": false
+    }
+  ],
+  "chunks": [
+    {
+      "rendered": true,
+      "initial": false,
+      "entry": false,
+      "recorded": false,
+      "size": 37765,
+      "sizes": {
+        "javascript": 21026,
+        "css/mini-extract": 16739
+      },
+      "names": [
+        "layouts-default"
+      ],
+      "idHints": [],
+      "runtime": [
+        "main"
+      ],
+      "files": [
+        "layouts-default.css",
+        "layouts-default-bundle-efa0ecc7.js"
+      ],
+      "auxiliaryFiles": [],
+      "hash": "efa0ecc76a1d5e87feec",
+      "childrenByOrder": {},
+      "id": "layouts-default",
+      "siblings": [
+        "vendors-node_modules_chakra-ui_icon_dist_esm_icon_js-node_modules_chakra-ui_image_dist_esm_im-83d2c1",
+        "vendors-node_modules_core-js_modules_es_array_map_js-node_modules_prism-react-renderer_dist_i-fb1e11"
+      ],
+      "parents": [
+        "main"
+      ],
+      "children": [],
+      "modules": [],
+      "origins": []
+    },
+    {
+      "rendered": true,
+      "initial": false,
+      "entry": false,
+      "recorded": false,
+      "size": 2963,
+      "sizes": {
+        "javascript": 2963
+      },
+      "names": [
+        "layouts-default-CodeBlock"
+      ],
+      "idHints": [],
+      "runtime": [
+        "main"
+      ],
+      "files": [
+        "layouts-default-CodeBlock-bundle-6837347d.js"
+      ],
+      "auxiliaryFiles": [],
+      "hash": "6837347d0737f35a0aec",
+      "childrenByOrder": {},
+      "id": "layouts-default-CodeBlock",
+      "siblings": [
+        "vendors-node_modules_core-js_modules_es_array_map_js-node_modules_prism-react-renderer_dist_i-fb1e11"
+      ],
+      "parents": [
+        "main"
+      ],
+      "children": [],
+      "modules": [],
+      "origins": []
+    },
+    {
+      "rendered": true,
+      "initial": false,
+      "entry": false,
+      "recorded": false,
+      "size": 1692,
+      "sizes": {
+        "javascript": 1692
+      },
+      "names": [
+        "layouts-default-Profile"
+      ],
+      "idHints": [],
+      "runtime": [
+        "main"
+      ],
+      "files": [
+        "layouts-default-Profile-bundle-23e51e09.js"
+      ],
+      "auxiliaryFiles": [],
+      "hash": "23e51e09358ebc8b9242",
+      "childrenByOrder": {},
+      "id": "layouts-default-Profile",
+      "siblings": [
+        "vendors-node_modules_chakra-ui_icon_dist_esm_icon_js-node_modules_chakra-ui_image_dist_esm_im-83d2c1"
+      ],
+      "parents": [
+        "main"
+      ],
+      "children": [],
+      "modules": [],
+      "origins": []
+    },
+    {
+      "rendered": true,
+      "initial": false,
+      "entry": false,
+      "recorded": false,
+      "size": 8010,
+      "sizes": {
+        "javascript": 8010
+      },
+      "names": [
+        "layouts-default-Sidebar"
+      ],
+      "idHints": [],
+      "runtime": [
+        "main"
+      ],
+      "files": [
+        "layouts-default-Sidebar-bundle-f99c5d25.js"
+      ],
+      "auxiliaryFiles": [],
+      "hash": "f99c5d25e9ac271af1e4",
+      "childrenByOrder": {},
+      "id": "layouts-default-Sidebar",
+      "siblings": [
+        "vendors-node_modules_chakra-ui_icon_dist_esm_icon_js-node_modules_chakra-ui_image_dist_esm_im-83d2c1"
+      ],
+      "parents": [
+        "main"
+      ],
+      "children": [],
+      "modules": [],
+      "origins": []
+    },
+    {
+      "rendered": true,
+      "initial": false,
+      "entry": false,
+      "recorded": false,
+      "size": 16789,
+      "sizes": {
+        "javascript": 50,
+        "css/mini-extract": 16739
+      },
+      "names": [
+        "layouts-default-markdown-css"
+      ],
+      "idHints": [],
+      "runtime": [
+        "main"
+      ],
+      "files": [
+        "layouts-default-markdown-css.css",
+        "layouts-default-markdown-css-bundle-29b71f2c.js"
+      ],
+      "auxiliaryFiles": [],
+      "hash": "29b71f2cb9fc9f9fccb8",
+      "childrenByOrder": {},
+      "id": "layouts-default-markdown-css",
+      "siblings": [],
+      "parents": [
+        "main"
+      ],
+      "children": [],
+      "modules": [],
+      "origins": []
+    },
+    {
+      "rendered": true,
+      "initial": true,
+      "entry": true,
+      "recorded": false,
+      "size": 1008425,
+      "sizes": {
+        "javascript": 998803,
+        "runtime": 9622
+      },
+      "names": [
+        "main"
+      ],
+      "idHints": [],
+      "runtime": [
+        "main"
+      ],
+      "files": [
+        "main-bundle-667de8e5.js"
+      ],
+      "auxiliaryFiles": [],
+      "hash": "667de8e5060984180dc4",
+      "childrenByOrder": {},
+      "id": "main",
+      "siblings": [],
+      "parents": [],
+      "children": [
+        "layouts-default",
+        "layouts-default-CodeBlock",
+        "layouts-default-Profile",
+        "layouts-default-Sidebar",
+        "layouts-default-markdown-css",
+        "pages-",
+        "pages-archives-2021-02-23-hello-world",
+        "pages-archives-_paginator",
+        "pages-archives-hellowrold",
+        "pages-products",
+        "pages-tags",
+        "pages-tags-_paginator",
+        "vendors-node_modules_chakra-ui_icon_dist_esm_icon_js-node_modules_chakra-ui_image_dist_esm_im-83d2c1",
+        "vendors-node_modules_core-js_modules_es_array_map_js-node_modules_prism-react-renderer_dist_i-fb1e11"
+      ],
+      "modules": [],
+      "origins": []
+    },
+    {
+      "rendered": true,
+      "initial": false,
+      "entry": false,
+      "recorded": false,
+      "size": 9407,
+      "sizes": {
+        "javascript": 9407
+      },
+      "names": [
+        "pages-"
+      ],
+      "idHints": [],
+      "runtime": [
+        "main"
+      ],
+      "files": [
+        "pages--bundle-58bc6631.js"
+      ],
+      "auxiliaryFiles": [],
+      "hash": "58bc663142b3f4e5fb5f",
+      "childrenByOrder": {},
+      "id": "pages-",
+      "siblings": [],
+      "parents": [
+        "main"
+      ],
+      "children": [],
+      "modules": [],
+      "origins": []
+    },
+    {
+      "rendered": true,
+      "initial": false,
+      "entry": false,
+      "recorded": false,
+      "size": 9243,
+      "sizes": {
+        "javascript": 9243
+      },
+      "names": [
+        "pages-archives-2021-02-23-hello-world"
+      ],
+      "idHints": [],
+      "runtime": [
+        "main"
+      ],
+      "files": [
+        "pages-archives-2021-02-23-hello-world-bundle-fe69bde1.js"
+      ],
+      "auxiliaryFiles": [],
+      "hash": "fe69bde13a33fe89c281",
+      "childrenByOrder": {},
+      "id": "pages-archives-2021-02-23-hello-world",
+      "siblings": [],
+      "parents": [
+        "main"
+      ],
+      "children": [],
+      "modules": [],
+      "origins": []
+    },
+    {
+      "rendered": true,
+      "initial": false,
+      "entry": false,
+      "recorded": false,
+      "size": 2702,
+      "sizes": {
+        "javascript": 2702
+      },
+      "names": [
+        "pages-archives-_paginator"
+      ],
+      "idHints": [],
+      "runtime": [
+        "main"
+      ],
+      "files": [
+        "pages-archives-_paginator-bundle-54a8fdb3.js"
+      ],
+      "auxiliaryFiles": [],
+      "hash": "54a8fdb3a7d4d6129b23",
+      "childrenByOrder": {},
+      "id": "pages-archives-_paginator",
+      "siblings": [],
+      "parents": [
+        "main"
+      ],
+      "children": [],
+      "modules": [],
+      "origins": []
+    },
+    {
+      "rendered": true,
+      "initial": false,
+      "entry": false,
+      "recorded": false,
+      "size": 9216,
+      "sizes": {
+        "javascript": 9216
+      },
+      "names": [
+        "pages-archives-hellowrold"
+      ],
+      "idHints": [],
+      "runtime": [
+        "main"
+      ],
+      "files": [
+        "pages-archives-hellowrold-bundle-19a93148.js"
+      ],
+      "auxiliaryFiles": [],
+      "hash": "19a9314834b53c001963",
+      "childrenByOrder": {},
+      "id": "pages-archives-hellowrold",
+      "siblings": [],
+      "parents": [
+        "main"
+      ],
+      "children": [],
+      "modules": [],
+      "origins": []
+    },
+    {
+      "rendered": true,
+      "initial": false,
+      "entry": false,
+      "recorded": false,
+      "size": 9108,
+      "sizes": {
+        "javascript": 9108
+      },
+      "names": [
+        "pages-products"
+      ],
+      "idHints": [],
+      "runtime": [
+        "main"
+      ],
+      "files": [
+        "pages-products-bundle-86f54af0.js"
+      ],
+      "auxiliaryFiles": [],
+      "hash": "86f54af07c96da156dd7",
+      "childrenByOrder": {},
+      "id": "pages-products",
+      "siblings": [],
+      "parents": [
+        "main"
+      ],
+      "children": [],
+      "modules": [],
+      "origins": []
+    },
+    {
+      "rendered": true,
+      "initial": false,
+      "entry": false,
+      "recorded": false,
+      "size": 12231,
+      "sizes": {
+        "javascript": 12231
+      },
+      "names": [
+        "pages-tags"
+      ],
+      "idHints": [],
+      "runtime": [
+        "main"
+      ],
+      "files": [
+        "pages-tags-bundle-e7c636e1.js"
+      ],
+      "auxiliaryFiles": [],
+      "hash": "e7c636e15f13de7da98e",
+      "childrenByOrder": {},
+      "id": "pages-tags",
+      "siblings": [],
+      "parents": [
+        "main"
+      ],
+      "children": [],
+      "modules": [],
+      "origins": []
+    },
+    {
+      "rendered": true,
+      "initial": false,
+      "entry": false,
+      "recorded": false,
+      "size": 2702,
+      "sizes": {
+        "javascript": 2702
+      },
+      "names": [
+        "pages-tags-_paginator"
+      ],
+      "idHints": [],
+      "runtime": [
+        "main"
+      ],
+      "files": [
+        "pages-tags-_paginator-bundle-9ec5b0a3.js"
+      ],
+      "auxiliaryFiles": [],
+      "hash": "9ec5b0a3b2bb0f79c0ce",
+      "childrenByOrder": {},
+      "id": "pages-tags-_paginator",
+      "siblings": [],
+      "parents": [
+        "main"
+      ],
+      "children": [],
+      "modules": [],
+      "origins": []
+    },
+    {
+      "rendered": true,
+      "initial": false,
+      "entry": false,
+      "recorded": false,
+      "reason": "split chunk (cache group: defaultVendors)",
+      "size": 333393,
+      "sizes": {
+        "javascript": 333393
+      },
+      "names": [],
+      "idHints": [
+        "vendors"
+      ],
+      "runtime": [
+        "main"
+      ],
+      "files": [
+        "vendors-node_modules_chakra-ui_icon_dist_esm_icon_js-node_modules_chakra-ui_image_dist_esm_im-83d2c1-bundle-fd1f9ac2.js"
+      ],
+      "auxiliaryFiles": [],
+      "hash": "fd1f9ac211b9f90a80c2",
+      "childrenByOrder": {},
+      "id": "vendors-node_modules_chakra-ui_icon_dist_esm_icon_js-node_modules_chakra-ui_image_dist_esm_im-83d2c1",
+      "siblings": [
+        "layouts-default",
+        "layouts-default-Profile",
+        "layouts-default-Sidebar",
+        "vendors-node_modules_core-js_modules_es_array_map_js-node_modules_prism-react-renderer_dist_i-fb1e11"
+      ],
+      "parents": [
+        "main"
+      ],
+      "children": [],
+      "modules": [],
+      "origins": []
+    },
+    {
+      "rendered": true,
+      "initial": false,
+      "entry": false,
+      "recorded": false,
+      "reason": "split chunk (cache group: defaultVendors)",
+      "size": 114791,
+      "sizes": {
+        "javascript": 114791
+      },
+      "names": [],
+      "idHints": [
+        "vendors"
+      ],
+      "runtime": [
+        "main"
+      ],
+      "files": [
+        "vendors-node_modules_core-js_modules_es_array_map_js-node_modules_prism-react-renderer_dist_i-fb1e11-bundle-d75044d3.js"
+      ],
+      "auxiliaryFiles": [],
+      "hash": "d75044d3fa819b3a6624",
+      "childrenByOrder": {},
+      "id": "vendors-node_modules_core-js_modules_es_array_map_js-node_modules_prism-react-renderer_dist_i-fb1e11",
+      "siblings": [
+        "layouts-default",
+        "layouts-default-CodeBlock",
+        "vendors-node_modules_chakra-ui_icon_dist_esm_icon_js-node_modules_chakra-ui_image_dist_esm_im-83d2c1"
+      ],
+      "parents": [
+        "main"
+      ],
+      "children": [],
+      "modules": [],
+      "origins": []
+    }
+  ],
+  "entrypoints": {
+    "main": {
+      "name": "main",
+      "chunks": [
+        "main"
+      ],
+      "assets": [
+        {
+          "name": "main-bundle-667de8e5.js"
+        }
+      ],
+      "filteredAssets": 0,
+      "assetsSize": null,
+      "auxiliaryAssets": [],
+      "filteredAuxiliaryAssets": 0,
+      "auxiliaryAssetsSize": 0,
+      "children": {},
+      "childAssets": {},
+      "isOverSizeLimit": false
+    }
+  },
+  "namedChunkGroups": {
+    "main": {
+      "name": "main",
+      "chunks": [
+        "main"
+      ],
+      "assets": [
+        {
+          "name": "main-bundle-667de8e5.js"
+        }
+      ],
+      "filteredAssets": 0,
+      "assetsSize": null,
+      "auxiliaryAssets": [],
+      "filteredAuxiliaryAssets": 0,
+      "auxiliaryAssetsSize": 0,
+      "children": {},
+      "childAssets": {},
+      "isOverSizeLimit": false
+    },
+    "layouts-default": {
+      "name": "layouts-default",
+      "chunks": [
+        "vendors-node_modules_chakra-ui_icon_dist_esm_icon_js-node_modules_chakra-ui_image_dist_esm_im-83d2c1",
+        "vendors-node_modules_core-js_modules_es_array_map_js-node_modules_prism-react-renderer_dist_i-fb1e11",
+        "layouts-default"
+      ],
+      "assets": [
+        {
+          "name": "vendors-node_modules_chakra-ui_icon_dist_esm_icon_js-node_modules_chakra-ui_image_dist_esm_im-83d2c1-bundle-fd1f9ac2.js"
+        },
+        {
+          "name": "vendors-node_modules_core-js_modules_es_array_map_js-node_modules_prism-react-renderer_dist_i-fb1e11-bundle-d75044d3.js"
+        },
+        {
+          "name": "layouts-default.css"
+        },
+        {
+          "name": "layouts-default-bundle-efa0ecc7.js"
+        }
+      ],
+      "filteredAssets": 0,
+      "assetsSize": null,
+      "auxiliaryAssets": [],
+      "filteredAuxiliaryAssets": 0,
+      "auxiliaryAssetsSize": 0,
+      "children": {},
+      "childAssets": {},
+      "isOverSizeLimit": false
+    },
+    "layouts-default-CodeBlock": {
+      "name": "layouts-default-CodeBlock",
+      "chunks": [
+        "vendors-node_modules_core-js_modules_es_array_map_js-node_modules_prism-react-renderer_dist_i-fb1e11",
+        "layouts-default-CodeBlock"
+      ],
+      "assets": [
+        {
+          "name": "vendors-node_modules_core-js_modules_es_array_map_js-node_modules_prism-react-renderer_dist_i-fb1e11-bundle-d75044d3.js"
+        },
+        {
+          "name": "layouts-default-CodeBlock-bundle-6837347d.js"
+        }
+      ],
+      "filteredAssets": 0,
+      "assetsSize": null,
+      "auxiliaryAssets": [],
+      "filteredAuxiliaryAssets": 0,
+      "auxiliaryAssetsSize": 0,
+      "children": {},
+      "childAssets": {},
+      "isOverSizeLimit": false
+    },
+    "layouts-default-CodeBlock-tsx": {
+      "name": "layouts-default-CodeBlock-tsx",
+      "chunks": [
+        "vendors-node_modules_core-js_modules_es_array_map_js-node_modules_prism-react-renderer_dist_i-fb1e11",
+        "layouts-default-CodeBlock"
+      ],
+      "assets": [
+        {
+          "name": "vendors-node_modules_core-js_modules_es_array_map_js-node_modules_prism-react-renderer_dist_i-fb1e11-bundle-d75044d3.js"
+        },
+        {
+          "name": "layouts-default-CodeBlock-bundle-6837347d.js"
+        }
+      ],
+      "filteredAssets": 0,
+      "assetsSize": null,
+      "auxiliaryAssets": [],
+      "filteredAuxiliaryAssets": 0,
+      "auxiliaryAssetsSize": 0,
+      "children": {},
+      "childAssets": {},
+      "isOverSizeLimit": false
+    },
+    "layouts-default-Profile": {
+      "name": "layouts-default-Profile",
+      "chunks": [
+        "vendors-node_modules_chakra-ui_icon_dist_esm_icon_js-node_modules_chakra-ui_image_dist_esm_im-83d2c1",
+        "layouts-default-Profile"
+      ],
+      "assets": [
+        {
+          "name": "vendors-node_modules_chakra-ui_icon_dist_esm_icon_js-node_modules_chakra-ui_image_dist_esm_im-83d2c1-bundle-fd1f9ac2.js"
+        },
+        {
+          "name": "layouts-default-Profile-bundle-23e51e09.js"
+        }
+      ],
+      "filteredAssets": 0,
+      "assetsSize": null,
+      "auxiliaryAssets": [],
+      "filteredAuxiliaryAssets": 0,
+      "auxiliaryAssetsSize": 0,
+      "children": {},
+      "childAssets": {},
+      "isOverSizeLimit": false
+    },
+    "layouts-default-Profile-tsx": {
+      "name": "layouts-default-Profile-tsx",
+      "chunks": [
+        "vendors-node_modules_chakra-ui_icon_dist_esm_icon_js-node_modules_chakra-ui_image_dist_esm_im-83d2c1",
+        "layouts-default-Profile"
+      ],
+      "assets": [
+        {
+          "name": "vendors-node_modules_chakra-ui_icon_dist_esm_icon_js-node_modules_chakra-ui_image_dist_esm_im-83d2c1-bundle-fd1f9ac2.js"
+        },
+        {
+          "name": "layouts-default-Profile-bundle-23e51e09.js"
+        }
+      ],
+      "filteredAssets": 0,
+      "assetsSize": null,
+      "auxiliaryAssets": [],
+      "filteredAuxiliaryAssets": 0,
+      "auxiliaryAssetsSize": 0,
+      "children": {},
+      "childAssets": {},
+      "isOverSizeLimit": false
+    },
+    "layouts-default-Sidebar": {
+      "name": "layouts-default-Sidebar",
+      "chunks": [
+        "vendors-node_modules_chakra-ui_icon_dist_esm_icon_js-node_modules_chakra-ui_image_dist_esm_im-83d2c1",
+        "layouts-default-Sidebar"
+      ],
+      "assets": [
+        {
+          "name": "vendors-node_modules_chakra-ui_icon_dist_esm_icon_js-node_modules_chakra-ui_image_dist_esm_im-83d2c1-bundle-fd1f9ac2.js"
+        },
+        {
+          "name": "layouts-default-Sidebar-bundle-f99c5d25.js"
+        }
+      ],
+      "filteredAssets": 0,
+      "assetsSize": null,
+      "auxiliaryAssets": [],
+      "filteredAuxiliaryAssets": 0,
+      "auxiliaryAssetsSize": 0,
+      "children": {},
+      "childAssets": {},
+      "isOverSizeLimit": false
+    },
+    "layouts-default-Sidebar-tsx": {
+      "name": "layouts-default-Sidebar-tsx",
+      "chunks": [
+        "vendors-node_modules_chakra-ui_icon_dist_esm_icon_js-node_modules_chakra-ui_image_dist_esm_im-83d2c1",
+        "layouts-default-Sidebar"
+      ],
+      "assets": [
+        {
+          "name": "vendors-node_modules_chakra-ui_icon_dist_esm_icon_js-node_modules_chakra-ui_image_dist_esm_im-83d2c1-bundle-fd1f9ac2.js"
+        },
+        {
+          "name": "layouts-default-Sidebar-bundle-f99c5d25.js"
+        }
+      ],
+      "filteredAssets": 0,
+      "assetsSize": null,
+      "auxiliaryAssets": [],
+      "filteredAuxiliaryAssets": 0,
+      "auxiliaryAssetsSize": 0,
+      "children": {},
+      "childAssets": {},
+      "isOverSizeLimit": false
+    },
+    "layouts-default-index": {
+      "name": "layouts-default-index",
+      "chunks": [
+        "vendors-node_modules_chakra-ui_icon_dist_esm_icon_js-node_modules_chakra-ui_image_dist_esm_im-83d2c1",
+        "vendors-node_modules_core-js_modules_es_array_map_js-node_modules_prism-react-renderer_dist_i-fb1e11",
+        "layouts-default"
+      ],
+      "assets": [
+        {
+          "name": "vendors-node_modules_chakra-ui_icon_dist_esm_icon_js-node_modules_chakra-ui_image_dist_esm_im-83d2c1-bundle-fd1f9ac2.js"
+        },
+        {
+          "name": "vendors-node_modules_core-js_modules_es_array_map_js-node_modules_prism-react-renderer_dist_i-fb1e11-bundle-d75044d3.js"
+        },
+        {
+          "name": "layouts-default.css"
+        },
+        {
+          "name": "layouts-default-bundle-efa0ecc7.js"
+        }
+      ],
+      "filteredAssets": 0,
+      "assetsSize": null,
+      "auxiliaryAssets": [],
+      "filteredAuxiliaryAssets": 0,
+      "auxiliaryAssetsSize": 0,
+      "children": {},
+      "childAssets": {},
+      "isOverSizeLimit": false
+    },
+    "layouts-default-index-tsx": {
+      "name": "layouts-default-index-tsx",
+      "chunks": [
+        "vendors-node_modules_chakra-ui_icon_dist_esm_icon_js-node_modules_chakra-ui_image_dist_esm_im-83d2c1",
+        "vendors-node_modules_core-js_modules_es_array_map_js-node_modules_prism-react-renderer_dist_i-fb1e11",
+        "layouts-default"
+      ],
+      "assets": [
+        {
+          "name": "vendors-node_modules_chakra-ui_icon_dist_esm_icon_js-node_modules_chakra-ui_image_dist_esm_im-83d2c1-bundle-fd1f9ac2.js"
+        },
+        {
+          "name": "vendors-node_modules_core-js_modules_es_array_map_js-node_modules_prism-react-renderer_dist_i-fb1e11-bundle-d75044d3.js"
+        },
+        {
+          "name": "layouts-default.css"
+        },
+        {
+          "name": "layouts-default-bundle-efa0ecc7.js"
+        }
+      ],
+      "filteredAssets": 0,
+      "assetsSize": null,
+      "auxiliaryAssets": [],
+      "filteredAuxiliaryAssets": 0,
+      "auxiliaryAssetsSize": 0,
+      "children": {},
+      "childAssets": {},
+      "isOverSizeLimit": false
+    },
+    "layouts-default-markdown-css": {
+      "name": "layouts-default-markdown-css",
+      "chunks": [
+        "layouts-default-markdown-css"
+      ],
+      "assets": [
+        {
+          "name": "layouts-default-markdown-css.css"
+        },
+        {
+          "name": "layouts-default-markdown-css-bundle-29b71f2c.js"
+        }
+      ],
+      "filteredAssets": 0,
+      "assetsSize": null,
+      "auxiliaryAssets": [],
+      "filteredAuxiliaryAssets": 0,
+      "auxiliaryAssetsSize": 0,
+      "children": {},
+      "childAssets": {},
+      "isOverSizeLimit": false
+    },
+    "pages-": {
+      "name": "pages-",
+      "chunks": [
+        "pages-"
+      ],
+      "assets": [
+        {
+          "name": "pages--bundle-58bc6631.js"
+        }
+      ],
+      "filteredAssets": 0,
+      "assetsSize": null,
+      "auxiliaryAssets": [],
+      "filteredAuxiliaryAssets": 0,
+      "auxiliaryAssetsSize": 0,
+      "children": {},
+      "childAssets": {},
+      "isOverSizeLimit": false
+    },
+    "pages-archives-2021-02-23-hello-world": {
+      "name": "pages-archives-2021-02-23-hello-world",
+      "chunks": [
+        "pages-archives-2021-02-23-hello-world"
+      ],
+      "assets": [
+        {
+          "name": "pages-archives-2021-02-23-hello-world-bundle-fe69bde1.js"
+        }
+      ],
+      "filteredAssets": 0,
+      "assetsSize": null,
+      "auxiliaryAssets": [],
+      "filteredAuxiliaryAssets": 0,
+      "auxiliaryAssetsSize": 0,
+      "children": {},
+      "childAssets": {},
+      "isOverSizeLimit": false
+    },
+    "pages-archives-2021-02-23-hello-world-mdx": {
+      "name": "pages-archives-2021-02-23-hello-world-mdx",
+      "chunks": [
+        "pages-archives-2021-02-23-hello-world"
+      ],
+      "assets": [
+        {
+          "name": "pages-archives-2021-02-23-hello-world-bundle-fe69bde1.js"
+        }
+      ],
+      "filteredAssets": 0,
+      "assetsSize": null,
+      "auxiliaryAssets": [],
+      "filteredAuxiliaryAssets": 0,
+      "auxiliaryAssetsSize": 0,
+      "children": {},
+      "childAssets": {},
+      "isOverSizeLimit": false
+    },
+    "pages-archives-_paginator": {
+      "name": "pages-archives-_paginator",
+      "chunks": [
+        "pages-archives-_paginator"
+      ],
+      "assets": [
+        {
+          "name": "pages-archives-_paginator-bundle-54a8fdb3.js"
+        }
+      ],
+      "filteredAssets": 0,
+      "assetsSize": null,
+      "auxiliaryAssets": [],
+      "filteredAuxiliaryAssets": 0,
+      "auxiliaryAssetsSize": 0,
+      "children": {},
+      "childAssets": {},
+      "isOverSizeLimit": false
+    },
+    "pages-archives-_paginator-tsx": {
+      "name": "pages-archives-_paginator-tsx",
+      "chunks": [
+        "pages-archives-_paginator"
+      ],
+      "assets": [
+        {
+          "name": "pages-archives-_paginator-bundle-54a8fdb3.js"
+        }
+      ],
+      "filteredAssets": 0,
+      "assetsSize": null,
+      "auxiliaryAssets": [],
+      "filteredAuxiliaryAssets": 0,
+      "auxiliaryAssetsSize": 0,
+      "children": {},
+      "childAssets": {},
+      "isOverSizeLimit": false
+    },
+    "pages-archives-hellowrold": {
+      "name": "pages-archives-hellowrold",
+      "chunks": [
+        "pages-archives-hellowrold"
+      ],
+      "assets": [
+        {
+          "name": "pages-archives-hellowrold-bundle-19a93148.js"
+        }
+      ],
+      "filteredAssets": 0,
+      "assetsSize": null,
+      "auxiliaryAssets": [],
+      "filteredAuxiliaryAssets": 0,
+      "auxiliaryAssetsSize": 0,
+      "children": {},
+      "childAssets": {},
+      "isOverSizeLimit": false
+    },
+    "pages-archives-hellowrold-md": {
+      "name": "pages-archives-hellowrold-md",
+      "chunks": [
+        "pages-archives-hellowrold"
+      ],
+      "assets": [
+        {
+          "name": "pages-archives-hellowrold-bundle-19a93148.js"
+        }
+      ],
+      "filteredAssets": 0,
+      "assetsSize": null,
+      "auxiliaryAssets": [],
+      "filteredAuxiliaryAssets": 0,
+      "auxiliaryAssetsSize": 0,
+      "children": {},
+      "childAssets": {},
+      "isOverSizeLimit": false
+    },
+    "pages-index": {
+      "name": "pages-index",
+      "chunks": [
+        "pages-"
+      ],
+      "assets": [
+        {
+          "name": "pages--bundle-58bc6631.js"
+        }
+      ],
+      "filteredAssets": 0,
+      "assetsSize": null,
+      "auxiliaryAssets": [],
+      "filteredAuxiliaryAssets": 0,
+      "auxiliaryAssetsSize": 0,
+      "children": {},
+      "childAssets": {},
+      "isOverSizeLimit": false
+    },
+    "pages-index-mdx": {
+      "name": "pages-index-mdx",
+      "chunks": [
+        "pages-"
+      ],
+      "assets": [
+        {
+          "name": "pages--bundle-58bc6631.js"
+        }
+      ],
+      "filteredAssets": 0,
+      "assetsSize": null,
+      "auxiliaryAssets": [],
+      "filteredAuxiliaryAssets": 0,
+      "auxiliaryAssetsSize": 0,
+      "children": {},
+      "childAssets": {},
+      "isOverSizeLimit": false
+    },
+    "pages-products": {
+      "name": "pages-products",
+      "chunks": [
+        "pages-products"
+      ],
+      "assets": [
+        {
+          "name": "pages-products-bundle-86f54af0.js"
+        }
+      ],
+      "filteredAssets": 0,
+      "assetsSize": null,
+      "auxiliaryAssets": [],
+      "filteredAuxiliaryAssets": 0,
+      "auxiliaryAssetsSize": 0,
+      "children": {},
+      "childAssets": {},
+      "isOverSizeLimit": false
+    },
+    "pages-products-mdx": {
+      "name": "pages-products-mdx",
+      "chunks": [
+        "pages-products"
+      ],
+      "assets": [
+        {
+          "name": "pages-products-bundle-86f54af0.js"
+        }
+      ],
+      "filteredAssets": 0,
+      "assetsSize": null,
+      "auxiliaryAssets": [],
+      "filteredAuxiliaryAssets": 0,
+      "auxiliaryAssetsSize": 0,
+      "children": {},
+      "childAssets": {},
+      "isOverSizeLimit": false
+    },
+    "pages-tags": {
+      "name": "pages-tags",
+      "chunks": [
+        "pages-tags"
+      ],
+      "assets": [
+        {
+          "name": "pages-tags-bundle-e7c636e1.js"
+        }
+      ],
+      "filteredAssets": 0,
+      "assetsSize": null,
+      "auxiliaryAssets": [],
+      "filteredAuxiliaryAssets": 0,
+      "auxiliaryAssetsSize": 0,
+      "children": {},
+      "childAssets": {},
+      "isOverSizeLimit": false
+    },
+    "pages-tags-_paginator": {
+      "name": "pages-tags-_paginator",
+      "chunks": [
+        "pages-tags-_paginator"
+      ],
+      "assets": [
+        {
+          "name": "pages-tags-_paginator-bundle-9ec5b0a3.js"
+        }
+      ],
+      "filteredAssets": 0,
+      "assetsSize": null,
+      "auxiliaryAssets": [],
+      "filteredAuxiliaryAssets": 0,
+      "auxiliaryAssetsSize": 0,
+      "children": {},
+      "childAssets": {},
+      "isOverSizeLimit": false
+    },
+    "pages-tags-_paginator-tsx": {
+      "name": "pages-tags-_paginator-tsx",
+      "chunks": [
+        "pages-tags-_paginator"
+      ],
+      "assets": [
+        {
+          "name": "pages-tags-_paginator-bundle-9ec5b0a3.js"
+        }
+      ],
+      "filteredAssets": 0,
+      "assetsSize": null,
+      "auxiliaryAssets": [],
+      "filteredAuxiliaryAssets": 0,
+      "auxiliaryAssetsSize": 0,
+      "children": {},
+      "childAssets": {},
+      "isOverSizeLimit": false
+    },
+    "pages-tags-index": {
+      "name": "pages-tags-index",
+      "chunks": [
+        "pages-tags"
+      ],
+      "assets": [
+        {
+          "name": "pages-tags-bundle-e7c636e1.js"
+        }
+      ],
+      "filteredAssets": 0,
+      "assetsSize": null,
+      "auxiliaryAssets": [],
+      "filteredAuxiliaryAssets": 0,
+      "auxiliaryAssetsSize": 0,
+      "children": {},
+      "childAssets": {},
+      "isOverSizeLimit": false
+    },
+    "pages-tags-index-mdx": {
+      "name": "pages-tags-index-mdx",
+      "chunks": [
+        "pages-tags"
+      ],
+      "assets": [
+        {
+          "name": "pages-tags-bundle-e7c636e1.js"
+        }
+      ],
+      "filteredAssets": 0,
+      "assetsSize": null,
+      "auxiliaryAssets": [],
+      "filteredAuxiliaryAssets": 0,
+      "auxiliaryAssetsSize": 0,
+      "children": {},
+      "childAssets": {},
+      "isOverSizeLimit": false
+    }
+  },
+  "errors": [],
+  "errorsCount": 0,
+  "warnings": [],
+  "warningsCount": 0,
+  "children": [
+    {
+      "name": "mini-css-extract-plugin /home/runner/work/blog/blog/node_modules/css-loader/dist/cjs.js!/home/runner/work/blog/blog/layouts/default/markdown.css",
+      "hash": "e86de0ed2a6d79755aa9",
+      "version": "5.21.2",
+      "builtAt": 1614181319744,
+      "publicPath": "/web/",
+      "outputPath": "/home/runner/work/blog/blog/dist/web",
+      "assetsByChunkName": {},
+      "assets": [],
+      "chunks": [
+        {
+          "rendered": true,
+          "initial": true,
+          "entry": true,
+          "recorded": false,
+          "size": 20609,
+          "sizes": {
+            "javascript": 19672,
+            "runtime": 937
+          },
+          "names": [
+            "child"
+          ],
+          "idHints": [],
+          "runtime": [
+            "child"
+          ],
+          "files": [],
+          "auxiliaryFiles": [],
+          "hash": "dd53e5a0894a0ff2162c",
+          "childrenByOrder": {},
+          "id": "child",
+          "siblings": [],
+          "parents": [],
+          "children": [],
+          "modules": [
+            {
+              "type": "module",
+              "moduleType": "javascript/auto",
+              "layer": null,
+              "size": 18067,
+              "sizes": {
+                "javascript": 18067
+              },
+              "built": true,
+              "codeGenerated": true,
+              "cached": false,
+              "identifier": "/home/runner/work/blog/blog/node_modules/css-loader/dist/cjs.js!/home/runner/work/blog/blog/layouts/default/markdown.css",
+              "name": "./node_modules/css-loader/dist/cjs.js!./layouts/default/markdown.css",
+              "nameForCondition": "/home/runner/work/blog/blog/layouts/default/markdown.css",
+              "index": 0,
+              "preOrderIndex": 0,
+              "index2": 1,
+              "postOrderIndex": 1,
+              "cacheable": true,
+              "optional": false,
+              "orphan": false,
+              "dependent": false,
+              "issuer": null,
+              "issuerName": null,
+              "issuerPath": null,
+              "failed": false,
+              "errors": 0,
+              "warnings": 0,
+              "id": "./node_modules/css-loader/dist/cjs.js!./layouts/default/markdown.css",
+              "issuerId": null,
+              "chunks": [
+                "child"
+              ],
+              "assets": [],
+              "reasons": [
+                {
+                  "moduleIdentifier": null,
+                  "module": null,
+                  "moduleName": null,
+                  "resolvedModuleIdentifier": null,
+                  "resolvedModule": null,
+                  "type": "entry",
+                  "active": true,
+                  "explanation": "",
+                  "userRequest": "!!/home/runner/work/blog/blog/node_modules/css-loader/dist/cjs.js!/home/runner/work/blog/blog/layouts/default/markdown.css",
+                  "loc": "child",
+                  "moduleId": null,
+                  "resolvedModuleId": null
+                },
+                {
+                  "moduleIdentifier": null,
+                  "module": null,
+                  "moduleName": null,
+                  "resolvedModuleIdentifier": null,
+                  "resolvedModule": null,
+                  "type": null,
+                  "active": true,
+                  "explanation": "used as library export",
+                  "userRequest": null,
+                  "moduleId": null,
+                  "resolvedModuleId": null
+                }
+              ],
+              "usedExports": true,
+              "providedExports": [
+                "default"
+              ],
+              "optimizationBailout": [
+                "Statement (VariableDeclaration) with side effects in source code at 3:0-84",
+                "ModuleConcatenation bailout: Module uses module.id"
+              ],
+              "depth": 0
+            },
+            {
+              "type": "module",
+              "moduleType": "javascript/auto",
+              "layer": null,
+              "size": 1605,
+              "sizes": {
+                "javascript": 1605
+              },
+              "built": true,
+              "codeGenerated": true,
+              "cached": false,
+              "identifier": "/home/runner/work/blog/blog/node_modules/css-loader/dist/runtime/api.js",
+              "name": "./node_modules/css-loader/dist/runtime/api.js",
+              "nameForCondition": "/home/runner/work/blog/blog/node_modules/css-loader/dist/runtime/api.js",
+              "index": 1,
+              "preOrderIndex": 1,
+              "index2": 0,
+              "postOrderIndex": 0,
+              "cacheable": true,
+              "optional": false,
+              "orphan": false,
+              "dependent": true,
+              "issuer": "/home/runner/work/blog/blog/node_modules/css-loader/dist/cjs.js!/home/runner/work/blog/blog/layouts/default/markdown.css",
+              "issuerName": "./node_modules/css-loader/dist/cjs.js!./layouts/default/markdown.css",
+              "issuerPath": [
+                {
+                  "identifier": "/home/runner/work/blog/blog/node_modules/css-loader/dist/cjs.js!/home/runner/work/blog/blog/layouts/default/markdown.css",
+                  "name": "./node_modules/css-loader/dist/cjs.js!./layouts/default/markdown.css",
+                  "id": "./node_modules/css-loader/dist/cjs.js!./layouts/default/markdown.css"
+                }
+              ],
+              "failed": false,
+              "errors": 0,
+              "warnings": 0,
+              "id": "./node_modules/css-loader/dist/runtime/api.js",
+              "issuerId": "./node_modules/css-loader/dist/cjs.js!./layouts/default/markdown.css",
+              "chunks": [
+                "child"
+              ],
+              "assets": [],
+              "reasons": [
+                {
+                  "moduleIdentifier": "/home/runner/work/blog/blog/node_modules/css-loader/dist/cjs.js!/home/runner/work/blog/blog/layouts/default/markdown.css",
+                  "module": "./node_modules/css-loader/dist/cjs.js!./layouts/default/markdown.css",
+                  "moduleName": "./node_modules/css-loader/dist/cjs.js!./layouts/default/markdown.css",
+                  "resolvedModuleIdentifier": "/home/runner/work/blog/blog/node_modules/css-loader/dist/cjs.js!/home/runner/work/blog/blog/layouts/default/markdown.css",
+                  "resolvedModule": "./node_modules/css-loader/dist/cjs.js!./layouts/default/markdown.css",
+                  "type": "harmony side effect evaluation",
+                  "active": true,
+                  "explanation": "",
+                  "userRequest": "../../node_modules/css-loader/dist/runtime/api.js",
+                  "loc": "2:0-92",
+                  "moduleId": "./node_modules/css-loader/dist/cjs.js!./layouts/default/markdown.css",
+                  "resolvedModuleId": "./node_modules/css-loader/dist/cjs.js!./layouts/default/markdown.css"
+                },
+                {
+                  "moduleIdentifier": "/home/runner/work/blog/blog/node_modules/css-loader/dist/cjs.js!/home/runner/work/blog/blog/layouts/default/markdown.css",
+                  "module": "./node_modules/css-loader/dist/cjs.js!./layouts/default/markdown.css",
+                  "moduleName": "./node_modules/css-loader/dist/cjs.js!./layouts/default/markdown.css",
+                  "resolvedModuleIdentifier": "/home/runner/work/blog/blog/node_modules/css-loader/dist/cjs.js!/home/runner/work/blog/blog/layouts/default/markdown.css",
+                  "resolvedModule": "./node_modules/css-loader/dist/cjs.js!./layouts/default/markdown.css",
+                  "type": "harmony import specifier",
+                  "active": true,
+                  "explanation": "",
+                  "userRequest": "../../node_modules/css-loader/dist/runtime/api.js",
+                  "loc": "3:30-57",
+                  "moduleId": "./node_modules/css-loader/dist/cjs.js!./layouts/default/markdown.css",
+                  "resolvedModuleId": "./node_modules/css-loader/dist/cjs.js!./layouts/default/markdown.css"
+                },
+                {
+                  "moduleIdentifier": "/home/runner/work/blog/blog/node_modules/css-loader/dist/runtime/api.js",
+                  "module": "./node_modules/css-loader/dist/runtime/api.js",
+                  "moduleName": "./node_modules/css-loader/dist/runtime/api.js",
+                  "resolvedModuleIdentifier": "/home/runner/work/blog/blog/node_modules/css-loader/dist/runtime/api.js",
+                  "resolvedModule": "./node_modules/css-loader/dist/runtime/api.js",
+                  "type": "cjs self exports reference",
+                  "active": true,
+                  "explanation": "",
+                  "userRequest": null,
+                  "loc": "9:0-14",
+                  "moduleId": "./node_modules/css-loader/dist/runtime/api.js",
+                  "resolvedModuleId": "./node_modules/css-loader/dist/runtime/api.js"
+                }
+              ],
+              "usedExports": null,
+              "providedExports": null,
+              "optimizationBailout": [
+                "CommonJS bailout: module.exports is used directly at 9:0-14",
+                "Statement (ExpressionStatement) with side effects in source code at 9:0-66:2",
+                "ModuleConcatenation bailout: Module is not an ECMAScript module"
+              ],
+              "depth": 1
+            },
+            {
+              "type": "module",
+              "moduleType": "runtime",
+              "layer": null,
+              "size": 267,
+              "sizes": {
+                "runtime": 267
+              },
+              "built": false,
+              "codeGenerated": true,
+              "cached": false,
+              "identifier": "webpack/runtime/compat get default export",
+              "name": "webpack/runtime/compat get default export",
+              "nameForCondition": null,
+              "index": null,
+              "preOrderIndex": null,
+              "index2": null,
+              "postOrderIndex": null,
+              "optional": false,
+              "orphan": false,
+              "dependent": false,
+              "failed": false,
+              "errors": 0,
+              "warnings": 0,
+              "id": "",
+              "chunks": [
+                "child"
+              ],
+              "assets": [],
+              "reasons": [],
+              "usedExports": null,
+              "providedExports": [],
+              "optimizationBailout": [],
+              "depth": null
+            },
+            {
+              "type": "module",
+              "moduleType": "runtime",
+              "layer": null,
+              "size": 308,
+              "sizes": {
+                "runtime": 308
+              },
+              "built": false,
+              "codeGenerated": true,
+              "cached": false,
+              "identifier": "webpack/runtime/define property getters",
+              "name": "webpack/runtime/define property getters",
+              "nameForCondition": null,
+              "index": null,
+              "preOrderIndex": null,
+              "index2": null,
+              "postOrderIndex": null,
+              "optional": false,
+              "orphan": false,
+              "dependent": false,
+              "failed": false,
+              "errors": 0,
+              "warnings": 0,
+              "id": "",
+              "chunks": [
+                "child"
+              ],
+              "assets": [],
+              "reasons": [],
+              "usedExports": null,
+              "providedExports": [],
+              "optimizationBailout": [],
+              "depth": null
+            },
+            {
+              "type": "module",
+              "moduleType": "runtime",
+              "layer": null,
+              "size": 88,
+              "sizes": {
+                "runtime": 88
+              },
+              "built": false,
+              "codeGenerated": true,
+              "cached": false,
+              "identifier": "webpack/runtime/hasOwnProperty shorthand",
+              "name": "webpack/runtime/hasOwnProperty shorthand",
+              "nameForCondition": null,
+              "index": null,
+              "preOrderIndex": null,
+              "index2": null,
+              "postOrderIndex": null,
+              "optional": false,
+              "orphan": false,
+              "dependent": false,
+              "failed": false,
+              "errors": 0,
+              "warnings": 0,
+              "id": "",
+              "chunks": [
+                "child"
+              ],
+              "assets": [],
+              "reasons": [],
+              "usedExports": null,
+              "providedExports": [],
+              "optimizationBailout": [],
+              "depth": null
+            },
+            {
+              "type": "module",
+              "moduleType": "runtime",
+              "layer": null,
+              "size": 274,
+              "sizes": {
+                "runtime": 274
+              },
+              "built": false,
+              "codeGenerated": true,
+              "cached": false,
+              "identifier": "webpack/runtime/make namespace object",
+              "name": "webpack/runtime/make namespace object",
+              "nameForCondition": null,
+              "index": null,
+              "preOrderIndex": null,
+              "index2": null,
+              "postOrderIndex": null,
+              "optional": false,
+              "orphan": false,
+              "dependent": false,
+              "failed": false,
+              "errors": 0,
+              "warnings": 0,
+              "id": "",
+              "chunks": [
+                "child"
+              ],
+              "assets": [],
+              "reasons": [],
+              "usedExports": null,
+              "providedExports": [],
+              "optimizationBailout": [],
+              "depth": null
+            }
+          ],
+          "origins": [
+            {
+              "module": "",
+              "moduleIdentifier": "",
+              "moduleName": "",
+              "loc": "child",
+              "request": "!!/home/runner/work/blog/blog/node_modules/css-loader/dist/cjs.js!/home/runner/work/blog/blog/layouts/default/markdown.css"
+            }
+          ]
+        }
+      ],
+      "entrypoints": {
+        "child": {
+          "name": "child",
+          "chunks": [
+            "child"
+          ],
+          "assets": [],
+          "filteredAssets": 0,
+          "assetsSize": 0,
+          "auxiliaryAssets": [],
+          "filteredAuxiliaryAssets": 0,
+          "auxiliaryAssetsSize": 0,
+          "children": {},
+          "childAssets": {},
+          "isOverSizeLimit": false
+        }
+      },
+      "namedChunkGroups": {
+        "child": {
+          "name": "child",
+          "chunks": [
+            "child"
+          ],
+          "assets": [],
+          "filteredAssets": 0,
+          "assetsSize": 0,
+          "auxiliaryAssets": [],
+          "filteredAuxiliaryAssets": 0,
+          "auxiliaryAssetsSize": 0,
+          "children": {},
+          "childAssets": {},
+          "isOverSizeLimit": false
+        }
+      },
+      "errors": [],
+      "errorsCount": 0,
+      "warnings": [],
+      "warningsCount": 0,
+      "children": []
+    }
+  ],
+  "generator": "loadable-components"
+}
