@@ -42,7 +42,7 @@ const getConfig = (target: string): Configuration => ({
         },
       },
       {
-        test: /\.(png|ico|ttf|woff2?|eot|otf|svg)$/,
+        test: /\.(png|ico|ttf|woff2?|eot|otf|svg|txt)$/,
         loader: "file-loader",
       },
       {

@@ -1,7 +1,7 @@
 import { webpack } from "webpack";
-import { glob } from "glob";
 import path from "path";
 import { copyFileSync, existsSync, lstatSync, mkdirSync } from "fs";
+import globby from "globby";
 
 import webpackConfig from "./webpack.config";
 import { writePages } from "./writePages";
@@ -29,14 +29,13 @@ function webpackBuild() {
   });
 }
 
-function copyAssets() {
+async function copyAssets() {
   const basePath = "./dist/";
-  const assets = glob
-    .sync("pages/**/*[!{.tsx|.md|.mdx}]")
+  const assets = (await globby(["static/**/*"]))
     .filter(f => !lstatSync(f).isDirectory())
-    .map(f => path.relative(path.join(process.cwd(), "pages"), f));
+    .map(f => path.relative(path.join(process.cwd(), "static"), f));
   for (const assetPath of assets) {
-    const srcPath = path.join("pages", assetPath);
+    const srcPath = path.join("static", assetPath);
     const distPath = path.join(basePath, assetPath);
     if (!existsSync(path.parse(distPath).dir))
       mkdirSync(path.parse(distPath).dir, { recursive: true });
@@ -59,7 +58,7 @@ export async function runBuild(): Promise<void> {
     })
   );
 
-  copyAssets();
+  await copyAssets();
 
   const pages = await collectPages();
   await writeApis(pages);

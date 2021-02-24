@@ -1,4 +1,4 @@
-import * as glob from "glob";
+import globby from "globby";
 import path from "path";
 import normalizePagename from "./utils/normalizePagename";
 import { getExtractor } from "./writePages";
@@ -28,9 +28,9 @@ export interface PageWithMetadata extends Page {
 
 const collectPages = async (): Promise<PageWithMetadata[]> => {
   const publicPath = "/";
-  const files: string[] = glob
-    .sync("./pages/**/*.{md,mdx,tsx}")
-    .map(fn => path.join(process.cwd(), fn));
+  const files: string[] = (await globby(["pages/**/*.{md,mdx,tsx}"])).map(fn =>
+    path.join(process.cwd(), fn)
+  );
   const { getPageMetadata, getStaticPageTextAndImage } = await getExtractor()
     .entryPoint;
 
