@@ -1,10 +1,10 @@
 import loadable from "@loadable/component";
 
 type AsyncPageProps = {
-  page: string;
+  pagename: string;
 };
 const AsyncPage = loadable<AsyncPageProps>(
-  props => import(`pages/${props.page}`)
+  props => import(`pages/${props.pagename}`)
 );
 
 export default AsyncPage;

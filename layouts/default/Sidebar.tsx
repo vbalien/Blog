@@ -30,7 +30,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ name, description }) => (
               as={RouterLink}
               to="/"
               onMouseOver={() =>
-                AsyncPage.preload({ page: normalizePagename("/") })
+                AsyncPage.preload({ pagename: normalizePagename("/") })
               }
             >
               <ListIcon as={VscHome} />
@@ -42,7 +42,9 @@ export const Sidebar: React.FC<SidebarProps> = ({ name, description }) => (
               as={RouterLink}
               to="/products.html"
               onMouseOver={() =>
-                AsyncPage.preload({ page: normalizePagename("/products.html") })
+                AsyncPage.preload({
+                  pagename: normalizePagename("/products.html"),
+                })
               }
             >
               <ListIcon as={VscProject} />
@@ -55,7 +57,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ name, description }) => (
               to="/archives/page/"
               onMouseOver={() =>
                 AsyncPage.preload({
-                  page: normalizePagename("/archives/page/"),
+                  pagename: normalizePagename("/archives/page/"),
                 })
               }
             >
@@ -69,7 +71,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ name, description }) => (
               to="/tags/"
               onMouseOver={() =>
                 AsyncPage.preload({
-                  page: normalizePagename("/tags/"),
+                  pagename: normalizePagename("/tags/"),
                 })
               }
             >

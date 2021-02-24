@@ -12,7 +12,7 @@ export default function makeInitializeState(
   { pageMetadata, pageState }: PageMetadataOption
 ): (snapshot: MutableSnapshot) => void {
   return ({ set }) => {
-    set(pageState, pageMetadata);
+    set(pageState, pageMetadata ?? {});
     for (const [key, value] of preloadedState) {
       const layoutState = preloadStates.find(s => s.key === key);
       layoutState && set(layoutState, value);

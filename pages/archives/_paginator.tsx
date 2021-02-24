@@ -21,7 +21,7 @@ export const Page = (): JSX.Element => {
                   to={post.path}
                   onMouseOver={() =>
                     AsyncPage.preload({
-                      page: normalizePagename(post.path),
+                      pagename: normalizePagename(post.path),
                     })
                   }
                 >
