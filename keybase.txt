@@ -4,7 +4,7 @@ https://keybase.io/vbalien
 
 I hereby claim:
 
-  * I am an admin of http://alien.moe
+  * I am an admin of https://www.alien.moe
   * I am vbalien (https://keybase.io/vbalien) on keybase.
   * I have a public key with fingerprint E98C F73D E1E3 6F7D 1B8A  383A FD98 7F8D BE51 3071
 
@@ -21,17 +21,27 @@ To do so, I am signing this object:
       "uid": "861eac912d4281289486ce7af77e5519",
       "username": "vbalien"
     },
+    "merkle_root": {
+      "ctime": 1615157262,
+      "hash_meta": "e8d4163306e78096c01ed79e21c2603b8c865d6d090a121d842f6a20c75b0e04",
+      "seqno": 19315190
+    },
+    "revoke": {
+      "sig_ids": [
+        "4c778734ce374267639fbb04a2b4c2237a5a363840861589461c7047f2d286b30f"
+      ]
+    },
     "service": {
-      "hostname": "alien.moe",
-      "protocol": "http:"
+      "hostname": "www.alien.moe",
+      "protocol": "https:"
     },
     "type": "web_service_binding",
     "version": 1
   },
-  "ctime": 1615156969,
+  "ctime": 1615157311,
   "expire_in": 157680000,
-  "prev": "c7de8d8b9b9e33ee1298c6fe8d0d0453751ad970d4e463be07ab4099e6d93e4f",
-  "seqno": 5,
+  "prev": "dd232526aec3d9762de781b628f9799c94e0973cbbeb1b635bc191f96dce7a83",
+  "seqno": 7,
   "tag": "signature"
 }
 
@@ -41,29 +51,32 @@ which yields the signature:
 Version: Keybase OpenPGP v2.1.13
 Comment: https://keybase.io/crypto
 
-yMM4AnicrVJtUFRVGN5doLENZC2bHHOwuSSNsMI9e+7nlkUMgkUyFo2JMi3341y4
-uNy77N5dYFigr8FPhoHSMMYdm5zJsGIUcjDCwggVIgqhlKAsBGSoGIYkScHuZexf
-Pzt/zpznPM9znvc9b2dUmMlqXqivrD77PF5k7umo85tyN22bLMN4VSzFnGXYLrS0
-IbeIfJprlyxiTgwHOGABCyHgCZ6FDpymEQEEShRISoIcQbOSQ5IEiuFFkpQkRAkk
-p6MMYAiWlygaQBriHGbHJFnJQ16PV1Y03RaxjCDRUEQAQUqiRcAzHGQgJ4ksQ0uM
-yCMSQJwGujBf9RkKPRzP+VCirOqYfnAtxfsP/v+c279kx1AAcQILHCLhYICDYQmG
-EhDNSbotSQLWIPqQV+EKkc4O8JxbRgpWbsd0MCALyOirUchdwtJ1YqGKdJ3Hq2qq
-oLp1OF/TPE5DpZV6DFox4l13DVy8rIh6C3VBAHl9sqpgTqAzBU02HAEFSEBSLMXa
-MVTikb3IJRsMkqYYXF/GMyigWwq0iBiR4VmeRRAiBBz6T1CSjuEiTpCQJgEnsjQu
-EoigII9wmuMJnGURJbIQERJmlFSkqJiT1GNyebqlT85TOM3vRVj5uY6ccJPZaron
-wmKMlsl6r+3fgfPM2kxn5uGJtIGFo4VhaVdrp1rN2M2TK78wvbB8uE877z4T81vl
-55d/jj9+KXrdm1VPz2+mKqxUxHp5dm3G4tb0lsYPyh/ITiltaJu7k3V6bcrtvlZr
-kLl1aXrZU6asx1mbxbw6OnfsjxPNEK89HHp54hvf4FBqZBJReAdb/caI9dE470C6
-a35xauDVBaJiOpvO/froUOxkwvLr6OSzDx7cMmU7vFAQ7B+rYeo6tlz5ePwxy+s9
-2kX6uRV/Hbm2Oflm83zRngVXWtPOs1sHvivtfbGmK/OXgwG2uDH2VHZG9K8/dKXW
-7vv+/ZmddrV27rzlJ3/YcC8+3BJa4Ye31uDt8TmzMQkdu9Mv9N6OSlHw9tauhuCy
-ZNvpj/bOVuSbP23fRlJxq/IWg4NKqqd3dKg+abTzzyfaOjPX9dfd2NPre2b89/b9
-V5vSD0V9Rm+3xICRiZ6Hwm+U0r76RDnI5Xjga81fej6cVserSuxH0kLeWGomIzxd
-2X0ue0OLO9Q9nXWMuXAt0N/2UjF1rKngYRXGzIFDjgZ1b8n2V+77hH2Lmhwbs7wr
-SxsmdvjrNg0+Ut5ty8mJTA421TRffHvH8Pj+uuoyX1KgA5R92zh5fX11Knivfs3G
-suPxp35cef/G/Ljyfmfk6MRX3Vplbmi6/0pVwsiTmV12S/uqA+/8nRKX0Te273JM
-xLzgnin4B7K+w5k=
-=VR9+
+yMPUAnicrVNrbBVFGL0tLY9CsZRXQP2zIWC0lp2Z3ZmdGx4qsTzKw0IkTcHe7s7O
+3l7au3vZvffSprSFYmsFGkF+UAOCQomkoQ0SKiJaBcEXRY0oiEJjBRqDgBTSgqGA
+cxuMMfGn+2ez357vnPOd+eZ4+iBfWtK9xuqG9jx5ZdLJY/GYr+j5/JkVkuGY5ZK/
+QirhAy9eanIvGigJmZJfkoEMKKAIAUMxKIIyIVwBDJtMxRbSFUItaFkMa4apqpbF
+MVN1UdWAplDDwgQggmRdypKskB3kbsQN2VFBy6nGLIJMDjjCFjGBoelIQ7plUo1Y
+mmlwFSCZANFY7HiJDmHO0D2eHXJETXwEBuz9B/5/9h0boNMw4DqjAJoK1ADUqKJh
+xoluCVpVBTQB9Lhr62Eu0HFDLw1xW6rMksLcLSnlAddxoolsWTSUQAAMVKASiKGY
+T/eKA2Ee1ROxaKYCMEIy5kSTKWYy4CahHAIGsYwMjWlYNbEpU1kHEJiaAi2sQ5kR
+1ZC5rAgbHl9pO0KBIiFBZWHB5XGnhCfUvVBQxOZJ/mWSwgjRCFIYR0SBmGBELcOQ
+FR0aCoMQEV3VEUaaIovRVTEvBozICrGgCTVsINmSXqpMqLnxEBsgT5zTw/lXrVqV
+PZBAdtjhwlPEdaIOc0rFr+JoNOL5E8lEyyMDWG4EHrIEjJBtijURHXHueiHHFnMI
+5L9DQwBkSbwsEnJ5IJRAqARrsngSOjwuKE0TIqhCrHOGTEowNEWawMBQsyihlFGF
+y5QgZhjcEGWkGkzsikXFcogj1dA/KRJhUw8KSpGcrUdjLpcqjx1dnuJLSvMNTk1O
+XB9f2rCMvy/V6NUZvnb55bealrKaQnt5tT166yCrH6e2Pl7+4u/vjMRvjr9Rn7xo
+evcrO+1z13dvzHp3xqThJ6r6Co/PDm7JkRe/8fSpy301dd89cWC80hG/Onb7gd7j
+hdPSfqtwb/68v3ZZt/nYR3enmhON3RNzl6yJfVvVe+vjlGsvfLhw7a3vk/cu9tUX
+vF12u6VZmzniKa/3S3+gbuHJSZll9zeMM2lPbVvThRnd1WUNCsyc8l59x8nkvsX3
+WzNXV6eMbl6zM3/sDlDZlpl7tPOP9anXFy45sb2nfFi4YEG4YdzWmj8n3d3zy1Cv
+teXIkST4TM+2jHkZ62IzOnYNqZyXf/rO1M+mLQ02XTTaDz57r735QseZkuTO/qG0
+eqd/2v7Jmzz/61N6S89PGd51eA6YXqf8cNuZn3QLdKXYZ9zSCWsX+Uc2DqnatkAm
+n2+uq+0YU9xdkH7lxKFN+yYf/sRdlxMpSk+f5bX1p5yqzSm/Rlsr8n6a/ajUH3xk
+ftfmoyukwxOMplFOUfv6lu0X53/Bfs3OKGyeuz51V/GaGys+nduW+4CZToxer8nN
+U99/bW9R+tItxTfvdqKuq8Oyo5diU/c8qW6YfjW38Uf7UMusIffyTs3Z1fMg5/wH
+xy5tfHXvc2ex33+Wlo/Zf7AkcqVmVMvg/M76xpF2YMTZfXusb7LPZSC4PDd8uuBA
+ek/fzMu7m4JV88Jf3Zm74+u/APyE+Xg=
+=SRbI
 -----END PGP MESSAGE-----
 
 And finally, I am proving ownership of this host by posting or
